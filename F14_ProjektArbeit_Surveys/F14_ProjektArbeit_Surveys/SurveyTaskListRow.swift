@@ -15,7 +15,9 @@ import ResearchKit
  types of functionality supported by the ResearchKit framework.
  */
 enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
-    case personalData = 0
+    case personData = 0
+    case equipmentLast4Hours
+    case operationLast4Hours
     
     class SurveyTaskListRowSection {
         var title: String
@@ -32,11 +34,12 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
         return [
             SurveyTaskListRowSection(title: "Block A", rows:
                 [
-                    .personalData,
+                    .personData,
                     ]),
             SurveyTaskListRowSection(title: "Block B", rows:
                 [
-                    .personalData,
+                    .equipmentLast4Hours,
+                    .operationLast4Hours,
                     ]),
     ]}
     
@@ -44,8 +47,14 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
     
     var description: String {
         switch self {
-        case .personalData:
-            return NSLocalizedString("Survey: Angaben zur Person", comment: "")
+            case .personData:
+                return NSLocalizedString("Angaben zur Person", comment: "")
+        
+            case .equipmentLast4Hours:
+                return NSLocalizedString("Geräte, die in den letzten vier Stunden beruflich oder privat genutzt wurden", comment: "")
+            
+            case .operationLast4Hours:
+                return NSLocalizedString("Tätigkeiten, die in den letzten vier Stunden ausgeführt wurden", comment: "")
         }
     }
     
@@ -65,9 +74,16 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
      */
     private enum Identifier {
         // Task for personal datas
-        case personalTask
-        case personalStep
-        // tbd
+        case personTask
+        case personInstructionStep
+        case personGenderStep
+        case personYearStep
+        
+        // Task for equipment usage
+        case equipmentTask
+        case equipmentInstructionStep
+        case operationTask
+        case operationInstructionStep
     }
     
     // MARK: Properties
@@ -75,8 +91,12 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
     /// Returns a new `ORKTask` that the `TaskListRow` enumeration represents.
     var representedTask: ORKTask {
         switch self {
-        case .personalData:
-            return personalTask
+        case .personData:
+            return personalDataTask
+        case .equipmentLast4Hours:
+            return equipmentTask
+        case .operationLast4Hours:
+            return operationTask
         }
     }
 
@@ -85,38 +105,56 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
     /**
      This task is available in survey Block A and collects personal datas of the person
      */
-    private var personalTask: ORKTask {
-        let instStep = ORKInstructionStep(identifier: "Instruction Step")
-        instStep.title = "Softwareitis Survey"
+    private var personalDataTask: ORKTask {
+        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
+        
+        instStep.title = "Title of personal data"
         instStep.detailText = "This survey demonstrates different question types."
         instStep.text = exampleDescription
         
         let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
         
-        let question2 = ORKQuestionStep(identifier: "question 2", title: "How many apps do you download per week?", answer: ORKAnswerFormat.integerAnswerFormat(withUnit: "Apps per week"))
+        let completionStep = ORKCompletionStep(identifier: "Completion Step")
+        completionStep.title = "Thank you for taking this survey!"
         
-        let answerFormat3 = ORKNumericAnswerFormat.scale(withMaximumValue: 10, minimumValue: 0, defaultValue: 5, step: 1, vertical: false, maximumValueDescription: nil, minimumValueDescription: nil)
-        let question3 = ORKQuestionStep(identifier: "question 3", title: "How many apps do you download per week (range)?", answer: answerFormat3)
+        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
+
+        return task
+        //return ORKOrderedTask(identifier: String(describing:Identifier.formTask), steps: [step])
+    }
+    
+    private var equipmentTask: ORKTask {
+        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.equipmentInstructionStep))
         
-        let textChoice1 = ORKTextChoice(text: "Games", detailText: nil, value: 1 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false)
-        let textChoice2 = ORKTextChoice(text: "Lifestyle", detailText: nil, value: 2 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false)
-        let textChoice3 = ORKTextChoice(text: "Utility", detailText: nil, value: 3 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false)
-        let answerFormat4 = ORKNumericAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: [textChoice1, textChoice2, textChoice3])
-        let question4 = ORKQuestionStep(identifier: "question 4", title: "Which category of apps do you download the most?", answer: answerFormat4)
+        instStep.title = "Title of personal data"
+        instStep.detailText = "This survey demonstrates different question types."
+        instStep.text = exampleDescription
         
-        let answerFormat5 = ORKNumericAnswerFormat.dateAnswerFormat()
-        let question5 = ORKQuestionStep(identifier: "question 5", title: "When did you last download an app?", answer: answerFormat5)
+        let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
+
+        let completionStep = ORKCompletionStep(identifier: "Completion Step")
+        completionStep.title = "Thank you for taking this survey!"
         
-        let answerFormat6 = ORKNumericAnswerFormat.timeIntervalAnswerFormat()
-        let question6 = ORKQuestionStep(identifier: "question 6", title: "When did you last open an app?", answer: answerFormat6)
+        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
+        
+        return task
+    }
+    
+    private var operationTask: ORKTask {
+        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.operationInstructionStep))
+        
+        instStep.title = "Title of personal data"
+        instStep.detailText = "This survey demonstrates different question types."
+        instStep.text = exampleDescription
+        
+        let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
         
         let completionStep = ORKCompletionStep(identifier: "Completion Step")
         completionStep.title = "Thank you for taking this survey!"
         
-        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1, question2, question3, question4, question5, question6, completionStep])
-
+        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
+        
         return task
-        //return ORKOrderedTask(identifier: String(describing:Identifier.formTask), steps: [step])
     }
     
     // MARK: `ORKTask` Reused Text Convenience
