@@ -387,6 +387,7 @@
 				83322B1F1ED2CADC0005794F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
