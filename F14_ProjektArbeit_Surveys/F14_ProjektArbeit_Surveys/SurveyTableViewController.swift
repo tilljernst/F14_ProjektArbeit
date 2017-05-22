@@ -32,21 +32,21 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
     // MARK: UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return TaskListRow.sections.count
+        return SurveyTaskListRow.sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskListRow.sections[section].rows.count
+        return SurveyTaskListRow.sections[section].rows.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return TaskListRow.sections[section].title
+        return SurveyTaskListRow.sections[section].title
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.default.rawValue, for: indexPath)
         
-        let taskListRow = TaskListRow.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+        let taskListRow = SurveyTaskListRow.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         
         cell.textLabel!.text = "\(taskListRow)"
         
@@ -59,29 +59,29 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Present the task view controller that the user asked for.
-        let taskListRow = TaskListRow.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+        let surveyTaskListRow = SurveyTaskListRow.sections[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
         
         // Create a task from the `TaskListRow` to present in the `ORKTaskViewController`.
-        let task = taskListRow.representedTask
+        let task = surveyTaskListRow.representedTask
         
         /*
          Passing `nil` for the `taskRunUUID` lets the task view controller
          generate an identifier for this run of the task.
          */
-        let taskViewController = ORKTaskViewController(task: task, taskRun: nil)
+        let surveyTaskViewController = ORKTaskViewController(task: task, taskRun: nil)
         
         // Make sure we receive events from `taskViewController`.
-        taskViewController.delegate = self
+        surveyTaskViewController.delegate = self
         
         // Assign a directory to store `taskViewController` output.
-        taskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        surveyTaskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         /*
          We present the task directly, but it is also possible to use segues.
          The task property of the task view controller can be set any time before
          the task view controller is presented.
          */
-        present(taskViewController, animated: true, completion: nil)
+        present(surveyTaskViewController, animated: true, completion: nil)
     }
 
 

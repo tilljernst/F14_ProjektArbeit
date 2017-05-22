@@ -17,6 +17,7 @@
 		83322B3E1ED312FC0005794F /* SurveyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B3D1ED312FC0005794F /* SurveyTableViewController.swift */; };
 		83322B401ED317380005794F /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B3F1ED317380005794F /* TaskListRow.swift */; };
 		83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */; };
+		83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B491ED326400005794F /* SurveyTaskListRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		83322B3D1ED312FC0005794F /* SurveyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTableViewController.swift; sourceTree = "<group>"; };
 		83322B3F1ED317380005794F /* TaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListRow.swift; sourceTree = "<group>"; };
 		83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchKitTableViewController.swift; sourceTree = "<group>"; };
+		83322B491ED326400005794F /* SurveyTaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTaskListRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,6 @@
 				83322B0E1ED2CADC0005794F /* AppDelegate.swift */,
 				83322B101ED2CADC0005794F /* ViewController.swift */,
 				83322B121ED2CADC0005794F /* Main.storyboard */,
-				83322B3F1ED317380005794F /* TaskListRow.swift */,
 				83322B151ED2CADC0005794F /* Assets.xcassets */,
 				83322B171ED2CADC0005794F /* LaunchScreen.storyboard */,
 				83322B1A1ED2CADC0005794F /* Info.plist */,
@@ -129,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				83322B3D1ED312FC0005794F /* SurveyTableViewController.swift */,
+				83322B491ED326400005794F /* SurveyTaskListRow.swift */,
 			);
 			name = Survey;
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */,
+				83322B3F1ED317380005794F /* TaskListRow.swift */,
 			);
 			name = ResearchKit;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83322B111ED2CADC0005794F /* ViewController.swift in Sources */,
+				83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */,
 				83322B0F1ED2CADC0005794F /* AppDelegate.swift in Sources */,
 				83322B3E1ED312FC0005794F /* SurveyTableViewController.swift in Sources */,
 				83322B401ED317380005794F /* TaskListRow.swift in Sources */,
