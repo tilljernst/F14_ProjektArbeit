@@ -18,7 +18,7 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
     // MARK: Types
     
     enum TableViewCellIdentifier: String {
-        case `default` = "Default"
+        case `default` = "Survey"
     }
     
     // MARK: Properties
