@@ -14,7 +14,7 @@ import ResearchKit
  Each of the tasks is composed of one or more steps giving examples of the
  types of functionality supported by the ResearchKit framework.
  */
-enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
+enum SurveyTaskListRow: Int, CustomStringConvertible {
     case personData = 0
     case equipmentLast4Hours
     case operationLast4Hours
@@ -103,14 +103,28 @@ enum SurveyTaskListRow: Int/*, CustomStringConvertible*/ {
     // MARK: Task Creation Convenience
     
     /**
-     This task is available in survey Block A and collects personal datas of the person
+     This task is available in survey Block A and collects personal data
      */
     private var personalDataTask: ORKTask {
+        
+        
         let instStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
         
-        instStep.title = "Title of personal data"
-        instStep.detailText = "This survey demonstrates different question types."
-        instStep.text = exampleDescription
+        
+        
+        instStep.title = "Personendaten"
+        instStep.detailText = "Dieser Block wird nur einmalig in dieser Befragung erhoben"
+        instStep.text = "Zuerst folgen ein paar Angaben zu Ihrer Person"
+        
+        // tbd - gender
+        
+        // tbd - year
+        
+        // tbd - high
+        
+        // tbd - weight
+        
+        // tbd...
         
         let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
         
