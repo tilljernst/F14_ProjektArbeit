@@ -21,6 +21,7 @@
 		836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */; };
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
 		836BB06F1ED4AFC7001B6C2D /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */; };
+		836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewController.swift; path = ../ConsentViewController.swift; sourceTree = "<group>"; };
+		836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepAndTaskIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		83322B0D1ED2CADC0005794F /* F14_ProjektArbeit_Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */,
 				836BB0671ED4AB7F001B6C2D /* Consent */,
 				83322B441ED31E6F0005794F /* ResearchKit */,
 				83322B431ED31E580005794F /* Survey */,
@@ -268,6 +271,7 @@
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,
 				836BB06F1ED4AFC7001B6C2D /* ConsentViewController.swift in Sources */,
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
+				836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import UIKit
 import ResearchKit
 
 class ConsentViewController: UIViewController {
+    
     @IBAction func tappedButton(_ sender: Any) {
         let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         taskViewController.delegate = self
