@@ -131,6 +131,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="nTj-Yq-6QC" kind="relationship" relationship="viewControllers" id="FPS-W0-4fU"/>
                         <segue destination="MdZ-pM-tQC" kind="relationship" relationship="viewControllers" id="UVx-tp-6D4"/>
                         <segue destination="kxq-nz-6lD" kind="relationship" relationship="viewControllers" id="rF6-Hd-faw"/>
                     </connections>
@@ -139,8 +140,61 @@
             </objects>
             <point key="canvasLocation" x="-1106" y="574"/>
         </scene>
+        <!--Consent-->
+        <scene sceneID="qCn-px-dqe">
+            <objects>
+                <viewController id="nTj-Yq-6QC" customClass="ConsentViewController" customModule="F14_ProjektArbeit_Surveys" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="muV-cj-D54"/>
+                        <viewControllerLayoutGuide type="bottom" id="shj-Ce-1A2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fEz-d3-Z78">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WzC-JX-lc0">
+                                <rect key="frame" x="56.5" y="225" width="207" height="30"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-Hk-o1Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JCq-xF-7sQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NGM-oA-EyN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRt-5F-Fzy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                                <state key="normal" title="Zeige Einverständniserklärung"/>
+                                                                <connections>
+                                                                    <action selector="tappedButton:" destination="nTj-Yq-6QC" eventType="touchUpInside" id="aM4-i1-Ahc"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WzC-JX-lc0" firstAttribute="centerY" secondItem="fEz-d3-Z78" secondAttribute="centerY" id="1N1-Aa-qP7"/>
+                            <constraint firstItem="WzC-JX-lc0" firstAttribute="centerX" secondItem="fEz-d3-Z78" secondAttribute="centerX" id="csx-8G-YwH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Consent" image="about" id="IPI-M8-bfH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TSe-ij-Jcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-664" y="1430"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="about" width="23" height="22"/>
         <image name="discover" width="25" height="19"/>
         <image name="favorite" width="17" height="25"/>
     </resources>

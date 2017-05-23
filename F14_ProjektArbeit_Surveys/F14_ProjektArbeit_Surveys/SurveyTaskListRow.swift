@@ -18,6 +18,9 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
     case personData = 0
     case equipmentLast4Hours
     case operationLast4Hours
+    case fitnesTest
+    case consumptionSurvey
+    case qualityOfSleep
     
     class SurveyTaskListRowSection {
         var title: String
@@ -41,20 +44,41 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
                     .equipmentLast4Hours,
                     .operationLast4Hours,
                     ]),
+            SurveyTaskListRowSection(title: "Block C", rows:
+                [
+                    .fitnesTest,
+                    ]),
+            SurveyTaskListRowSection(title: "Block D", rows:
+                [
+                    .consumptionSurvey,
+                    ]),
+            SurveyTaskListRowSection(title: "Block E", rows:
+                [
+                    .qualityOfSleep,
+                    ]),
     ]}
     
     // MARK: CustomStringConvertible
     
     var description: String {
         switch self {
-            case .personData:
-                return NSLocalizedString("Angaben zur Person", comment: "")
+        case .personData:
+            return NSLocalizedString("Angaben zur Person", comment: "")
         
-            case .equipmentLast4Hours:
-                return NSLocalizedString("Genutzte Geräte", comment: "")
+        case .equipmentLast4Hours:
+            return NSLocalizedString("TODO: Genutzte Geräte", comment: "")
             
-            case .operationLast4Hours:
-                return NSLocalizedString("Ausgeführte Tätigkeiten", comment: "")
+        case .operationLast4Hours:
+            return NSLocalizedString("TODO: Ausgeführte Tätigkeiten", comment: "")
+            
+        case .fitnesTest:
+            return NSLocalizedString("TODO: Fitnestest", comment: "")
+        
+        case .consumptionSurvey:
+            return NSLocalizedString("TODO: Konsumverhalten", comment: "")
+            
+        case .qualityOfSleep:
+            return NSLocalizedString("TODO: Schlafqualität", comment: "")
         }
     }
     
@@ -76,8 +100,12 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         // Task for personal datas
         case personTask
         case personInstructionStep
+        case personFormStep
         case personGenderStep
         case personYearStep
+        case personHeightStep
+        case personWeightStep
+        case personCompletionStep
         
         // Task for equipment usage
         case equipmentTask
@@ -94,9 +122,15 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .personData:
             return personalDataTask
         case .equipmentLast4Hours:
-            return equipmentTask
+            return defaultTask
         case .operationLast4Hours:
-            return operationTask
+            return defaultTask
+        case .fitnesTest:
+            return defaultTask
+        case .consumptionSurvey:
+            return defaultTask
+        case .qualityOfSleep:
+            return defaultTask
         }
     }
 
@@ -107,54 +141,53 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
      */
     private var personalDataTask: ORKTask {
         
+        // Intro step
+        let personInstructionStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
         
-        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
+        personInstructionStep.title = "Angaben zur Person"
+        personInstructionStep.text = "Zuerst folgen ein paar Angaben zu Ihrer Person:"
         
+        // gender
+        let genderAnswerFormat = ORKBooleanAnswerFormat(yesString: "weiblich", noString: "männlich")
+        let genderQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personGenderStep), title: "Gschlecht", answer: genderAnswerFormat)
         
+        // year
+        let yearAnswerFormat = ORKAnswerFormat.decimalAnswerFormat(withUnit: NSLocalizedString("Jahr", comment: ""))
+        yearAnswerFormat.minimum = 1900
+        //        // set current year for maximum value
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        yearAnswerFormat.maximum = (calendar?.component(NSCalendar.Unit.year, from: Date()))! as NSNumber?
+        let yearQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personYearStep), title: "Jahrgang", answer: yearAnswerFormat)
         
-        instStep.title = "Personendaten"
-        instStep.detailText = "Dieser Block wird nur einmalig in dieser Befragung erhoben"
-        instStep.text = "Zuerst folgen ein paar Angaben zu Ihrer Person"
+        // height
+        let heightAnswerFormat = ORKHeightAnswerFormat.init(measurementSystem: ORKMeasurementSystem.metric)
+        let heightQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personHeightStep), title: "Grösse", answer: heightAnswerFormat)
         
-        // tbd - gender
+        // weight
+        let weightAnswerFormat = ORKNumericAnswerFormat.decimalAnswerFormat(withUnit: "kg")
+        let weightQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personWeightStep), title: "Gewicht", answer: weightAnswerFormat)
         
-        // tbd - year
+        // TODO: Lebensform
         
-        // tbd - high
+        // TODO: Kinder
         
-        // tbd - weight
+        // TODO: Alter der Kinder
         
-        // tbd...
+        // TODO: Tage an denen Kinder fremdbetreut sind
         
-        let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
+        // TODO: Person in Haushalt
         
-        let completionStep = ORKCompletionStep(identifier: "Completion Step")
+        // completion step
+        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.personCompletionStep))
         completionStep.title = "Thank you for taking this survey!"
         
-        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
+        let task = ORKOrderedTask(identifier: String (describing:Identifier.personTask), steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, completionStep])
 
-        return task
-        //return ORKOrderedTask(identifier: String(describing:Identifier.formTask), steps: [step])
-    }
-    
-    private var equipmentTask: ORKTask {
-        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.equipmentInstructionStep))
-        
-        instStep.title = "Title of personal data"
-        instStep.detailText = "This survey demonstrates different question types."
-        instStep.text = exampleDescription
-        
-        let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
-
-        let completionStep = ORKCompletionStep(identifier: "Completion Step")
-        completionStep.title = "Thank you for taking this survey!"
-        
-        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
-        
         return task
     }
     
-    private var operationTask: ORKTask {
+    
+    private var defaultTask: ORKTask {
         let instStep = ORKInstructionStep(identifier: String(describing:Identifier.operationInstructionStep))
         
         instStep.title = "Title of personal data"
