@@ -89,88 +89,18 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
     var representedTask: ORKTask {
         switch self {
         case .personData:
-            return personalDataTask
+            return SurveyTasks.personalDataTask
         case .equipmentLast4Hours:
-            return defaultTask
+            return SurveyTasks.defaultTask
         case .operationLast4Hours:
-            return defaultTask
+            return SurveyTasks.defaultTask
         case .fitnesTest:
-            return defaultTask
+            return SurveyTasks.defaultTask
         case .consumptionSurvey:
-            return defaultTask
+            return SurveyTasks.defaultTask
         case .qualityOfSleep:
-            return defaultTask
+            return SurveyTasks.defaultTask
         }
-    }
-
-    // MARK: Task Creation Convenience
-    
-    /**
-     This task is available in survey Block A and collects personal data
-     */
-    private var personalDataTask: ORKTask {
-        
-        // Intro step
-        let personInstructionStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
-        
-        personInstructionStep.title = "Angaben zur Person"
-        personInstructionStep.text = "Zuerst folgen ein paar Angaben zu Ihrer Person:"
-        
-        // gender
-        let genderAnswerFormat = ORKBooleanAnswerFormat(yesString: "weiblich", noString: "männlich")
-        let genderQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personGenderStep), title: "Gschlecht", answer: genderAnswerFormat)
-        
-        // year
-        let yearAnswerFormat = ORKAnswerFormat.decimalAnswerFormat(withUnit: NSLocalizedString("Jahr", comment: ""))
-        yearAnswerFormat.minimum = 1900
-        //        // set current year for maximum value
-        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
-        yearAnswerFormat.maximum = (calendar?.component(NSCalendar.Unit.year, from: Date()))! as NSNumber?
-        let yearQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personYearStep), title: "Jahrgang", answer: yearAnswerFormat)
-        
-        // height
-        let heightAnswerFormat = ORKHeightAnswerFormat.init(measurementSystem: ORKMeasurementSystem.metric)
-        let heightQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personHeightStep), title: "Grösse", answer: heightAnswerFormat)
-        
-        // weight
-        let weightAnswerFormat = ORKNumericAnswerFormat.decimalAnswerFormat(withUnit: "kg")
-        let weightQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personWeightStep), title: "Gewicht", answer: weightAnswerFormat)
-        
-        // TODO: Lebensform
-        
-        // TODO: Kinder
-        
-        // TODO: Alter der Kinder
-        
-        // TODO: Tage an denen Kinder fremdbetreut sind
-        
-        // TODO: Person in Haushalt
-        
-        // completion step
-        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.personCompletionStep))
-        completionStep.title = "Thank you for taking this survey!"
-        
-        let task = ORKOrderedTask(identifier: String (describing:Identifier.personTask), steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, completionStep])
-
-        return task
-    }
-    
-    
-    private var defaultTask: ORKTask {
-        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.operationInstructionStep))
-        
-        instStep.title = "Title of personal data"
-        instStep.detailText = "This survey demonstrates different question types."
-        instStep.text = exampleDescription
-        
-        let question1 = ORKQuestionStep(identifier: "question 1", title: "Have you ever been diagnosed with Softwareitis?", answer: ORKAnswerFormat.booleanAnswerFormat())
-        
-        let completionStep = ORKCompletionStep(identifier: "Completion Step")
-        completionStep.title = "Thank you for taking this survey!"
-        
-        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
-        
-        return task
     }
     
     // MARK: `ORKTask` Reused Text Convenience
