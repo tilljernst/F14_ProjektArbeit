@@ -18,6 +18,8 @@
 		83322B401ED317380005794F /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B3F1ED317380005794F /* TaskListRow.swift */; };
 		83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */; };
 		83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B491ED326400005794F /* SurveyTaskListRow.swift */; };
+		833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535831EDEC1B700736FB0 /* SurveyHelper.swift */; };
+		833535881EDEC5DA00736FB0 /* SurveyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535871EDEC5DA00736FB0 /* SurveyTasks.swift */; };
 		836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */; };
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
 		836BB06F1ED4AFC7001B6C2D /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */; };
@@ -75,6 +77,8 @@
 		83322B3F1ED317380005794F /* TaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListRow.swift; sourceTree = "<group>"; };
 		83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchKitTableViewController.swift; sourceTree = "<group>"; };
 		83322B491ED326400005794F /* SurveyTaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTaskListRow.swift; sourceTree = "<group>"; };
+		833535831EDEC1B700736FB0 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
+		833535871EDEC5DA00736FB0 /* SurveyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTasks.swift; sourceTree = "<group>"; };
 		836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewController.swift; path = ../ConsentViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				83322B3D1ED312FC0005794F /* SurveyTableViewController.swift */,
+				833535831EDEC1B700736FB0 /* SurveyHelper.swift */,
 				83322B491ED326400005794F /* SurveyTaskListRow.swift */,
+				833535871EDEC5DA00736FB0 /* SurveyTasks.swift */,
 			);
 			name = Survey;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */,
 				83322B111ED2CADC0005794F /* ViewController.swift in Sources */,
 				836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */,
 				83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */,
@@ -269,6 +276,7 @@
 				83322B3E1ED312FC0005794F /* SurveyTableViewController.swift in Sources */,
 				83322B401ED317380005794F /* TaskListRow.swift in Sources */,
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,
+				833535881EDEC5DA00736FB0 /* SurveyTasks.swift in Sources */,
 				836BB06F1ED4AFC7001B6C2D /* ConsentViewController.swift in Sources */,
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
 				836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */,

@@ -37,6 +37,24 @@ public enum Identifier {
     case personYearStep
     case personHeightStep
     case personWeightStep
+    case personLifeFormStep
+    case personKidsStep
+    case personKidsTotalStep
+    case personKidsAgeFormStep
+    case personKidsAgeFormItemFirst
+    case personKidsAgeFormItemSecond
+    case personKidsAgeFormItemThird
+    case personKidsAgeFormItemFourth
+    case personKidsSupervisionFormStep
+    case personKidsSupervisionItemFirst
+    case personKidsSupervisionItemSecond
+    case personKidsSupervisionItemThird
+    case personKidsSupervisionItemFourth
+    case personHoushold
+    case personCarsStep
+    case personHolidayStep
+    case personComputerStep
+    case personBathroomStep
     case personCompletionStep
     
     // Task for equipment usage
