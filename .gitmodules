@@ -1,3 +1,6 @@
 [submodule "ResearchKit"]
 	path = ResearchKit
 	url = https://github.com/ResearchKit/ResearchKit.git
+[submodule "BridgeAppSDK"]
+	path = BridgeAppSDK
+	url = https://github.com/syoung-smallwisdom/BridgeAppSDK.git
