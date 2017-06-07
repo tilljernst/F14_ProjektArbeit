@@ -1,0 +1,70 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D3C70A87EDDED607208FFE3432BCA119045E3C87",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A312D9A806D0D2A0881387E6F394BB84B63BC0CD" : 9223372036854775807,
+    "9CF6181E3789E3853840089C16D4B9FDDB9B31E2" : 9223372036854775807,
+    "D3C70A87EDDED607208FFE3432BCA119045E3C87" : 9223372036854775807,
+    "0B6D8AAAD0FF4C01212E6AB2D110619FA685281D" : 9223372036854775807,
+    "82DF43EF5CA016D15C41E0AF1AF686E9973475B7" : 9223372036854775807,
+    "DEDD58F0BAF28034A74179391A23AC2E0219CDC3" : 9223372036854775807,
+    "CEE2E2DA3B415DB70C257504A5BA6B611A730B63" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "71A0BF4E-C352-45AB-A30B-D0DF20ADFEDA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A312D9A806D0D2A0881387E6F394BB84B63BC0CD" : "F14_ProjektArbeit_Surveys\/BridgeAppSDK\/ResearchUXFactory\/",
+    "9CF6181E3789E3853840089C16D4B9FDDB9B31E2" : "F14_ProjektArbeit_Surveys\/ResearchKit\/",
+    "D3C70A87EDDED607208FFE3432BCA119045E3C87" : "F14_ProjektArbeit_Surveys\/",
+    "0B6D8AAAD0FF4C01212E6AB2D110619FA685281D" : "F14_ProjektArbeit_Surveys\/BridgeAppSDK\/BridgeSDK\/Submodules\/CMSSupport\/",
+    "82DF43EF5CA016D15C41E0AF1AF686E9973475B7" : "F14_ProjektArbeit_Surveys\/BridgeAppSDK\/BridgeSDK\/Submodules\/ZipZap\/",
+    "DEDD58F0BAF28034A74179391A23AC2E0219CDC3" : "F14_ProjektArbeit_Surveys\/BridgeAppSDK\/BridgeSDK\/Submodules\/RNCryptor\/",
+    "CEE2E2DA3B415DB70C257504A5BA6B611A730B63" : "F14_ProjektArbeit_Surveys\/BridgeAppSDK\/BridgeSDK\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "F14_ProjektArbeit_Surveys",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "F14_ProjektArbeit_Surveys\/F14_ProjektArbeit_Surveys.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Sage-Bionetworks\/CMSSupport.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B6D8AAAD0FF4C01212E6AB2D110619FA685281D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pixelglow\/ZipZap.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "82DF43EF5CA016D15C41E0AF1AF686E9973475B7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ResearchKit\/ResearchKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9CF6181E3789E3853840089C16D4B9FDDB9B31E2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Sage-Bionetworks\/BridgeAppSDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A312D9A806D0D2A0881387E6F394BB84B63BC0CD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Sage-Bionetworks\/ResearchUXFactory-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A312D9A806D0D2A0881387E6F394BB84B63BC0CD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Sage-Bionetworks\/Bridge-iOS-SDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CEE2E2DA3B415DB70C257504A5BA6B611A730B63"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tilljernst\/F14_ProjektArbeit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3C70A87EDDED607208FFE3432BCA119045E3C87"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RNCryptor\/RNCryptor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DEDD58F0BAF28034A74179391A23AC2E0219CDC3"
+    }
+  ]
+}

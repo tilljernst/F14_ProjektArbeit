@@ -20,6 +20,8 @@
 		83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B491ED326400005794F /* SurveyTaskListRow.swift */; };
 		833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535831EDEC1B700736FB0 /* SurveyHelper.swift */; };
 		833535881EDEC5DA00736FB0 /* SurveyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535871EDEC5DA00736FB0 /* SurveyTasks.swift */; };
+		8359EAB91EE81A9100C8A9BE /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359EAB21EE81A7600C8A9BE /* BridgeSDK.framework */; };
+		8359EABA1EE81A9100C8A9BE /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8359EAB21EE81A7600C8A9BE /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */; };
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
 		836BB06F1ED4AFC7001B6C2D /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */; };
@@ -48,6 +50,76 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
+		8359EA8F1EE8195B00C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 161479C01BD6CE8F0099A068;
+			remoteInfo = BridgeAppSDKSample;
+		};
+		8359EA911EE8195B00C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 801040B21C5A843D00D26E19;
+			remoteInfo = BridgeAppSDK;
+		};
+		8359EA931EE8195B00C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 801040BB1C5A843D00D26E19;
+			remoteInfo = BridgeAppSDKTests;
+		};
+		8359EA951EE8195B00C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF86303F1E709C9D0077AC57;
+			remoteInfo = "Sage Cardio Challenge";
+		};
+		8359EA971EE8195B00C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF86304B1E709C9E0077AC57;
+			remoteInfo = "Sage Cardio Challenge Extension";
+		};
+		8359EAB11EE81A7600C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5019BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
+		8359EAB31EE81A7600C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 80855F5B19BE258C006601C7;
+			remoteInfo = BridgeSDKTests;
+		};
+		8359EAB51EE81A7600C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 807AE2871B603309002588BB;
+			remoteInfo = BridgeSDKIntegration;
+		};
+		8359EAB71EE81A7600C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 807AE29F1B60330C002588BB;
+			remoteInfo = BridgeSDKIntegrationTests;
+		};
+		8359EABB1EE81A9100C8A9BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +129,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8359EABA1EE81A9100C8A9BE /* BridgeSDK.framework in Embed Frameworks */,
 				83322B2B1ED2D4920005794F /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +152,8 @@
 		83322B491ED326400005794F /* SurveyTaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTaskListRow.swift; sourceTree = "<group>"; };
 		833535831EDEC1B700736FB0 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		833535871EDEC5DA00736FB0 /* SurveyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTasks.swift; sourceTree = "<group>"; };
+		8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = ../BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
+		8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = ../BridgeAppSDK/BridgeSDK/BridgeSDK.xcodeproj; sourceTree = "<group>"; };
 		836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		836BB06E1ED4AFC7001B6C2D /* ConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewController.swift; path = ../ConsentViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8359EAB91EE81A9100C8A9BE /* BridgeSDK.framework in Frameworks */,
 				83322B2A1ED2D4920005794F /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +176,8 @@
 		83322B021ED2CADC0005794F = {
 			isa = PBXGroup;
 			children = (
+				8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */,
+				8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */,
 				83322B201ED2CB030005794F /* ResearchKit.xcodeproj */,
 				83322B0D1ED2CADC0005794F /* F14_ProjektArbeit_Surveys */,
 				83322B0C1ED2CADC0005794F /* Products */,
@@ -160,6 +238,29 @@
 			name = ResearchKit;
 			sourceTree = "<group>";
 		};
+		8359EA811EE8195900C8A9BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8359EA901EE8195B00C8A9BE /* BridgeAppSDKSample.app */,
+				8359EA921EE8195B00C8A9BE /* BridgeAppSDK.framework */,
+				8359EA941EE8195B00C8A9BE /* BridgeAppSDKTests.xctest */,
+				8359EA961EE8195B00C8A9BE /* Sage Cardio Challenge.app */,
+				8359EA981EE8195B00C8A9BE /* Sage Cardio Challenge Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8359EAA31EE81A7500C8A9BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8359EAB21EE81A7600C8A9BE /* BridgeSDK.framework */,
+				8359EAB41EE81A7600C8A9BE /* BridgeSDKTests.xctest */,
+				8359EAB61EE81A7600C8A9BE /* BridgeSDKIntegration.app */,
+				8359EAB81EE81A7600C8A9BE /* BridgeSDKIntegrationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		836BB0671ED4AB7F001B6C2D /* Consent */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +287,7 @@
 			);
 			dependencies = (
 				83322B2D1ED2D4920005794F /* PBXTargetDependency */,
+				8359EABC1EE81A9100C8A9BE /* PBXTargetDependency */,
 			);
 			name = F14_ProjektArbeit_Surveys;
 			productName = F14_ProjektArbeit_Surveys;
@@ -222,6 +324,14 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8359EA811EE8195900C8A9BE /* Products */;
+					ProjectRef = 8359EA801EE8195900C8A9BE /* BridgeAppSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = 8359EAA31EE81A7500C8A9BE /* Products */;
+					ProjectRef = 8359EAA21EE81A7500C8A9BE /* BridgeSDK.xcodeproj */;
+				},
+				{
 					ProductGroup = 83322B211ED2CB030005794F /* Products */;
 					ProjectRef = 83322B201ED2CB030005794F /* ResearchKit.xcodeproj */;
 				},
@@ -246,6 +356,69 @@
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
 			remoteRef = 83322B281ED2CB040005794F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EA901EE8195B00C8A9BE /* BridgeAppSDKSample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BridgeAppSDKSample.app;
+			remoteRef = 8359EA8F1EE8195B00C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EA921EE8195B00C8A9BE /* BridgeAppSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeAppSDK.framework;
+			remoteRef = 8359EA911EE8195B00C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EA941EE8195B00C8A9BE /* BridgeAppSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeAppSDKTests.xctest;
+			remoteRef = 8359EA931EE8195B00C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EA961EE8195B00C8A9BE /* Sage Cardio Challenge.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Sage Cardio Challenge.app";
+			remoteRef = 8359EA951EE8195B00C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EA981EE8195B00C8A9BE /* Sage Cardio Challenge Extension.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = "Sage Cardio Challenge Extension.appex";
+			remoteRef = 8359EA971EE8195B00C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EAB21EE81A7600C8A9BE /* BridgeSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeSDK.framework;
+			remoteRef = 8359EAB11EE81A7600C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EAB41EE81A7600C8A9BE /* BridgeSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeSDKTests.xctest;
+			remoteRef = 8359EAB31EE81A7600C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EAB61EE81A7600C8A9BE /* BridgeSDKIntegration.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BridgeSDKIntegration.app;
+			remoteRef = 8359EAB51EE81A7600C8A9BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8359EAB81EE81A7600C8A9BE /* BridgeSDKIntegrationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeSDKIntegrationTests.xctest;
+			remoteRef = 8359EAB71EE81A7600C8A9BE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -290,6 +463,11 @@
 			isa = PBXTargetDependency;
 			name = ResearchKit;
 			targetProxy = 83322B2C1ED2D4920005794F /* PBXContainerItemProxy */;
+		};
+		8359EABC1EE81A9100C8A9BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = 8359EABB1EE81A9100C8A9BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
