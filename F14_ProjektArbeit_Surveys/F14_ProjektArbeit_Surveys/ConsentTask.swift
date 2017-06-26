@@ -42,7 +42,7 @@ public var ConsentTask: ORKOrderedTask {
     
     // In a real application, you would supply your own localized text.
     reviewConsentStep.text = "review consent step"
-    reviewConsentStep.reasonForConsent = "reson for consent"
+    reviewConsentStep.reasonForConsent = "reason for consent"
     
     return ORKOrderedTask(identifier: String(describing:Identifier.consentTask), steps: [
         visualConsentStep,

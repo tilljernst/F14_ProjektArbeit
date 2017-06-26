@@ -43,13 +43,11 @@ class OnboardingViewController: UIViewController {
     // MARK: IB actions
     
     @IBAction func starteUmfrageButtonTapped(_ sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-        taskViewController.delegate = self
-        present(taskViewController, animated: true, completion: nil)
-    }
-    /* From ResearchKit example
-    @IBAction func joinButtonTapped(_ sender: UIButton) {
-        let consentDocument = ConsentDocument()
+//        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
+//        taskViewController.delegate = self
+//        present(taskViewController, animated: true, completion: nil)
+
+        let consentDocument = ConsentDocumentResearchKit()
         let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
         
         let healthDataStep = HealthDataStep(identifier: "Health")
@@ -73,7 +71,7 @@ class OnboardingViewController: UIViewController {
         taskViewController.delegate = self
         
         present(taskViewController, animated: true, completion: nil)
-    }*/
+    }
 }
 
 extension OnboardingViewController : ORKTaskViewControllerDelegate {
