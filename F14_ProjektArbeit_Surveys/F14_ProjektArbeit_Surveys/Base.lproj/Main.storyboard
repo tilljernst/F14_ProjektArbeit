@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N7K-xU-dki">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5sc-mc-gce">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -119,6 +119,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNv-kC-YGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="403" y="968"/>
+        </scene>
+        <!--Research Container View Controller-->
+        <scene sceneID="Nup-Y8-iOm">
+            <objects>
+                <viewController id="5sc-mc-gce" customClass="ResearchContainerViewController" customModule="F14_ProjektArbeit_Surveys" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wuL-5W-w8I"/>
+                        <viewControllerLayoutGuide type="bottom" id="r1z-6A-tiv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Zn-gk-50J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="yWj-1E-bQb" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="F14_ProjektArbeit_Surveys" customModuleProvider="target" id="MHa-EE-rTn"/>
+                        <segue destination="N7K-xU-dki" kind="custom" identifier="toStudy" customClass="ResearchContainerSegue" customModule="F14_ProjektArbeit_Surveys" customModuleProvider="target" id="fOA-kD-S5O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Tm-rJ-xjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1875" y="279"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="vF0-ra-eSA">
+            <objects>
+                <viewController id="yWj-1E-bQb" customClass="OnboardingViewController" customModule="F14_ProjektArbeit_Surveys" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UEK-LL-Tal"/>
+                        <viewControllerLayoutGuide type="bottom" id="x2C-QS-vDV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yzf-Xh-eWG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lss-8o-msN">
+                                <rect key="frame" x="87" y="387" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vic-6a-m3b">
+                                <rect key="frame" x="107" y="414" width="106" height="30"/>
+                                <state key="normal" title="Starte Umfrage"/>
+                                <connections>
+                                    <action selector="starteUmfrageButtonTapped:" destination="yWj-1E-bQb" eventType="touchUpInside" id="bud-s7-jDW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x2C-QS-vDV" firstAttribute="top" secondItem="vic-6a-m3b" secondAttribute="bottom" constant="36" id="Bhq-yU-HBf"/>
+                            <constraint firstItem="vic-6a-m3b" firstAttribute="centerX" secondItem="Yzf-Xh-eWG" secondAttribute="centerX" id="lhh-Sl-k8S"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ya-MW-30R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1162.5" y="-286.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9kl-a2-34V">
