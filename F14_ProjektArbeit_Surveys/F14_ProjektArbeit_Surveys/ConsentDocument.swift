@@ -41,15 +41,25 @@ public var ConsentDocument: ORKConsentDocument{
     // overview
     let overviewSection = ORKConsentSection(type: ORKConsentSectionType.overview)
     overviewSection.title = "Einführung"
-    overviewSection.summary = "Besten Dank, dass Sie an unserer Studie teilnehmen... (für den ganzen Text bitte unten auf \"Learn more about the study first\" klicken)"
+    overviewSection.summary = "Besten Dank, dass Sie an unserer Studie teilnehmen. Die Befragung dauert insgesamt während 36 Stunden an. Die Daten werden vollständig anonym erfasst. Es sind keine Rückschlüsse auf einzelne Probanden möglich. Wichtig ist, dass Sie alle Fragen ehrlich beantworten. Bei den meisten Fragen gibt es keine richtigen oder falschen Antworten, das heisst, es ist kein Leistungstest, sondern es geht um Ihre persönliche Meinung."
     
     overviewSection.content = "Besten Dank, dass Sie an unserer Studie teilnehmen. Die Befragung dauert insgesamt während 36 Stunden an. Die Daten werden vollständig anonym erfasst. Es sind keine Rückschlüsse auf einzelne Probanden möglich. Wichtig ist, dass Sie alle Fragen ehrlich beantworten. Bei den meisten Fragen gibt es keine richtigen oder falschen Antworten, das heisst, es ist kein Leistungstest, sondern es geht um Ihre persönliche Meinung. Die Studie wird von der ZHAW Zürcher Hochschule für Angewandte Wissenschaften durchgeführt."
     
-    
-    // custom consent
+    // custom consent -> overview
     let customSection = ORKConsentSection(type: ORKConsentSectionType.custom)
     customSection.title = "Einverständniserkärung"
-    customSection.summary = "Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben (bitte auf \"Learn more\" klicken)"
+    customSection.summary = "Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben"
+    
+    // data section
+    
+    // Privacy
+    
+    // date use
+    
+    // study survey
+    
+    // withdraw
+    
     customSection.htmlContent = "<p>Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben. Bevor Sie dieses geben, lesen Sie bitte folgende Punkte durch:</p><ul><li>Ich nehme zur Kenntnis, dass ich an einer wissenschaftlichen Studie teilnehme.</li><li>Meine Daten werden vertraulich behandelt. Die Auswertung meiner Daten erfolgt</li><li>ausschliesslich zu statistischen Zwecken und anonym.</li><li>Mein Name wird in keiner Publikation erwähnt. Die Weitergabe meiner Daten für Publikationen erfolgt anonym</li><li>Die Daten, welche im Rahmen der Studie über mich erhoben werden, dürfen für weitere Forschungsprojekte verwendet werden. Auch für diese weiteren Forschungsprojekte gilt die Zusicherung der Anonymität.</li><li>Ich erkläre hiermit, dass ich über Inhalt und Zweck der Studie informiert worden bin</li><li>Ich bin damit einverstanden, dass mir vor der Teilnahme an der Studie noch gewisse Fakten vorenthalten werden können. Der wahre Grund wird mir jedoch unmittelbar nach Beendigung meiner Teilnahme an der Studie mitgeteilt.</li><li>Mir wurde eine Kontaktperson angegeben, der ich jederzeit Fragen zur Studie stellen kann</li><li>Die Teilnahme an der Studie ist freiwillig. Ich habe das Recht, jederzeit und ohne Angaben von Gründen die Teilnahme zu widerrufen, ohne dass mir dadurch Nachteile entstehen.</li></ul>"
     
     consentDocument.sections = [overviewSection, customSection]

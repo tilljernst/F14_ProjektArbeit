@@ -24,6 +24,7 @@ import Foundation
  */
 public enum Identifier {
     // Task consent
+    case consentVisualStep
     case consentTask
     case consentSharingStep
     case consentReviewStep

@@ -33,6 +33,10 @@
 		83B915401F01476400778410 /* HealtDataStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9153F1F01476400778410 /* HealtDataStep.swift */; };
 		83B915421F0147C400778410 /* HealthDataStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915411F0147C400778410 /* HealthDataStepViewController.swift */; };
 		83B915441F014DF500778410 /* ConsentDocumentResearchKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915431F014DF500778410 /* ConsentDocumentResearchKit.swift */; };
+		83B915491F0265D300778410 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915461F0265D300778410 /* ProfileHeaderView.swift */; };
+		83B9154A1F0265D300778410 /* ProfileStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */; };
+		83B9154B1F0265D300778410 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915481F0265D300778410 /* ProfileViewController.swift */; };
+		83B9154D1F02664900778410 /* HKHealthStore+Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +105,10 @@
 		83B9153F1F01476400778410 /* HealtDataStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealtDataStep.swift; sourceTree = "<group>"; };
 		83B915411F0147C400778410 /* HealthDataStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthDataStepViewController.swift; sourceTree = "<group>"; };
 		83B915431F014DF500778410 /* ConsentDocumentResearchKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocumentResearchKit.swift; sourceTree = "<group>"; };
+		83B915461F0265D300778410 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStaticTableViewCell.swift; sourceTree = "<group>"; };
+		83B915481F0265D300778410 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKHealthStore+Queries.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +145,14 @@
 		83322B0D1ED2CADC0005794F /* F14_ProjektArbeit_Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */,
 				83322B0E1ED2CADC0005794F /* AppDelegate.swift */,
 				836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */,
 				836BB0671ED4AB7F001B6C2D /* Consent */,
 				83B9153B1F0145BE00778410 /* Onboarding */,
 				83322B441ED31E6F0005794F /* ResearchKit */,
 				83B915331F013E2200778410 /* Protocols */,
+				83B915451F0265C000778410 /* Profile */,
 				83B9153E1F01475700778410 /* Steps */,
 				83322B431ED31E580005794F /* Survey */,
 				83B915361F013EF100778410 /* Withdrawal */,
@@ -236,6 +246,16 @@
 				83B915411F0147C400778410 /* HealthDataStepViewController.swift */,
 			);
 			name = Steps;
+			sourceTree = "<group>";
+		};
+		83B915451F0265C000778410 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				83B915461F0265D300778410 /* ProfileHeaderView.swift */,
+				83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */,
+				83B915481F0265D300778410 /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,15 +360,19 @@
 				833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */,
 				83322B111ED2CADC0005794F /* ViewController.swift in Sources */,
 				83B9153D1F0145DA00778410 /* OnboardingViewController.swift in Sources */,
+				83B915491F0265D300778410 /* ProfileHeaderView.swift in Sources */,
 				836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */,
+				83B9154A1F0265D300778410 /* ProfileStaticTableViewCell.swift in Sources */,
 				83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */,
 				83B915381F013F0D00778410 /* WithdrawViewController.swift in Sources */,
 				83B9152D1F013BC100778410 /* ResearchContainerViewController.swift in Sources */,
 				83B915401F01476400778410 /* HealtDataStep.swift in Sources */,
 				83322B0F1ED2CADC0005794F /* AppDelegate.swift in Sources */,
 				83B915441F014DF500778410 /* ConsentDocumentResearchKit.swift in Sources */,
+				83B9154D1F02664900778410 /* HKHealthStore+Queries.swift in Sources */,
 				83322B3E1ED312FC0005794F /* SurveyTableViewController.swift in Sources */,
 				83322B401ED317380005794F /* TaskListRow.swift in Sources */,
+				83B9154B1F0265D300778410 /* ProfileViewController.swift in Sources */,
 				83B915421F0147C400778410 /* HealthDataStepViewController.swift in Sources */,
 				83B915351F013E8100778410 /* HealthClientType.swift in Sources */,
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,

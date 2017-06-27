@@ -43,34 +43,35 @@ class OnboardingViewController: UIViewController {
     // MARK: IB actions
     
     @IBAction func starteUmfrageButtonTapped(_ sender: UIButton) {
-//        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-//        taskViewController.delegate = self
-//        present(taskViewController, animated: true, completion: nil)
-
-        let consentDocument = ConsentDocumentResearchKit()
-        let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
-        
-        let healthDataStep = HealthDataStep(identifier: "Health")
-        
-        let signature = consentDocument.signatures!.first!
-        
-        let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
-        
-        reviewConsentStep.text = "Review the consent form."
-        reviewConsentStep.reasonForConsent = "Consent to join the Developer Health Research Study."
-        
-        let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
-        passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
-        
-        let completionStep = ORKCompletionStep(identifier: "CompletionStep")
-        completionStep.title = "Welcome aboard."
-        completionStep.text = "Thank you for joining this study."
-        
-        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, healthDataStep, passcodeStep, completionStep])
-        let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
+        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         taskViewController.delegate = self
-        
         present(taskViewController, animated: true, completion: nil)
+
+        // the following code was taken from the research kit example
+//        let consentDocument = ConsentDocumentResearchKit()
+//        let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
+//        
+//        let healthDataStep = HealthDataStep(identifier: "Health")
+//        
+//        let signature = consentDocument.signatures!.first!
+//        
+//        let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
+//        
+//        reviewConsentStep.text = "Review the consent form."
+//        reviewConsentStep.reasonForConsent = "Consent to join the Developer Health Research Study."
+//        
+//        let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
+//        passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
+//        
+//        let completionStep = ORKCompletionStep(identifier: "CompletionStep")
+//        completionStep.title = "Welcome aboard."
+//        completionStep.text = "Thank you for joining this study."
+//        
+//        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, healthDataStep, passcodeStep, completionStep])
+//        let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
+//        taskViewController.delegate = self
+//        
+//        present(taskViewController, animated: true, completion: nil)
     }
 }
 
