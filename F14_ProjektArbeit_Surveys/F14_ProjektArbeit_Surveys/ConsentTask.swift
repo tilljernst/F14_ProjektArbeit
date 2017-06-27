@@ -28,6 +28,7 @@ public var ConsentTask: ORKOrderedTask {
      */
 //    let sharingConsentStep = ORKConsentSharingStep(identifier: String(describing:Identifier.consentSharingStep), investigatorShortDescription: investigatorShortDescription, investigatorLongDescription: investigatorLongDescription, localizedLearnMoreHTMLContent: localizedLearnMoreHTMLContent)
     
+    
     /*
      After the visual presentation, the consent review step displays
      your consent document and can obtain a signature from the participant.
@@ -40,25 +41,25 @@ public var ConsentTask: ORKOrderedTask {
     
     let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: nil, in: consentDocument)
     
-    
-    // In a real application, you would supply your own localized text.
-    reviewConsentStep.text = "review consent step"
-    reviewConsentStep.reasonForConsent = "reason for consent"
+    reviewConsentStep.text = "Review Einverständniserklärung."
+    reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
     
     // for access to health data
     //let healthDataStep = HealthDataStep(identifier: "Health")
     
     // Passcode for the user
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
-    passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
+    passcodeStep.text = "Bitte geben Sie einen Passcode ein, um Sie auf diesem Gerät für diese Umfrage zu identifizieren und den Zugriff auf Ihre Daten zu schützen."
     
     // end step
-    let completionStep = ORKCompletionStep(identifier: "CompletionStep")
-    completionStep.title = "Welcome aboard."
-    completionStep.text = "Thank you for joining this study."
+    let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.consentCompetionStep))
+    completionStep.title = "Willkommen an Board."
+    completionStep.text = "Vielen Dank für die Teilnahme an der Studie."
     
     return ORKOrderedTask(identifier: String(describing:Identifier.consentTask), steps: [
         visualConsentStep,
-        reviewConsentStep
+        reviewConsentStep,
+        passcodeStep,
+        completionStep
         ])
 }

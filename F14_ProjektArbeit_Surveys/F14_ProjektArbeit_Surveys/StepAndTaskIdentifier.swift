@@ -29,6 +29,12 @@ public enum Identifier {
     case consentSharingStep
     case consentReviewStep
     case consentDocumentParticipantSignature
+    case consentCompetionStep
+    
+    // Withdrawl
+    case withdrawlInstructionStep
+    case withdrawlStep
+    case withdrawlTask
     
     // Task for personal datas
     case personTask

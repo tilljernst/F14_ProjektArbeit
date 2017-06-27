@@ -18,7 +18,7 @@ public var ConsentDocument: ORKConsentDocument{
     consentDocument.title = NSLocalizedString("Einverständniserklärung", comment: "")
     
     // This is the title of the signature page in the generated document.
-    consentDocument.signaturePageTitle = NSLocalizedString("Consent Signature", comment: "")
+    consentDocument.signaturePageTitle = NSLocalizedString("Unterschrift Einverständniserklärung", comment: "")
     
     /*
      This is the line shown on the signature page of the generated document,
@@ -32,7 +32,7 @@ public var ConsentDocument: ORKConsentDocument{
      signature image or a participant name; these are collected during
      the consent review step.
      */
-    let participantSignatureTitle = NSLocalizedString("Participant", comment: "")
+    let participantSignatureTitle = NSLocalizedString("Teilnehmer", comment: "")
     let participantSignature = ORKConsentSignature(forPersonWithTitle: participantSignatureTitle, dateFormatString: nil, identifier: String(describing:Identifier.consentDocumentParticipantSignature))
     
     consentDocument.addSignature(participantSignature)
@@ -43,26 +43,46 @@ public var ConsentDocument: ORKConsentDocument{
     overviewSection.title = "Einführung"
     overviewSection.summary = "Besten Dank, dass Sie an unserer Studie teilnehmen. Die Befragung dauert insgesamt während 36 Stunden an. Die Daten werden vollständig anonym erfasst. Es sind keine Rückschlüsse auf einzelne Probanden möglich. Wichtig ist, dass Sie alle Fragen ehrlich beantworten. Bei den meisten Fragen gibt es keine richtigen oder falschen Antworten, das heisst, es ist kein Leistungstest, sondern es geht um Ihre persönliche Meinung."
     
-    overviewSection.content = "Besten Dank, dass Sie an unserer Studie teilnehmen. Die Befragung dauert insgesamt während 36 Stunden an. Die Daten werden vollständig anonym erfasst. Es sind keine Rückschlüsse auf einzelne Probanden möglich. Wichtig ist, dass Sie alle Fragen ehrlich beantworten. Bei den meisten Fragen gibt es keine richtigen oder falschen Antworten, das heisst, es ist kein Leistungstest, sondern es geht um Ihre persönliche Meinung. Die Studie wird von der ZHAW Zürcher Hochschule für Angewandte Wissenschaften durchgeführt."
+    overviewSection.htmlContent = "<p>Die Studie wird von der ZHAW Zürcher Hochschule für Angewandte Wissenschaften durchgeführt.</p><p>Die Befragung dauert insgesamt während 36 Stunden an.</p><p>Die Daten werden vollständig anonym erfasst.</p><p>Es sind keine Rückschlüsse auf einzelne Probanden möglich.</p><p>Wichtig ist, dass Sie alle Fragen ehrlich beantworten.</p><p>Bei den meisten Fragen gibt es keine richtigen oder falschen Antworten, das heisst, es ist kein Leistungstest, sondern es geht um Ihre persönliche Meinung.</p><p>Info-Mail: wal@zhaw.ch</p>"
     
     // custom consent -> overview
     let customSection = ORKConsentSection(type: ORKConsentSectionType.custom)
     customSection.title = "Einverständniserkärung"
-    customSection.summary = "Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben"
+    customSection.summary = "Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben Bevor Sie dieses geben, lesen Sie bitte folgende Punkte durch:"
     
     // data section
+    let dataSection = ORKConsentSection(type: ORKConsentSectionType.dataGathering)
+    dataSection.title = "Datenerfassung"
+    dataSection.summary = "Ich nehme zur Kenntnis, dass ich an einer wissenschaftlichen Studie teilnehme."
+    dataSection.htmlContent = "<p>Ich nehme zur Kenntnis, dass ich an einer wissenschaftlichen Studie teilnehme.</p><p>Meine Daten werden vertraulich behandelt. Die Auswertung meiner Daten erfolgt ausschliesslich zu statistischen Zwecken und anonym.</p>"
     
     // Privacy
+    let privacySection = ORKConsentSection(type: ORKConsentSectionType.privacy)
+    privacySection.title = "Privatsphäre"
+    privacySection.summary = "Mein Name wird in keiner Publikation erwähnt."
+    privacySection.htmlContent = "Mein Name wird in keiner Publikation erwähnt. Die Weitergabe meiner Daten für Publikationen erfolgt anonym."
     
     // date use
+    let dataUseSection = ORKConsentSection(type: ORKConsentSectionType.dataUse)
+    dataUseSection.title = "Datenverwendung"
+    dataUseSection.summary = "Meine Daten aus der Studie dürfen für weitere Forschungsprojekte verwendet werden."
+    dataUseSection.htmlContent = "Die Daten, welche im Rahmen der Studie über mich erhoben werden, dürfen für weitere Forschungsprojekte verwendet werden. Auch für diese weiteren Forschungsprojekte gilt die Zusicherung der Anonymität."
     
     // study survey
+    let studySurveySection = ORKConsentSection(type: ORKConsentSectionType.studySurvey)
+    studySurveySection.title = "Inhalt und Zweck der Studie"
+    studySurveySection.summary = "Ich erkläre hiermit, dass ich über Inhalt und Zweck der Studie informiert worden bin."
+    studySurveySection.htmlContent = "<p>Ich erkläre hiermit, dass ich über Inhalt und Zweck der Studie informiert worden bin</p><p>Ich bin damit einverstanden, dass mir vor der Teilnahme an der Studie noch gewisse Fakten vorenthalten werden können. Der wahre Grund wird mir jedoch unmittelbar nach Beendigung meiner Teilnahme an der Studie mitgeteilt.</p><p>Mir wurde eine Kontaktperson angegeben, der ich jederzeit Fragen zur Studie stellen kann.</p>"
     
     // withdraw
+    let withdrawSection = ORKConsentSection(type: ORKConsentSectionType.withdrawing)
+
+    withdrawSection.title = "Widerrufsrecht"
+    withdrawSection.summary = "Die Teilnahme an der Studie ist freiwillig."
+    withdrawSection.htmlContent = "<p>Die Teilnahme an der Studie ist freiwillig.</p><p>Ich habe das Recht, jederzeit und ohne Angaben von Gründen die Teilnahme zu widerrufen, ohne dass mir dadurch Nachteile entstehen.</p>"
     
-    customSection.htmlContent = "<p>Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben. Bevor Sie dieses geben, lesen Sie bitte folgende Punkte durch:</p><ul><li>Ich nehme zur Kenntnis, dass ich an einer wissenschaftlichen Studie teilnehme.</li><li>Meine Daten werden vertraulich behandelt. Die Auswertung meiner Daten erfolgt</li><li>ausschliesslich zu statistischen Zwecken und anonym.</li><li>Mein Name wird in keiner Publikation erwähnt. Die Weitergabe meiner Daten für Publikationen erfolgt anonym</li><li>Die Daten, welche im Rahmen der Studie über mich erhoben werden, dürfen für weitere Forschungsprojekte verwendet werden. Auch für diese weiteren Forschungsprojekte gilt die Zusicherung der Anonymität.</li><li>Ich erkläre hiermit, dass ich über Inhalt und Zweck der Studie informiert worden bin</li><li>Ich bin damit einverstanden, dass mir vor der Teilnahme an der Studie noch gewisse Fakten vorenthalten werden können. Der wahre Grund wird mir jedoch unmittelbar nach Beendigung meiner Teilnahme an der Studie mitgeteilt.</li><li>Mir wurde eine Kontaktperson angegeben, der ich jederzeit Fragen zur Studie stellen kann</li><li>Die Teilnahme an der Studie ist freiwillig. Ich habe das Recht, jederzeit und ohne Angaben von Gründen die Teilnahme zu widerrufen, ohne dass mir dadurch Nachteile entstehen.</li></ul>"
     
-    consentDocument.sections = [overviewSection, customSection]
+    consentDocument.sections = [overviewSection, customSection, dataSection, privacySection, dataUseSection, studySurveySection, withdrawSection]
     
     // signature
     consentDocument.addSignature(ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "ConsentDocumentParticipantSignature"))

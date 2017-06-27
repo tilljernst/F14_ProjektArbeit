@@ -43,15 +43,15 @@ class WithdrawViewController: ORKTaskViewController {
     // MARK: Initialization
     
     init() {
-        let instructionStep = ORKInstructionStep(identifier: "WithdrawlInstruction")
-        instructionStep.title = NSLocalizedString("Are you sure you want to withdraw?", comment: "")
-        instructionStep.text = NSLocalizedString("Withdrawing from the study will reset the app to the state it was in prior to you originally joining the study.", comment: "")
+        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.withdrawlInstructionStep))
+        instructionStep.title = NSLocalizedString("Sind Sie sicher, dass Sie die Teilnahme an der Umfrage Widerrufen wollen?", comment: "")
+        instructionStep.text = NSLocalizedString("Der Abbruch der Studie führt dazu, dass die App auf den Ursprungszustand vor Ihrer Teilnahme an der Studie zurückgesetzt wird.", comment: "")
         
-        let completionStep = ORKCompletionStep(identifier: "Withdraw")
-        completionStep.title = NSLocalizedString("We appreciate your time.", comment: "")
-        completionStep.text = NSLocalizedString("Thank you for your contribution to this study. We are sorry that you could not continue.", comment: "")
+        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.withdrawlStep))
+        completionStep.title = NSLocalizedString("Wir bedanken uns für Ihre Zeit, die Sie sich genommen haben.", comment: "")
+        completionStep.text = NSLocalizedString("Vielen Dank für die Teilnahme. Wir bedauern es, können Sie nicht weiter an der Stuide teilnehmen.", comment: "")
         
-        let withdrawTask = ORKOrderedTask(identifier: "Withdraw", steps: [instructionStep, completionStep])
+        let withdrawTask = ORKOrderedTask(identifier: String(describing:Identifier.withdrawlTask), steps: [instructionStep, completionStep])
         
         super.init(task: withdrawTask, taskRun: nil)
     }

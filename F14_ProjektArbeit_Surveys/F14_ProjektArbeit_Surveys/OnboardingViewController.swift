@@ -47,7 +47,7 @@ class OnboardingViewController: UIViewController {
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
 
-        // the following code was taken from the research kit example
+//        // the following code was taken from the research kit example
 //        let consentDocument = ConsentDocumentResearchKit()
 //        let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
 //        
@@ -55,7 +55,7 @@ class OnboardingViewController: UIViewController {
 //        
 //        let signature = consentDocument.signatures!.first!
 //        
-//        let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
+//        let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: nil, in: consentDocument)
 //        
 //        reviewConsentStep.text = "Review the consent form."
 //        reviewConsentStep.reasonForConsent = "Consent to join the Developer Health Research Study."
@@ -67,7 +67,7 @@ class OnboardingViewController: UIViewController {
 //        completionStep.title = "Welcome aboard."
 //        completionStep.text = "Thank you for joining this study."
 //        
-//        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, healthDataStep, passcodeStep, completionStep])
+//        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, /*healthDataStep,*/ passcodeStep, completionStep])
 //        let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
 //        taskViewController.delegate = self
 //        
