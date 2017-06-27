@@ -31,6 +31,12 @@ public enum Identifier {
     case consentDocumentParticipantSignature
     case consentCompetionStep
     
+    //configuration
+    case configurationTask
+    case configurationInstructionStep
+    case configurationHeartRateIdStep
+    case configurationStartDateStep
+    
     // Withdrawl
     case withdrawlInstructionStep
     case withdrawlStep

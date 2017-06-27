@@ -22,8 +22,11 @@ class ConfigurationViewController: UIViewController {
     @IBAction func withdrawButtonTapped(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToWithdrawl", sender: nil)
     }
+    
     @IBAction func configurationButtonTapped(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "unwindToStudy", sender: nil)
+        let taskViewController = ORKTaskViewController(task: ConfigurationTask, taskRun: nil)
+        taskViewController.delegate = self
+        present(taskViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
