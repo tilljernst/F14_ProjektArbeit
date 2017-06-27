@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Welcome back to ResearchKit Sample App", delegate: self)
+        let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Wilkommen zurück zur Mediennutzungs-Umfrage", delegate: self)
         containerViewController?.present(passcodeViewController, animated: false, completion: nil)
     }
 }
