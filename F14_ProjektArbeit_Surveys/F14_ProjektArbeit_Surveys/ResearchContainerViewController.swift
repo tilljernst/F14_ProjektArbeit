@@ -43,6 +43,7 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
     // MARK: HealthClientType
     
     var healthStore: HKHealthStore?
+    var appHandler: AppHandler = AppHandler()
     
     // MARK: Propertues
     
@@ -58,8 +59,15 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // bereits Passcode erstellt -> Einführung ist gemacht
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
-            toStudy()
+            // prüfen, ob Konfigutation bereits vorgenommen
+            if(appHandler.isConfigurationSet()){
+                toStudy()
+            }
+            else{
+                toConfiguration()
+            }
         }
         else {
             toOnboarding()
@@ -80,6 +88,10 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
         toStudy()
     }
     
+    @IBAction func unwindToConfiguration(_ segue: UIStoryboardSegue) {
+        toConfiguration()
+    }
+    
     @IBAction func unwindToWithdrawl(_ segue: UIStoryboardSegue) {
         toWithdrawl()
     }
@@ -92,6 +104,10 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
     
     func toStudy() {
         performSegue(withIdentifier: "toStudy", sender: self)
+    }
+    
+    func toConfiguration() {
+        performSegue(withIdentifier: "toConfiguration", sender: self)
     }
     
     func toWithdrawl() {
