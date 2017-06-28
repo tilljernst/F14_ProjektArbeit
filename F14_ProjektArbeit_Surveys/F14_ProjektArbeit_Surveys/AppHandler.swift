@@ -11,18 +11,26 @@ import Foundation
 
 class AppHandler {
     
-    let userDefaultsKey = [
-        "userId",
-        "startDate"
-    ]
+    enum userDefaultKey: String {
+        case userId = "userId"
+        case startDate = "startDate"
+    }
+    
+    let userDefaultKeys: [userDefaultKey] = {
+        typealias k = userDefaultKey
+        return [
+            k.userId,
+            k.startDate
+        ]
+    }()
     
     // MARK: UserDefaults interaction
     
     public func isUserConfigurationSet() -> Bool{
         let defaults = UserDefaults.standard
         var returnValue:Bool = true
-        for key in userDefaultsKey {
-            if ((defaults.object(forKey: key) as? NSData) == nil) {
+        for key in userDefaultKeys {
+            if ((defaults.object(forKey: key.rawValue) as? NSData) == nil) {
                 returnValue = false
             }
         }
@@ -31,17 +39,17 @@ class AppHandler {
     
     public func cleanUpUserDefaults(){
         let defaults = UserDefaults.standard
-        for key in userDefaultsKey {
-            if ((defaults.object(forKey: key) as? NSData) != nil) {
-                defaults.removeObject(forKey: key)
+        for key in userDefaultKeys {
+            if ((defaults.object(forKey: key.rawValue) as? NSData) != nil) {
+                defaults.removeObject(forKey: key.rawValue)
             }
         }
     }
     
     public func initUserDefaults(){
         let defaults = UserDefaults.standard
-        for key in userDefaultsKey {
-            defaults.set("", forKey: key)
+        for key in userDefaultKeys {
+            defaults.set("", forKey: key.rawValue)
         }
     }
     
