@@ -58,8 +58,8 @@ class HealthDataStep: ORKInstructionStep {
     override init(identifier: String) {
         super.init(identifier: identifier)
         
-        title = NSLocalizedString("Health Data", comment: "")
-        text = NSLocalizedString("On the next screen, you will be prompted to grant access to read and write some of your general and health information, such as height, weight, and steps taken so you don't have to enter it again.", comment: "")
+        title = NSLocalizedString("Gesundheitsdaten", comment: "")
+        text = NSLocalizedString("Auf den nächsten Seiten werden Sie gebeten, Zugang zu Ihren allgemeinen Gesundheitsinformationen zu gewähren. Dies sind Angaben zur Grösse, Gewicht und absolvierten Schritten.", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -70,7 +70,7 @@ class HealthDataStep: ORKInstructionStep {
     
     func getHealthAuthorization(_ completion: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
-            let error = NSError(domain: "com.example.apple-samplecode.ORKSample", code: 2, userInfo: [NSLocalizedDescriptionKey: "Health data is not available on this device."])
+            let error = NSError(domain: "com.example.apple-samplecode.ORKSample", code: 2, userInfo: [NSLocalizedDescriptionKey: "Gesundheitsdaten sind auf diesem Gerät nicht vorhanden."])
             
             completion(false, error)
             

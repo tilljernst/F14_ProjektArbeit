@@ -14,6 +14,9 @@ public var ConsentTask: ORKOrderedTask {
     let consentDocument = ConsentDocument
     let visualConsentStep = ORKVisualConsentStep(identifier: String(describing:Identifier.consentVisualStep), document: consentDocument)
     
+    // for access to health data
+    let healthDataStep = HealthDataStep(identifier: "Health")
+    
 //    let investigatorShortDescription = NSLocalizedString("Institution", comment: "")
 //    let investigatorLongDescription = NSLocalizedString("Institution and its partners", comment: "")
 //    let localizedLearnMoreHTMLContent = NSLocalizedString("Your sharing learn more content here.", comment: "")
@@ -36,14 +39,12 @@ public var ConsentTask: ORKOrderedTask {
      reviewing the document.
      */
 //    let signature = consentDocument.signatures!.first
+//    let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: signature, in: consentDocument)
     
     let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: nil, in: consentDocument)
     
     reviewConsentStep.text = "Review Einverständniserklärung."
     reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
-    
-    // for access to health data
-    //let healthDataStep = HealthDataStep(identifier: "Health")
     
     // Passcode for the user
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
@@ -57,6 +58,7 @@ public var ConsentTask: ORKOrderedTask {
     return ORKOrderedTask(identifier: String(describing:Identifier.consentTask), steps: [
         visualConsentStep,
         reviewConsentStep,
+        healthDataStep,
         passcodeStep,
         completionStep
         ])

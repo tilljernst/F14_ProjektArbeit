@@ -67,7 +67,7 @@ class OnboardingViewController: UIViewController {
 //        completionStep.title = "Welcome aboard."
 //        completionStep.text = "Thank you for joining this study."
 //        
-//        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep, /*healthDataStep,*/ passcodeStep, completionStep])
+//        let orderedTask = ORKOrderedTask(identifier: "Join", steps: [consentStep, reviewConsentStep,healthDataStep, passcodeStep, completionStep])
 //        let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
 //        taskViewController.delegate = self
 //        

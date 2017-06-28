@@ -99,6 +99,7 @@
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepAndTaskIdentifier.swift; sourceTree = "<group>"; };
 		83B1C2401F02E557003C41FF /* ConsentMenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentMenueViewController.swift; sourceTree = "<group>"; };
+		83B1C24A1F03AE69003C41FF /* F14_ProjektArbeit_Surveys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = F14_ProjektArbeit_Surveys.entitlements; sourceTree = "<group>"; };
 		83B9152C1F013BC100778410 /* ResearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerViewController.swift; sourceTree = "<group>"; };
 		83B915311F013CCC00778410 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		83B915341F013E8100778410 /* HealthClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthClientType.swift; sourceTree = "<group>"; };
@@ -163,15 +164,14 @@
 				83B915331F013E2200778410 /* Protocols */,
 				83B915451F0265C000778410 /* Profile */,
 				83B9153E1F01475700778410 /* Steps */,
+				83B1C24B1F03B70F003C41FF /* Suporting Files */,
 				83322B431ED31E580005794F /* Survey */,
 				83B915361F013EF100778410 /* Withdrawal */,
 				83B915391F01438100778410 /* ResearchContainerSegue.swift */,
 				83B9152C1F013BC100778410 /* ResearchContainerViewController.swift */,
 				83322B101ED2CADC0005794F /* ViewController.swift */,
 				83322B121ED2CADC0005794F /* Main.storyboard */,
-				83322B151ED2CADC0005794F /* Assets.xcassets */,
 				83322B171ED2CADC0005794F /* LaunchScreen.storyboard */,
-				83322B1A1ED2CADC0005794F /* Info.plist */,
 			);
 			path = F14_ProjektArbeit_Surveys;
 			sourceTree = "<group>";
@@ -216,6 +216,16 @@
 				836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */,
 			);
 			name = "Consent & Onboarding";
+			sourceTree = "<group>";
+		};
+		83B1C24B1F03B70F003C41FF /* Suporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83322B1A1ED2CADC0005794F /* Info.plist */,
+				83322B151ED2CADC0005794F /* Assets.xcassets */,
+				83B1C24A1F03AE69003C41FF /* F14_ProjektArbeit_Surveys.entitlements */,
+			);
+			name = "Suporting Files";
 			sourceTree = "<group>";
 		};
 		83B915301F013CCC00778410 /* Frameworks */ = {
@@ -306,6 +316,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = GB4K5J8465;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -526,6 +541,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = F14_ProjektArbeit_Surveys/F14_ProjektArbeit_Surveys.entitlements;
 				DEVELOPMENT_TEAM = GB4K5J8465;
 				INFOPLIST_FILE = F14_ProjektArbeit_Surveys/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -542,6 +558,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = F14_ProjektArbeit_Surveys/F14_ProjektArbeit_Surveys.entitlements;
 				DEVELOPMENT_TEAM = GB4K5J8465;
 				INFOPLIST_FILE = F14_ProjektArbeit_Surveys/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
