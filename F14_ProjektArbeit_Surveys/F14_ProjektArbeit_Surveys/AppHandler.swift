@@ -19,23 +19,46 @@ class AppHandler {
     // MARK: UserDefaults interaction
     
     public func isUserConfigurationSet() -> Bool{
-        
-        return false
+        let defaults = UserDefaults.standard
+        var returnValue:Bool = true
+        for key in userDefaultsKey {
+            if ((defaults.object(forKey: key) as? NSData) == nil) {
+                returnValue = false
+            }
+        }
+        return returnValue
     }
     
     public func cleanUpUserDefaults(){
-        
+        let defaults = UserDefaults.standard
+        for key in userDefaultsKey {
+            if ((defaults.object(forKey: key) as? NSData) != nil) {
+                defaults.removeObject(forKey: key)
+            }
+        }
     }
     
     public func initUserDefaults(){
-        
+        let defaults = UserDefaults.standard
+        for key in userDefaultsKey {
+            defaults.set("", forKey: key)
+        }
     }
     
     public func setUserDefaultsValue(userKey:String, value:String){
-        
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: userKey)
     }
     
     public func getUserDefaultsValue(userKey:String) -> String {
-        return ""
+        let defaults = UserDefaults.standard
+        let returnValue:String?
+        if let value = defaults.object(forKey: userKey) as? NSString {
+            returnValue = value as String
+        }
+        else {
+            returnValue = nil
+        }
+        return returnValue!
     }
 }
