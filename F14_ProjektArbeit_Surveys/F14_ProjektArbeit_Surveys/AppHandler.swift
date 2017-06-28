@@ -8,14 +8,34 @@
 
 import Foundation
 
+
 class AppHandler {
     
+    let userDefaultsKey = [
+        "userId",
+        "startDate"
+    ]
     
+    // MARK: UserDefaults interaction
     
-    
-    public func isConfigurationSet() -> Bool{
+    public func isUserConfigurationSet() -> Bool{
         
         return false
     }
     
+    public func cleanUpUserDefaults(){
+        
+    }
+    
+    public func initUserDefaults(){
+        
+    }
+    
+    public func setUserDefaultsValue(userKey:String, value:String){
+        
+    }
+    
+    public func getUserDefaultsValue(userKey:String) -> String {
+        return ""
+    }
 }
