@@ -30,7 +30,8 @@ class AppHandler {
         let defaults = UserDefaults.standard
         var returnValue:Bool = true
         for key in userDefaultKeys {
-            if ((defaults.object(forKey: key.rawValue) as? NSData) == nil) {
+            let value = defaults.string(forKey: key.rawValue)
+            if ((value == nil) || (value == "")) {
                 returnValue = false
             }
         }
@@ -40,9 +41,7 @@ class AppHandler {
     public func cleanUpUserDefaults(){
         let defaults = UserDefaults.standard
         for key in userDefaultKeys {
-            if ((defaults.object(forKey: key.rawValue) as? NSData) != nil) {
-                defaults.removeObject(forKey: key.rawValue)
-            }
+            defaults.removeObject(forKey: key.rawValue)
         }
     }
     
@@ -58,15 +57,15 @@ class AppHandler {
         defaults.set(value, forKey: userKey)
     }
     
-    public func getUserDefaultsValue(userKey:String) -> String {
+    public func getUserDefaultsValue(userKey:String) -> String? {
         let defaults = UserDefaults.standard
         let returnValue:String?
-        if let value = defaults.object(forKey: userKey) as? NSString {
+        if let value = defaults.string(forKey: userKey) {
             returnValue = value as String
         }
         else {
             returnValue = nil
         }
-        return returnValue!
+        return returnValue
     }
 }

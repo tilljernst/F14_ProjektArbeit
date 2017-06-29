@@ -21,20 +21,61 @@ class AppHandlerTest: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.appHandler.cleanUpUserDefaults()
         super.tearDown()
     }
     
-    
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIsUserConfigurationSet() {
+        let defaults = UserDefaults.standard
+        let value = "testvalue"
+        // after cleaning up UserDefaults, func returns false
+        self.appHandler.cleanUpUserDefaults()
+        XCTAssertFalse(self.appHandler.isUserConfigurationSet())
+        // after init UserDefaults, func should still return false (value "" is still not a valid user configuration)
+        self.appHandler.initUserDefaults()
+        XCTAssertFalse(self.appHandler.isUserConfigurationSet())
+        for key in self.appHandler.userDefaultKeys {
+            defaults.set(value, forKey: key.rawValue)
+        }
+        XCTAssertTrue(self.appHandler.isUserConfigurationSet())
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testCleanUpUserDefaults() {
+        self.appHandler.cleanUpUserDefaults()
+        let defaults = UserDefaults.standard
+        for key in self.appHandler.userDefaultKeys {
+            XCTAssertNil(defaults.string(forKey: key.rawValue))
+        }
+    }
+    
+    func testInitUserDefaults() {
+        self.appHandler.initUserDefaults()
+        let defaults = UserDefaults.standard
+        for key in self.appHandler.userDefaultKeys {
+            XCTAssert(((defaults.object(forKey: key.rawValue) as? NSString) == ""))
+        }
+        self.appHandler.cleanUpUserDefaults()
+    }
+    
+    func testSetUserDefaultsValue() {
+        let defaults = UserDefaults.standard
+        let value = "testvalue"
+        for key in self.appHandler.userDefaultKeys {
+            self.appHandler.setUserDefaultsValue(userKey: key.rawValue, value: value)
+            XCTAssertEqual(defaults.string(forKey: key.rawValue), value)
+        }
+    }
+    
+    func testGetUserDefaultsValue() {
+        let defaults = UserDefaults.standard
+        let value = "testvalue"
+        for key in self.appHandler.userDefaultKeys {
+            defaults.set(value, forKey: key.rawValue)
+            XCTAssertEqual(self.appHandler.getUserDefaultsValue(userKey: key.rawValue), value)
+        }
+        self.appHandler.cleanUpUserDefaults()
+        for key in self.appHandler.userDefaultKeys {
+            XCTAssertNil(self.appHandler.getUserDefaultsValue(userKey: key.rawValue))
         }
     }
     
