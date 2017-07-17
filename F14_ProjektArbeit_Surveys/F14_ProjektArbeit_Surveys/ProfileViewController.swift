@@ -41,11 +41,13 @@ class ProfileViewController: UITableViewController, HealthClientType {
 //        HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
 //    ]
     let configurationObjectTypes = [
-        "id",
-        "startDate"
+        String(describing: UserDefaultKey.userId),
+        String(describing: UserDefaultKey.startDate),
+        String(describing: UserDefaultKey.configurationDate)
     ]
     
     var healthStore: HKHealthStore?
+    let appHandler = AppHandler()
     
     @IBOutlet var applicationNameLabel: UILabel!
     
@@ -96,11 +98,12 @@ class ProfileViewController: UITableViewController, HealthClientType {
 //            case HKQuantityTypeIdentifier.bodyMass.rawValue:
 //                let title = NSLocalizedString("Weight", comment: "")
 //                configureCell(cell, withTitleText: title, valueForQuantityTypeIdentifier: objectType.identifier)
-            case "id":
-                configureCellWithHeartRateId(cell)
-            
-            case "startDate":
-                configureCellWithStartDate(cell)
+        case String(describing: UserDefaultKey.userId):
+            configureCellWithHeartRateId(cell)
+        case String(describing: UserDefaultKey.startDate):
+            configureCellWithStartDate(cell)
+        case String(describing: UserDefaultKey.configurationDate):
+            configureCellWithConfigurationDate(cell)
             
             default:
                 fatalError("Unexpected health object type identifier - \(objectType)")
@@ -139,14 +142,17 @@ class ProfileViewController: UITableViewController, HealthClientType {
     func configureCellWithHeartRateId(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Heart Rate ID", comment: "")
-        cell.valueLabel.text = NSLocalizedString("-", comment: "")
+        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
     }
     func configureCellWithStartDate(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Startdatum", comment: "")
-        cell.valueLabel.text = NSLocalizedString("-", comment: "")
+        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.startDate))!, comment: "")    }
+    func configureCellWithConfigurationDate(_ cell: ProfileStaticTableViewCell) {
+        // Set the default cell content.
+        cell.titleLabel.text = NSLocalizedString("Konfigurationsdatum", comment: "")
+        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.configurationDate))!, comment: "")
     }
-    
     func configureCell(_ cell: ProfileStaticTableViewCell, withTitleText titleText: String, valueForQuantityTypeIdentifier identifier: String) {
         // Set the default cell content.
         cell.titleLabel.text = titleText

@@ -62,6 +62,7 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
         // bereits Passcode erstellt -> Einführung ist gemacht
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             // prüfen, ob Konfigutation bereits vorgenommen
+            
             if(appHandler.isUserConfigurationSet()){
                 toStudy()
             }
