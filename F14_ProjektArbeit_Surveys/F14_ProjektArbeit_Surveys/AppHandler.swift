@@ -8,13 +8,14 @@
 
 import Foundation
 
+public enum userDefaultKey: String {
+    case userId = "userId"
+    case startDate = "startDate"
+}
 
 class AppHandler {
     
-    enum userDefaultKey: String {
-        case userId = "userId"
-        case startDate = "startDate"
-    }
+    
     
     let userDefaultKeys: [userDefaultKey] = {
         typealias k = userDefaultKey

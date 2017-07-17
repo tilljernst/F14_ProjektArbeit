@@ -129,6 +129,7 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
              the study and transition to the onboarding view.
              */
             if reason == .completed {
+                appHandler.cleanUpUserDefaults()
                 ORKPasscodeViewController.removePasscodeFromKeychain()
                 toOnboarding()
             }

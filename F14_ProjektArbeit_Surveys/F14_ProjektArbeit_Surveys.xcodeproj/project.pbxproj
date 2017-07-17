@@ -707,6 +707,7 @@
 				838F651A1F043C2700CCC42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
