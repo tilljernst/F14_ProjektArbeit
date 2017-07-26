@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8301890B1F28CBF300304197 /* DoSurveyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301890A1F28CBF300304197 /* DoSurveyTableViewController.swift */; };
+		8301890D1F28D1C400304197 /* ToDoSurveyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */; };
+		8301890F1F28D48200304197 /* ToDoSurveyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8301890E1F28D48200304197 /* ToDoSurveyList.swift */; };
+		830189111F28E28800304197 /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830189101F28E28800304197 /* ConfigurationHelper.swift */; };
 		83322B0F1ED2CADC0005794F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B0E1ED2CADC0005794F /* AppDelegate.swift */; };
 		83322B111ED2CADC0005794F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B101ED2CADC0005794F /* ViewController.swift */; };
 		83322B141ED2CADC0005794F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83322B121ED2CADC0005794F /* Main.storyboard */; };
@@ -91,6 +95,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8301890A1F28CBF300304197 /* DoSurveyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoSurveyTableViewController.swift; sourceTree = "<group>"; };
+		8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoSurveyItem.swift; sourceTree = "<group>"; };
+		8301890E1F28D48200304197 /* ToDoSurveyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoSurveyList.swift; sourceTree = "<group>"; };
+		830189101F28E28800304197 /* ConfigurationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		83322B0B1ED2CADC0005794F /* F14_ProjektArbeit_Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F14_ProjektArbeit_Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83322B0E1ED2CADC0005794F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83322B101ED2CADC0005794F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +161,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		830189071F28CBB100304197 /* Do Survey */ = {
+			isa = PBXGroup;
+			children = (
+				8301890A1F28CBF300304197 /* DoSurveyTableViewController.swift */,
+				8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */,
+				8301890E1F28D48200304197 /* ToDoSurveyList.swift */,
+			);
+			name = "Do Survey";
+			sourceTree = "<group>";
+		};
 		83322B021ED2CADC0005794F = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +205,7 @@
 				83B915451F0265C000778410 /* Profile */,
 				83B9153E1F01475700778410 /* Steps */,
 				83B1C24B1F03B70F003C41FF /* Suporting Files */,
+				830189071F28CBB100304197 /* Do Survey */,
 				83322B431ED31E580005794F /* Survey */,
 				83B915361F013EF100778410 /* Withdrawal */,
 				83B915391F01438100778410 /* ResearchContainerSegue.swift */,
@@ -307,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				83B915531F029D2400778410 /* ConfigurationViewController.swift */,
+				830189101F28E28800304197 /* ConfigurationHelper.swift */,
 				83B915571F02C2F200778410 /* ConfigurationTask.swift */,
 			);
 			name = Configuration;
@@ -447,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8301890F1F28D48200304197 /* ToDoSurveyList.swift in Sources */,
 				83B9153A1F01438100778410 /* ResearchContainerSegue.swift in Sources */,
 				833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */,
 				83322B111ED2CADC0005794F /* ViewController.swift in Sources */,
@@ -458,6 +479,7 @@
 				83B1C2411F02E557003C41FF /* ConsentMenueViewController.swift in Sources */,
 				83B915381F013F0D00778410 /* WithdrawViewController.swift in Sources */,
 				83B9152D1F013BC100778410 /* ResearchContainerViewController.swift in Sources */,
+				830189111F28E28800304197 /* ConfigurationHelper.swift in Sources */,
 				83B915401F01476400778410 /* HealtDataStep.swift in Sources */,
 				83322B0F1ED2CADC0005794F /* AppDelegate.swift in Sources */,
 				83B9154D1F02664900778410 /* HKHealthStore+Queries.swift in Sources */,
@@ -469,11 +491,13 @@
 				83B915351F013E8100778410 /* HealthClientType.swift in Sources */,
 				83B915581F02C2F200778410 /* ConfigurationTask.swift in Sources */,
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,
+				8301890B1F28CBF300304197 /* DoSurveyTableViewController.swift in Sources */,
 				83B9154F1F02850B00778410 /* ConsentDocumentExample.swift in Sources */,
 				83B915561F02B2DB00778410 /* AppHandler.swift in Sources */,
 				83B9155A1F02C9A600778410 /* SurveyTask.swift in Sources */,
 				83B915511F028CC500778410 /* IntroductionViewController.swift in Sources */,
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
+				8301890D1F28D1C400304197 /* ToDoSurveyItem.swift in Sources */,
 				836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
