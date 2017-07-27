@@ -26,19 +26,16 @@ class DoSurveyTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        
-        // tmp for testing purpose: add some timers
-        let currentDate = NSDate()
-        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "test title for notification", UUID: UUID().uuidString)
-        ToDoSurveyList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // tmp for testing purpose: add some timers
+        let currentDate = NSDate()
+        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "here comes the title of the survey", UUID: UUID().uuidString)
+        ToDoSurveyList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
+        
         refreshList()
     }
 
@@ -81,7 +78,7 @@ class DoSurveyTableViewController: UITableViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "'Due' MMM dd 'at' h:mm a" // example: "Due Jan 01 at 12:00 PM"
-        cell.detailTextLabel?.text = dateFormatter.string(from: todoItem.deadline as Date)
+        cell.detailTextLabel?.text = "Due date: \(dateFormatter.string(from: todoItem.deadline as Date)); UUID: \(todoItem.UUID)."
         
         return cell
     }
