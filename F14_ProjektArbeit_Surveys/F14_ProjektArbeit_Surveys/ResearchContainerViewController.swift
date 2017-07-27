@@ -43,7 +43,7 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
     // MARK: HealthClientType
     
     var healthStore: HKHealthStore?
-    var appHandler: AppHandler = AppHandler()
+    //var appHandler: AppHandler = AppHandler()
     
     // MARK: Propertues
     
@@ -63,7 +63,7 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             // prüfen, ob Konfigutation bereits vorgenommen
             
-            if(appHandler.isUserConfigurationSet()){
+            if(AppHandler.sharedInstance.isUserConfigurationSet()){
                 toStudy()
             }
             else{
@@ -130,8 +130,9 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
              the study and transition to the onboarding view.
              */
             if reason == .completed {
-                appHandler.cleanUpUserDefaults()
+                AppHandler.sharedInstance.cleanUpUserDefaults()
                 ORKPasscodeViewController.removePasscodeFromKeychain()
+                ToDoSurveyList.sharedInstance.cleanUpToDoSurveyList()
                 toOnboarding()
             }
             

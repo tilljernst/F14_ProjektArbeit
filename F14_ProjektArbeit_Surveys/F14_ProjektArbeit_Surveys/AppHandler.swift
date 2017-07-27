@@ -16,7 +16,13 @@ public enum UserDefaultKey: String {
 
 class AppHandler {
     
-    
+    class var sharedInstance : AppHandler {
+        struct Static {
+            static let instance: AppHandler = AppHandler()
+        }
+        return Static.instance
+    }
+
     
     let userDefaultKeys: [UserDefaultKey] = {
         typealias k = UserDefaultKey
@@ -29,7 +35,7 @@ class AppHandler {
     
     // MARK: UserDefaults interaction
     
-    public func isUserConfigurationSet() -> Bool{
+    func isUserConfigurationSet() -> Bool{
         let defaults = UserDefaults.standard
         var returnValue:Bool = true
         for key in userDefaultKeys {
@@ -41,26 +47,26 @@ class AppHandler {
         return returnValue
     }
     
-    public func cleanUpUserDefaults(){
+    func cleanUpUserDefaults(){
         let defaults = UserDefaults.standard
         for key in userDefaultKeys {
             defaults.removeObject(forKey: key.rawValue)
         }
     }
     
-    public func initUserDefaults(){
+    func initUserDefaults(){
         let defaults = UserDefaults.standard
         for key in userDefaultKeys {
             defaults.set("", forKey: key.rawValue)
         }
     }
     
-    public func setUserDefaultsValue(userKey:String, value:String){
+    func setUserDefaultsValue(userKey:String, value:String){
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: userKey)
     }
     
-    public func getUserDefaultsValue(userKey:String) -> String? {
+    func getUserDefaultsValue(userKey:String) -> String? {
         let defaults = UserDefaults.standard
         let returnValue:String?
         if let value = defaults.string(forKey: userKey) {

@@ -10,10 +10,10 @@ import Foundation
 
 struct TodoSurveyItem {
     var surveyTitle: String
-    var deadline: Date
+    var deadline: NSDate
     var UUID: String
     
-    init(deadline: Date, surveyTitle: String, UUID: String) {
+    init(deadline: NSDate, surveyTitle: String, UUID: String) {
         self.deadline = deadline
         self.surveyTitle = surveyTitle
         self.UUID = UUID
@@ -21,7 +21,7 @@ struct TodoSurveyItem {
     
     var isOverdue: Bool {
         // Optionally, you can omit "ComparisonResult" and it will be inferred.
-        return (Date().compare(self.deadline) == ComparisonResult.orderedDescending) // deadline is earlier than current date
+        return (NSDate().compare(self.deadline as Date) == ComparisonResult.orderedDescending) // deadline is earlier than current date
     }
 }
 

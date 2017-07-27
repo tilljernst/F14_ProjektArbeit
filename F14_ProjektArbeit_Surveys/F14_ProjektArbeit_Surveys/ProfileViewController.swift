@@ -34,12 +34,6 @@ import HealthKit
 
 class ProfileViewController: UITableViewController, HealthClientType {
     // MARK: Properties
-
-//    let healthObjectTypes = [
-//        HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
-//        HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!,
-//        HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
-//    ]
     let configurationObjectTypes = [
         String(describing: UserDefaultKey.userId),
         String(describing: UserDefaultKey.startDate),
@@ -88,16 +82,6 @@ class ProfileViewController: UITableViewController, HealthClientType {
         let objectType = configurationObjectTypes[(indexPath as NSIndexPath).row]
         
         switch(objectType) {
-//            case HKCharacteristicTypeIdentifier.dateOfBirth.rawValue:
-//                configureCellWithDateOfBirth(cell)
-//            
-//            case HKQuantityTypeIdentifier.height.rawValue:
-//                let title = NSLocalizedString("Height", comment: "")
-//                configureCell(cell, withTitleText: title, valueForQuantityTypeIdentifier: objectType.identifier)
-//                
-//            case HKQuantityTypeIdentifier.bodyMass.rawValue:
-//                let title = NSLocalizedString("Weight", comment: "")
-//                configureCell(cell, withTitleText: title, valueForQuantityTypeIdentifier: objectType.identifier)
         case String(describing: UserDefaultKey.userId):
             configureCellWithHeartRateId(cell)
         case String(describing: UserDefaultKey.startDate):
@@ -157,25 +141,6 @@ class ProfileViewController: UITableViewController, HealthClientType {
         // Set the default cell content.
         cell.titleLabel.text = titleText
         cell.valueLabel.text = NSLocalizedString("-", comment: "")
-        
-//        /*
-//            Check a health store has been set and a `HKQuantityType` can be
-//            created with the identifier provided.
-//        */
-//        guard let healthStore = healthStore, let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier(rawValue: identifier)) else { return }
-//        
-//        // Get the most recent entry from the health store.
-//        healthStore.mostRecentQauntitySampleOfType(quantityType) { quantity, _ in
-//            guard let quantity = quantity else { return }
-//            
-//            // Update the cell on the main thread.
-//            OperationQueue.main.addOperation() {
-//                guard let indexPath = self.indexPathForObjectTypeIdentifier(identifier) else { return }
-//                guard let cell = self.tableView.cellForRow(at: indexPath) as? ProfileStaticTableViewCell else { return }
-//                
-//                cell.valueLabel.text = "\(quantity)"
-//            }
-//        }
     }
     
 //    // MARK: Convenience
