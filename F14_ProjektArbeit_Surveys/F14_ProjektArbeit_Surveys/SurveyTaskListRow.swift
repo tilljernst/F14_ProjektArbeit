@@ -91,15 +91,15 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .personData:
             return ToDoSurveyTask.sharedInstance.personalDataTask()
         case .equipmentLast4Hours:
-            return SurveyTasks.defaultTask
+            return ToDoSurveyTask.sharedInstance.defaultTask()
         case .operationLast4Hours:
-            return SurveyTasks.defaultTask
+            return ToDoSurveyTask.sharedInstance.defaultTask()
         case .fitnesTest:
-            return SurveyTasks.defaultTask
+            return ToDoSurveyTask.sharedInstance.defaultTask()
         case .consumptionSurvey:
-            return SurveyTasks.defaultTask
+            return ToDoSurveyTask.sharedInstance.defaultTask()
         case .qualityOfSleep:
-            return SurveyTasks.defaultTask
+            return ToDoSurveyTask.sharedInstance.defaultTask()
         }
     }
     
