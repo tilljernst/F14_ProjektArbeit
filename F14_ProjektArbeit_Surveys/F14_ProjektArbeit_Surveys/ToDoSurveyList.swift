@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import ResearchKit
 
 class ToDoSurveyList {
     class var sharedInstance : ToDoSurveyList {
@@ -25,7 +26,8 @@ class ToDoSurveyList {
         let items = Array(todoDictionary.values)
         return items.map({
             let item = $0 as! [String:AnyObject]
-            return TodoSurveyItem(deadline: item["deadline"] as! NSDate, surveyTitle: item["surveyTitle"] as! String, UUID: item["UUID"] as! String!)
+            let surveyTaskId = SurveyTaskId(rawValue: item["surveyTaskId"] as! Int)
+            return TodoSurveyItem(deadline: item["deadline"] as! NSDate, surveyTitle: item["surveyTitle"] as! String, UUID: item["UUID"] as! String!, surveyTaskId: surveyTaskId!)
         }).sorted(by: {(left: TodoSurveyItem, right:TodoSurveyItem) -> Bool in
             (left.deadline.compare(right.deadline as Date) == .orderedAscending)
         })
@@ -35,7 +37,7 @@ class ToDoSurveyList {
     func addItem(_ item: TodoSurveyItem) {
         // persist a representation of this todo item in UserDefaults
         var surveyTodoDictionary = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
-        surveyTodoDictionary[item.UUID] = ["deadline": item.deadline, "surveyTitle": item.surveyTitle, "UUID": item.UUID] // store NSData representation of todo item in dictionary with UUID as key
+        surveyTodoDictionary[item.UUID] = ["deadline": item.deadline, "surveyTitle": item.surveyTitle, "UUID": item.UUID, "surveyTaskId": item.surveyTaskId.rawValue] // store NSData representation of todo item in dictionary with UUID as key
         UserDefaults.standard.set(surveyTodoDictionary, forKey: ITEMS_KEY) // save/overwrite todo item list
         
         // create a corresponding local notification, based on 
@@ -46,7 +48,7 @@ class ToDoSurveyList {
             content.sound = UNNotificationSound.default()
             
             // tmp: Configure the trigger for 10s trigger
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20.0, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 600.0, repeats: false)
             
             // Create the request object.
             let notificationRequest = UNNotificationRequest(identifier: item.UUID, content: content, trigger: trigger)

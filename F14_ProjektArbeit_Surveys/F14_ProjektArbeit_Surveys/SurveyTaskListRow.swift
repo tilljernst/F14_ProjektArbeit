@@ -89,7 +89,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
     var representedTask: ORKTask {
         switch self {
         case .personData:
-            return SurveyTasks.personalDataTask
+            return ToDoSurveyTask.sharedInstance.personalDataTask()
         case .equipmentLast4Hours:
             return SurveyTasks.defaultTask
         case .operationLast4Hours:

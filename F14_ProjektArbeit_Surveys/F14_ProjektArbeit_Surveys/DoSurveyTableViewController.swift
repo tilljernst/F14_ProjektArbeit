@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ResearchKit
 
-class DoSurveyTableViewController: UITableViewController {
+class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerDelegate {
     var todoSurveyItems: [TodoSurveyItem] = []
     
     // MARK: Types
@@ -16,6 +17,14 @@ class DoSurveyTableViewController: UITableViewController {
     enum TableViewCellIdentifier: String {
         case `default` = "ToDoSurvey"
     }
+    
+    // MARK: Properties
+    
+    /**
+     When a task is completed, the `TaskListViewController` calls this closure
+     with the created task.
+     */
+    var taskResultFinishedCompletionHandler: ((ORKResult) -> Void)?
     
     
     override func viewDidLoad() {
@@ -33,7 +42,7 @@ class DoSurveyTableViewController: UITableViewController {
         
         // tmp for testing purpose: add some timers
         let currentDate = NSDate()
-        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "here comes the title of the survey", UUID: UUID().uuidString)
+        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "here comes the title of the survey", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)
         ToDoSurveyList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
         
         refreshList()
@@ -85,6 +94,53 @@ class DoSurveyTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true // all cells are editable
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // get the todoItem
+        let todoItem = todoSurveyItems[(indexPath as NSIndexPath).row] as TodoSurveyItem
+
+        // create a task 
+        let taskId = todoItem.surveyTaskId
+        let task = ToDoSurveyTask.sharedInstance.getTaskBasedOnId(taskId: taskId)
+        /*
+         Passing `nil` for the `taskRunUUID` lets the task view controller
+         generate an identifier for this run of the task.
+         */
+        let surveyTaskViewController = ORKTaskViewController(task: task, taskRun: nil)
+        
+        // Make sure we receive events from `taskViewController`.
+        surveyTaskViewController.delegate = self
+        
+        // Assign a directory to store `taskViewController` output.
+        surveyTaskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        /*
+         We present the task directly, but it is also possible to use segues.
+         The task property of the task view controller can be set any time before
+         the task view controller is presented.
+         */
+        present(surveyTaskViewController, animated: true, completion: nil)
+    }
+
+    // MARK: ORKTaskViewControllerDelegate
+    
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        /*
+         The `reason` passed to this method indicates why the task view
+         controller finished: Did the user cancel, save, or actually complete
+         the task; or was there an error?
+         
+         The actual result of the task is on the `result` property of the task
+         view controller.
+         */
+        taskResultFinishedCompletionHandler?(taskViewController.result)
+        
+        taskViewController.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

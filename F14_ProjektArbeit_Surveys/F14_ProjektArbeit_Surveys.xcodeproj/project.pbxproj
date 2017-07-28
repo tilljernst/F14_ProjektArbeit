@@ -23,6 +23,7 @@
 		83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */; };
 		83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B491ED326400005794F /* SurveyTaskListRow.swift */; };
 		833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535831EDEC1B700736FB0 /* SurveyHelper.swift */; };
+		834B6D701F2B150A00C779D2 /* ToDoSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */; };
 		836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */; };
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
 		836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */; };
@@ -112,6 +113,7 @@
 		83322B411ED31DFC0005794F /* ResearchKitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchKitTableViewController.swift; sourceTree = "<group>"; };
 		83322B491ED326400005794F /* SurveyTaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTaskListRow.swift; sourceTree = "<group>"; };
 		833535831EDEC1B700736FB0 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
+		834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoSurveyTask.swift; sourceTree = "<group>"; };
 		836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepAndTaskIdentifier.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				8301890A1F28CBF300304197 /* DoSurveyTableViewController.swift */,
 				8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */,
 				8301890E1F28D48200304197 /* ToDoSurveyList.swift */,
+				834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */,
 			);
 			name = "Do Survey";
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				8301890F1F28D48200304197 /* ToDoSurveyList.swift in Sources */,
 				83B9153A1F01438100778410 /* ResearchContainerSegue.swift in Sources */,
 				833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */,
+				834B6D701F2B150A00C779D2 /* ToDoSurveyTask.swift in Sources */,
 				83322B111ED2CADC0005794F /* ViewController.swift in Sources */,
 				83B9153D1F0145DA00778410 /* OnboardingViewController.swift in Sources */,
 				83B915491F0265D300778410 /* ProfileHeaderView.swift in Sources */,

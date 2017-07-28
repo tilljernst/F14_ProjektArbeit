@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import ResearchKit
 
 struct TodoSurveyItem {
     var surveyTitle: String
     var deadline: NSDate
     var UUID: String
+    var surveyTaskId: SurveyTaskId
     
-    init(deadline: NSDate, surveyTitle: String, UUID: String) {
+    init(deadline: NSDate, surveyTitle: String, UUID: String, surveyTaskId: SurveyTaskId) {
         self.deadline = deadline
         self.surveyTitle = surveyTitle
         self.UUID = UUID
+        self.surveyTaskId = surveyTaskId
     }
     
     var isOverdue: Bool {
