@@ -14,6 +14,8 @@ import ResearchKit
 
 public enum SurveyTaskId: Int {
     case personalData = 0
+    case equipmentUsed
+    case equipmentOperated
     case defaultTask
 }
 
@@ -33,6 +35,10 @@ class ToDoSurveyTask {
         switch taskId {
         case .personalData:
             return personalDataTask()
+        case .equipmentUsed:
+            return defaultTask()
+        case .equipmentOperated:
+            return defaultTask()
         default:
             return defaultTask()
         }
