@@ -14,15 +14,15 @@ public enum UserDefaultKey: String {
     case configurationDate = "configurationDate"
 }
 
-class AppHandler {
+class UserDefaultHandler {
     
-    class var sharedInstance : AppHandler {
+    class var sharedInstance : UserDefaultHandler {
         struct Static {
-            static let instance: AppHandler = AppHandler()
+            static let instance: UserDefaultHandler = UserDefaultHandler()
         }
         return Static.instance
     }
-
+    
     
     let userDefaultKeys: [UserDefaultKey] = {
         typealias k = UserDefaultKey
@@ -77,8 +77,8 @@ class AppHandler {
         }
         return returnValue
     }
-        
-    func setConfigurationDate(date: NSDate) {        
+    
+    func setConfigurationDate(date: NSDate) {
         let dateFormatter = getConfigDateFormatter()
         
         let configDate = dateFormatter.string(from: date as Date)
@@ -100,12 +100,12 @@ class AppHandler {
     func getConfigDateFormatter() -> DateFormatter {
         
         let dateFormatter = DateFormatter()
-    
+        
         dateFormatter.locale = Locale(identifier: "gsw_CH")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy HH:mm:ss")
         
         return dateFormatter
     }
     
-    // MARK: 
+    // MARK:
 }

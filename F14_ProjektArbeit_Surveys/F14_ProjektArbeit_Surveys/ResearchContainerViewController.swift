@@ -63,7 +63,7 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             // prüfen, ob Konfigutation bereits vorgenommen
             
-            if(AppHandler.sharedInstance.isUserConfigurationSet()){
+            if(UserDefaultHandler.sharedInstance.isUserConfigurationSet()){
                 toStudy()
             }
             else{
@@ -130,7 +130,7 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
              the study and transition to the onboarding view.
              */
             if reason == .completed {
-                AppHandler.sharedInstance.cleanUpUserDefaults()
+                UserDefaultHandler.sharedInstance.cleanUpUserDefaults()
                 ORKPasscodeViewController.removePasscodeFromKeychain()
                 ToDoSurveyList.sharedInstance.cleanUpToDoSurveyList()
                 toOnboarding()

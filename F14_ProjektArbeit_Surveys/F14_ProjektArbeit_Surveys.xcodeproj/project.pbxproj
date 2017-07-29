@@ -28,7 +28,6 @@
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
 		836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */; };
 		838F65141F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F65131F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.swift */; };
-		838F651C1F043C7300CCC42D /* AppHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838F651B1F043C7300CCC42D /* AppHandlerTest.swift */; };
 		83B1C2411F02E557003C41FF /* ConsentMenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B1C2401F02E557003C41FF /* ConsentMenueViewController.swift */; };
 		83B9152D1F013BC100778410 /* ResearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9152C1F013BC100778410 /* ResearchContainerViewController.swift */; };
 		83B915321F013CCC00778410 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B915311F013CCC00778410 /* HealthKit.framework */; };
@@ -45,10 +44,11 @@
 		83B9154F1F02850B00778410 /* ConsentDocumentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9154E1F02850B00778410 /* ConsentDocumentExample.swift */; };
 		83B915511F028CC500778410 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915501F028CC500778410 /* IntroductionViewController.swift */; };
 		83B915541F029D2400778410 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915531F029D2400778410 /* ConfigurationViewController.swift */; };
-		83B915561F02B2DB00778410 /* AppHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915551F02B2DB00778410 /* AppHandler.swift */; };
 		83B915581F02C2F200778410 /* ConfigurationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915571F02C2F200778410 /* ConfigurationTask.swift */; };
 		83EF48A71F2B309100859C45 /* DefaultTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF48A61F2B309100859C45 /* DefaultTask.swift */; };
 		83EF48A91F2B312000859C45 /* PersonalDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF48A81F2B312000859C45 /* PersonalDataTask.swift */; };
+		83EF48AB1F2C95AF00859C45 /* UserDefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF48AA1F2C95AF00859C45 /* UserDefaultHandler.swift */; };
+		83EF48AD1F2C961E00859C45 /* UserDefaultHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF48AC1F2C961E00859C45 /* UserDefaultHandlerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +121,6 @@
 		838F65111F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F14_ProjektArbeit_SurveysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		838F65131F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F14_ProjektArbeit_SurveysTests.swift; sourceTree = "<group>"; };
 		838F65151F043C2700CCC42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		838F651B1F043C7300CCC42D /* AppHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHandlerTest.swift; sourceTree = "<group>"; };
 		83B1C2401F02E557003C41FF /* ConsentMenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentMenueViewController.swift; sourceTree = "<group>"; };
 		83B1C24A1F03AE69003C41FF /* F14_ProjektArbeit_Surveys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = F14_ProjektArbeit_Surveys.entitlements; sourceTree = "<group>"; };
 		83B9152C1F013BC100778410 /* ResearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerViewController.swift; sourceTree = "<group>"; };
@@ -139,10 +138,11 @@
 		83B9154E1F02850B00778410 /* ConsentDocumentExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocumentExample.swift; sourceTree = "<group>"; };
 		83B915501F028CC500778410 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		83B915531F029D2400778410 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
-		83B915551F02B2DB00778410 /* AppHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHandler.swift; sourceTree = "<group>"; };
 		83B915571F02C2F200778410 /* ConfigurationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTask.swift; sourceTree = "<group>"; };
 		83EF48A61F2B309100859C45 /* DefaultTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTask.swift; sourceTree = "<group>"; };
 		83EF48A81F2B312000859C45 /* PersonalDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDataTask.swift; sourceTree = "<group>"; };
+		83EF48AA1F2C95AF00859C45 /* UserDefaultHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultHandler.swift; sourceTree = "<group>"; };
+		83EF48AC1F2C961E00859C45 /* UserDefaultHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultHandlerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +201,7 @@
 			children = (
 				83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */,
 				83322B0E1ED2CADC0005794F /* AppDelegate.swift */,
-				83B915551F02B2DB00778410 /* AppHandler.swift */,
+				83EF48AA1F2C95AF00859C45 /* UserDefaultHandler.swift */,
 				836BB0701ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift */,
 				836BB0671ED4AB7F001B6C2D /* Consent & Onboarding */,
 				83B915521F029CEF00778410 /* Configuration */,
@@ -268,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				838F65131F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.swift */,
-				838F651B1F043C7300CCC42D /* AppHandlerTest.swift */,
+				83EF48AC1F2C961E00859C45 /* UserDefaultHandlerTest.swift */,
 				838F65151F043C2700CCC42D /* Info.plist */,
 			);
 			path = F14_ProjektArbeit_SurveysTests;
@@ -506,11 +506,11 @@
 				83B915541F029D2400778410 /* ConfigurationViewController.swift in Sources */,
 				83B915351F013E8100778410 /* HealthClientType.swift in Sources */,
 				83B915581F02C2F200778410 /* ConfigurationTask.swift in Sources */,
+				83EF48AB1F2C95AF00859C45 /* UserDefaultHandler.swift in Sources */,
 				83EF48A71F2B309100859C45 /* DefaultTask.swift in Sources */,
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,
 				8301890B1F28CBF300304197 /* DoSurveyTableViewController.swift in Sources */,
 				83B9154F1F02850B00778410 /* ConsentDocumentExample.swift in Sources */,
-				83B915561F02B2DB00778410 /* AppHandler.swift in Sources */,
 				83B915511F028CC500778410 /* IntroductionViewController.swift in Sources */,
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
 				8301890D1F28D1C400304197 /* ToDoSurveyItem.swift in Sources */,
@@ -522,7 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				838F651C1F043C7300CCC42D /* AppHandlerTest.swift in Sources */,
+				83EF48AD1F2C961E00859C45 /* UserDefaultHandlerTest.swift in Sources */,
 				838F65141F043C2700CCC42D /* F14_ProjektArbeit_SurveysTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

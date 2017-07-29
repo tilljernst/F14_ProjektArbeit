@@ -46,16 +46,16 @@ extension ConfigurationViewController {
                 }
             }
         }
-        AppHandler.sharedInstance.initUserDefaults()
-        AppHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.userId), value: heartRateId)
-        AppHandler.sharedInstance.setConfigurationDate(date: startDate?.dateAnswer! as! NSDate)
-        AppHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configDate)
+        UserDefaultHandler.sharedInstance.initUserDefaults()
+        UserDefaultHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.userId), value: heartRateId)
+        UserDefaultHandler.sharedInstance.setConfigurationDate(date: startDate?.dateAnswer! as! NSDate)
+        UserDefaultHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configDate)
     }
     
     func initializeLocalSurveyNotifications() {
         // add all the timers for the survey
         let currentDate = NSDate()
-        let startDate = AppHandler.sharedInstance.retrieveConfigurationDate()
+        let startDate = UserDefaultHandler.sharedInstance.retrieveConfigurationDate()
         
         
         

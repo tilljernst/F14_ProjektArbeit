@@ -41,7 +41,6 @@ class ProfileViewController: UITableViewController, HealthClientType {
     ]
     
     var healthStore: HKHealthStore?
-    let appHandler = AppHandler()
     
     @IBOutlet var applicationNameLabel: UILabel!
     
@@ -56,7 +55,7 @@ class ProfileViewController: UITableViewController, HealthClientType {
         let callAction = UIAlertAction(title: "Ja, rekonfiguriere Profil", style: .default, handler: {
             action in
             // UserDefaults löschen und TodoSurveyList zurücksetzen
-            AppHandler.sharedInstance.cleanUpUserDefaults()
+            UserDefaultHandler.sharedInstance.cleanUpUserDefaults()
             ToDoSurveyList.sharedInstance.cleanUpToDoSurveyList()
             let alertMessage = UIAlertController(title: "Konfiguration zurückgesetzt", message: "Alle Daten wurden gelöscht und die APP zurückgesetzt.", preferredStyle: .alert)
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: {
@@ -151,16 +150,16 @@ class ProfileViewController: UITableViewController, HealthClientType {
     func configureCellWithHeartRateId(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Heart Rate ID", comment: "")
-        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
+        cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
     }
     func configureCellWithStartDate(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Startdatum", comment: "")
-        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.startDate))!, comment: "")    }
+        cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.startDate))!, comment: "")    }
     func configureCellWithConfigurationDate(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Konfigurationsdatum", comment: "")
-        cell.valueLabel.text = NSLocalizedString(appHandler.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.configurationDate))!, comment: "")
+        cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.configurationDate))!, comment: "")
     }
     func configureCell(_ cell: ProfileStaticTableViewCell, withTitleText titleText: String, valueForQuantityTypeIdentifier identifier: String) {
         // Set the default cell content.

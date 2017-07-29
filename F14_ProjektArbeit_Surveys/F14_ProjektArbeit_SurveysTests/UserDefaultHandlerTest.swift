@@ -9,10 +9,10 @@
 import XCTest
 @testable import F14_ProjektArbeit_Surveys
 
-class AppHandlerTest: XCTestCase {
+class UserDefaultHandlerTest: XCTestCase {
     
     
-    let appHandler = AppHandler()
+    let userDefaultHandler = UserDefaultHandler()
     
     override func setUp() {
         super.setUp()
@@ -21,7 +21,7 @@ class AppHandlerTest: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        self.appHandler.cleanUpUserDefaults()
+        self.userDefaultHandler.cleanUpUserDefaults()
         super.tearDown()
     }
     
@@ -29,39 +29,39 @@ class AppHandlerTest: XCTestCase {
         let defaults = UserDefaults.standard
         let value = "testvalue"
         // after cleaning up UserDefaults, func returns false
-        self.appHandler.cleanUpUserDefaults()
-        XCTAssertFalse(self.appHandler.isUserConfigurationSet())
+        self.userDefaultHandler.cleanUpUserDefaults()
+        XCTAssertFalse(self.userDefaultHandler.isUserConfigurationSet())
         // after init UserDefaults, func should still return false (value "" is still not a valid user configuration)
-        self.appHandler.initUserDefaults()
-        XCTAssertFalse(self.appHandler.isUserConfigurationSet())
-        for key in self.appHandler.userDefaultKeys {
+        self.userDefaultHandler.initUserDefaults()
+        XCTAssertFalse(self.userDefaultHandler.isUserConfigurationSet())
+        for key in self.userDefaultHandler.userDefaultKeys {
             defaults.set(value, forKey: key.rawValue)
         }
-        XCTAssertTrue(self.appHandler.isUserConfigurationSet())
+        XCTAssertTrue(self.userDefaultHandler.isUserConfigurationSet())
     }
     
     func testCleanUpUserDefaults() {
-        self.appHandler.cleanUpUserDefaults()
+        self.userDefaultHandler.cleanUpUserDefaults()
         let defaults = UserDefaults.standard
-        for key in self.appHandler.userDefaultKeys {
+        for key in self.userDefaultHandler.userDefaultKeys {
             XCTAssertNil(defaults.string(forKey: key.rawValue))
         }
     }
     
     func testInitUserDefaults() {
-        self.appHandler.initUserDefaults()
+        self.userDefaultHandler.initUserDefaults()
         let defaults = UserDefaults.standard
-        for key in self.appHandler.userDefaultKeys {
+        for key in self.userDefaultHandler.userDefaultKeys {
             XCTAssert(((defaults.object(forKey: key.rawValue) as? NSString) == ""))
         }
-        self.appHandler.cleanUpUserDefaults()
+        self.userDefaultHandler.cleanUpUserDefaults()
     }
     
     func testSetUserDefaultsValue() {
         let defaults = UserDefaults.standard
         let value = "testvalue"
-        for key in self.appHandler.userDefaultKeys {
-            self.appHandler.setUserDefaultsValue(userKey: key.rawValue, value: value)
+        for key in self.userDefaultHandler.userDefaultKeys {
+            self.userDefaultHandler.setUserDefaultsValue(userKey: key.rawValue, value: value)
             XCTAssertEqual(defaults.string(forKey: key.rawValue), value)
         }
     }
@@ -69,41 +69,41 @@ class AppHandlerTest: XCTestCase {
     func testGetUserDefaultsValue() {
         let defaults = UserDefaults.standard
         let value = "testvalue"
-        for key in self.appHandler.userDefaultKeys {
+        for key in self.userDefaultHandler.userDefaultKeys {
             defaults.set(value, forKey: key.rawValue)
-            XCTAssertEqual(self.appHandler.getUserDefaultsValue(userKey: key.rawValue), value)
+            XCTAssertEqual(self.userDefaultHandler.getUserDefaultsValue(userKey: key.rawValue), value)
         }
-        self.appHandler.cleanUpUserDefaults()
-        for key in self.appHandler.userDefaultKeys {
-            XCTAssertNil(self.appHandler.getUserDefaultsValue(userKey: key.rawValue))
+        self.userDefaultHandler.cleanUpUserDefaults()
+        for key in self.userDefaultHandler.userDefaultKeys {
+            XCTAssertNil(self.userDefaultHandler.getUserDefaultsValue(userKey: key.rawValue))
         }
     }
     
     func testSetConfigurationDate() {
         let timestamp = NSDate()
-        self.appHandler.setConfigurationDate(date: timestamp)
+        self.userDefaultHandler.setConfigurationDate(date: timestamp)
         
-        let returnUserDefaultValue = self.appHandler.getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
+        let returnUserDefaultValue = self.userDefaultHandler.getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
         
-        let dateFormatter = self.appHandler.getConfigDateFormatter()
+        let dateFormatter = self.userDefaultHandler.getConfigDateFormatter()
         
         let testDate = dateFormatter.string(from: timestamp as Date)
         
         XCTAssertEqual(returnUserDefaultValue, testDate)
         
-        self.appHandler.cleanUpUserDefaults()
+        self.userDefaultHandler.cleanUpUserDefaults()
     }
     
     func testRetrieveConfigurationDate() {
         let timestamp = NSDate()
         
-        let dateFormatter = self.appHandler.getConfigDateFormatter()
+        let dateFormatter = self.userDefaultHandler.getConfigDateFormatter()
         
         let testDate = dateFormatter.string(from: timestamp as Date)
         
-        self.appHandler.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: testDate)
+        self.userDefaultHandler.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: testDate)
         
-        let retrievedDate = self.appHandler.retrieveConfigurationDate()
+        let retrievedDate = self.userDefaultHandler.retrieveConfigurationDate()
         
         XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
                                                  toGranularity: .hour) == .orderedSame)
@@ -112,7 +112,7 @@ class AppHandlerTest: XCTestCase {
         XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
                                                  toGranularity: .year) == .orderedSame)
         
-        self.appHandler.cleanUpUserDefaults()
+        self.userDefaultHandler.cleanUpUserDefaults()
     }
     
     
