@@ -18,12 +18,10 @@ extension ConfigurationViewController {
         let configTaskResults = result
         print(configTaskResults)
         var heartRateId:String = ""
-        var startDate:ORKDateQuestionResult?
-        var configDate:String = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.YYYY HH:mm:ss"
-        configDate = dateFormatter.string(from: configTaskResults.startDate)
-        print("configurationDate \(String(describing: configDate))")
+        var startDate:Date = Date()
+        let dateFormatter = UserDefaultHandler.sharedInstance.getConfigDateFormatter()
+        let configurationDate = dateFormatter.string(from: configTaskResults.startDate)
+        print("configurationDate \(String(describing: configurationDate))")
         // read every step result as ORKStepResult
         for stepResult in configTaskResults.results! as! [ORKStepResult]  {
             // read the answers in every step, if available
@@ -38,24 +36,27 @@ extension ConfigurationViewController {
                     print("Value is \(String(describing: heartRateId))")
                 // read start date
                 case (String(describing:Identifier.configurationStartDateStep)):
-                    startDate = result as? ORKDateQuestionResult
+                    let configDate = result as? ORKDateQuestionResult
+                    startDate = (configDate?.dateAnswer)!
+                    let calendar = Calendar.current
+                    startDate = calendar.date(bySettingHour: 10, minute: 0, second: 0, of: startDate)!
                     print("dateAnswer \(String(describing: startDate))")
-                    print("calendar \(String(describing: startDate?.calendar))")
-                    print("timeZone \(String(describing: startDate?.timeZone))")
+                    print("calendar \(String(describing: configDate?.calendar))")
+                    print("timeZone \(String(describing: configDate?.timeZone))")
                 default:break
                 }
             }
         }
         UserDefaultHandler.sharedInstance.initUserDefaults()
         UserDefaultHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.userId), value: heartRateId)
-        UserDefaultHandler.sharedInstance.setConfigurationDate(date: startDate?.dateAnswer! as! NSDate)
-        UserDefaultHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configDate)
+        UserDefaultHandler.sharedInstance.setStartDate(date: startDate as NSDate)
+        UserDefaultHandler.sharedInstance.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configurationDate)
     }
     
     func initializeLocalSurveyNotifications() {
         // add all the timers for the survey
         let currentDate = NSDate()
-        let startDate = UserDefaultHandler.sharedInstance.retrieveConfigurationDate()
+        let startDate = UserDefaultHandler.sharedInstance.retrieveStartDate()
         
         
         

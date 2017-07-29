@@ -78,19 +78,19 @@ class UserDefaultHandler {
         return returnValue
     }
     
-    func setConfigurationDate(date: NSDate) {
+    func setStartDate(date: NSDate) {
         let dateFormatter = getConfigDateFormatter()
         
         let configDate = dateFormatter.string(from: date as Date)
         
-        setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configDate)
+        setUserDefaultsValue(userKey: String(describing:UserDefaultKey.startDate), value: configDate)
     }
     
-    func retrieveConfigurationDate() -> NSDate? {
+    func retrieveStartDate() -> NSDate? {
         
         let dateFormatter = getConfigDateFormatter()
         
-        let configDate = getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
+        let configDate = getUserDefaultsValue(userKey: String(describing:UserDefaultKey.startDate))
         
         let returnValue = dateFormatter.date(from: configDate!)
         

@@ -17,7 +17,7 @@ public var ConfigurationTask: ORKTask {
     instStep.detailText = "Im Folgenden werden Sie gebeten, die ID des Pulstrackers und das Startdatum für die Befragung einzugeben."
     
     // heart rate id
-    let heartRateAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 6)
+    let heartRateAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 12)
     heartRateAnswerFormat.multipleLines = false
     let heartRateIdStep = ORKQuestionStep(identifier: String(describing:Identifier.configurationHeartRateIdStep), title: "Bitte geben Sie die ID ihres Heart-Rate Monitors ein:", answer: heartRateAnswerFormat)
     heartRateIdStep.isOptional = false
