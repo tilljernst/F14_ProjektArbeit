@@ -77,4 +77,35 @@ class AppHandler {
         }
         return returnValue
     }
+        
+    func setConfigurationDate(date: NSDate) {        
+        let dateFormatter = getConfigDateFormatter()
+        
+        let configDate = dateFormatter.string(from: date as Date)
+        
+        setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: configDate)
+    }
+    
+    func retrieveConfigurationDate() -> NSDate? {
+        
+        let dateFormatter = getConfigDateFormatter()
+        
+        let configDate = getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
+        
+        let returnValue = dateFormatter.date(from: configDate!)
+        
+        return returnValue! as NSDate
+    }
+    
+    func getConfigDateFormatter() -> DateFormatter {
+        
+        let dateFormatter = DateFormatter()
+    
+        dateFormatter.locale = Locale(identifier: "gsw_CH")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy HH:mm:ss")
+        
+        return dateFormatter
+    }
+    
+    // MARK: 
 }

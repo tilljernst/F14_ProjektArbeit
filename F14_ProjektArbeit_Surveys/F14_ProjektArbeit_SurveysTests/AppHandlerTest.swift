@@ -79,4 +79,41 @@ class AppHandlerTest: XCTestCase {
         }
     }
     
+    func testSetConfigurationDate() {
+        let timestamp = NSDate()
+        self.appHandler.setConfigurationDate(date: timestamp)
+        
+        let returnUserDefaultValue = self.appHandler.getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
+        
+        let dateFormatter = self.appHandler.getConfigDateFormatter()
+        
+        let testDate = dateFormatter.string(from: timestamp as Date)
+        
+        XCTAssertEqual(returnUserDefaultValue, testDate)
+        
+        self.appHandler.cleanUpUserDefaults()
+    }
+    
+    func testRetrieveConfigurationDate() {
+        let timestamp = NSDate()
+        
+        let dateFormatter = self.appHandler.getConfigDateFormatter()
+        
+        let testDate = dateFormatter.string(from: timestamp as Date)
+        
+        self.appHandler.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: testDate)
+        
+        let retrievedDate = self.appHandler.retrieveConfigurationDate()
+        
+        XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
+                                                 toGranularity: .hour) == .orderedSame)
+        XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
+                                                 toGranularity: .day) == .orderedSame)
+        XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
+                                                 toGranularity: .year) == .orderedSame)
+        
+        self.appHandler.cleanUpUserDefaults()
+    }
+    
+    
 }

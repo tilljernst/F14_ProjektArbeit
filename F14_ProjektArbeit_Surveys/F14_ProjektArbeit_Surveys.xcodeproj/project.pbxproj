@@ -169,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				8301890A1F28CBF300304197 /* DoSurveyTableViewController.swift */,
-				8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */,
 				8301890E1F28D48200304197 /* ToDoSurveyList.swift */,
+				8301890C1F28D1C400304197 /* ToDoSurveyItem.swift */,
 				834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */,
 			);
 			name = "Do Survey";

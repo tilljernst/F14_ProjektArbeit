@@ -39,12 +39,7 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // tmp for testing purpose: add some timers
-        let currentDate = NSDate()
-        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "here comes the title of the survey", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)
-        ToDoSurveyList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
-        
+                        
         refreshList()
     }
 
