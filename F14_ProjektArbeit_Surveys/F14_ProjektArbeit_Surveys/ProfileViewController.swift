@@ -45,6 +45,31 @@ class ProfileViewController: UITableViewController, HealthClientType {
     
     @IBOutlet var applicationNameLabel: UILabel!
     
+    @IBAction func reconfigurationTapped(_ sender: Any) {
+        // show user information window
+        let alertController = UIAlertController(title: "Survey Handler", message: "Möchten Sie die Applikation wirklich neu konfigurieren? Alle bisherigen Daten werden gelöscht und die APP wird zurückgesetzt.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {action -> Void in
+        }
+        alertController.addAction(cancelAction)
+        
+        let callAction = UIAlertAction(title: "Ja, rekonfiguriere Profil", style: .default, handler: {
+            action in
+            // UserDefaults löschen und TodoSurveyList zurücksetzen
+            AppHandler.sharedInstance.cleanUpUserDefaults()
+            ToDoSurveyList.sharedInstance.cleanUpToDoSurveyList()
+            let alertMessage = UIAlertController(title: "Konfiguration zurückgesetzt", message: "Alle Daten wurden gelöscht und die APP zurückgesetzt.", preferredStyle: .alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                action in
+                self.performSegue(withIdentifier: "unwindToConfiguration", sender: nil)
+            }))
+            self.present(alertMessage, animated: true, completion: nil)
+            }
+        )
+        alertController.addAction(callAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
     // MARK: UIViewController
     
     override func viewDidLoad() {

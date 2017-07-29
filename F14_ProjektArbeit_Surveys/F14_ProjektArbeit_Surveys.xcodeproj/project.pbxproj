@@ -320,9 +320,9 @@
 		83B915451F0265C000778410 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				83B915481F0265D300778410 /* ProfileViewController.swift */,
 				83B915461F0265D300778410 /* ProfileHeaderView.swift */,
 				83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */,
-				83B915481F0265D300778410 /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
