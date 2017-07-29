@@ -81,9 +81,9 @@ class UserDefaultHandlerTest: XCTestCase {
     
     func testSetConfigurationDate() {
         let timestamp = NSDate()
-        self.userDefaultHandler.setConfigurationDate(date: timestamp)
+        self.userDefaultHandler.setStartDate(date: timestamp)
         
-        let returnUserDefaultValue = self.userDefaultHandler.getUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate))
+        let returnUserDefaultValue = self.userDefaultHandler.getUserDefaultsValue(userKey: String(describing:UserDefaultKey.startDate))
         
         let dateFormatter = self.userDefaultHandler.getConfigDateFormatter()
         
@@ -101,9 +101,9 @@ class UserDefaultHandlerTest: XCTestCase {
         
         let testDate = dateFormatter.string(from: timestamp as Date)
         
-        self.userDefaultHandler.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.configurationDate), value: testDate)
+        self.userDefaultHandler.setUserDefaultsValue(userKey: String(describing:UserDefaultKey.startDate), value: testDate)
         
-        let retrievedDate = self.userDefaultHandler.retrieveConfigurationDate()
+        let retrievedDate = self.userDefaultHandler.retrieveStartDate()
         
         XCTAssertTrue(NSCalendar.current.compare(timestamp as Date, to: retrievedDate! as Date,
                                                  toGranularity: .hour) == .orderedSame)
