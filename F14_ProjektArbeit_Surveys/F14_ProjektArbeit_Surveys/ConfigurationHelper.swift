@@ -56,9 +56,9 @@ extension ConfigurationViewController {
     
     func initializeLocalSurveyNotifications() {
         // add all the timers for the survey
-        let currentDate = NSDate()
         let startDate = UserDefaultHandler.sharedInstance.retrieveStartDate()
         let calendar = Calendar.current
+        var dateComponent = DateComponents()
         
         // Tag 1.; 10:00Uhr; Block A
         ToDoSurveyList.sharedInstance.addItem(
@@ -89,17 +89,55 @@ extension ConfigurationViewController {
             TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block D", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
         )
         
+        // Tag 2.
+        // -------------------------
+        dateComponent.day = 1
+        let dayTwo = calendar.date(byAdding: dateComponent, to: startDate! as Date)
+        
         // Tag 2.; 14:00Uhr; Block B & C (Fitness)
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block C (Fitness)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         // Tag 2.; 18:00Uhr; Block B & E (Schlaf)
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         // Tag 2.; 22:00Uhr; Block B & D
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block D", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        
+        // Tag 3.
+        // -------------------------
+        dateComponent.day = 2
+        let dayThree = calendar.date(byAdding: dateComponent, to: startDate! as Date)
         
         // Tag 3.; 18:00Uhr; Block E (Schlaf)
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayThree! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         
-        let todoItem = TodoSurveyItem(deadline: currentDate, surveyTitle: "here comes the title of the survey", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)
-        ToDoSurveyList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
+        // test items for local notifications
+        let currentDate = Date()
+        dateComponent.day = 0
+        dateComponent.minute = 2
+        let testDateOne = calendar.date(byAdding: dateComponent, to: currentDate)!        
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateOne as NSDate, surveyTitle: "Test Item after 2 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)) // schedule a local notification to persist this item
+        dateComponent.minute = 5
+        let testDateTwo = calendar.date(byAdding: dateComponent, to: currentDate)!
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateTwo as NSDate, surveyTitle: "Test Item after 5 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)) // schedule a local notification to persist this item
     }
 
 }

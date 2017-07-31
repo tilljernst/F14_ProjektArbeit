@@ -74,15 +74,15 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
         let todoItem = todoSurveyItems[(indexPath as NSIndexPath).row] as TodoSurveyItem
         
         cell.textLabel?.text = todoItem.surveyTitle as String!
-        if (todoItem.isOverdue) { // the current time is later than the to-do item's deadline
-            cell.detailTextLabel?.textColor = UIColor.red
+        if (todoItem.becomeDue) { // the current time is later than the to-do item's deadline
+            cell.detailTextLabel?.textColor = UIColor.green
         } else {
             cell.detailTextLabel?.textColor = UIColor.black // we need to reset this because a cell with red subtitle may be returned by dequeueReusableCellWithIdentifier:indexPath:
         }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "'Due' MMM dd 'at' h:mm a" // example: "Due Jan 01 at 12:00 PM"
-        cell.detailTextLabel?.text = "Due date: \(dateFormatter.string(from: todoItem.deadline as Date)); UUID: \(todoItem.UUID)."
+        cell.detailTextLabel?.text = "Due date: \(dateFormatter.string(from: todoItem.deadline as Date))."
         
         return cell
     }
@@ -98,28 +98,39 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
 
         // get the todoItem
         let todoItem = todoSurveyItems[(indexPath as NSIndexPath).row] as TodoSurveyItem
-
-        // create a task 
-        let taskId = todoItem.surveyTaskId
-        let task = ToDoSurveyTask.sharedInstance.getTaskBasedOnId(taskId: taskId)
-        /*
-         Passing `nil` for the `taskRunUUID` lets the task view controller
-         generate an identifier for this run of the task.
-         */
-        let surveyTaskViewController = ORKTaskViewController(task: task, taskRun: nil)
         
-        // Make sure we receive events from `taskViewController`.
-        surveyTaskViewController.delegate = self
-        
-        // Assign a directory to store `taskViewController` output.
-        surveyTaskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        /*
-         We present the task directly, but it is also possible to use segues.
-         The task property of the task view controller can be set any time before
-         the task view controller is presented.
-         */
-        present(surveyTaskViewController, animated: true, completion: nil)
+        // item kann nur ausgeführt werden, wenn ausführzeit erreicht ist
+        if(todoItem.becomeDue){
+            // create a task
+            let taskId = todoItem.surveyTaskId
+            let task = ToDoSurveyTask.sharedInstance.getTaskBasedOnId(taskId: taskId)
+            /*
+             Passing `nil` for the `taskRunUUID` lets the task view controller
+             generate an identifier for this run of the task.
+             */
+            let surveyTaskViewController = ORKTaskViewController(task: task, taskRun: nil)
+            
+            // Make sure we receive events from `taskViewController`.
+            surveyTaskViewController.delegate = self
+            
+            // Assign a directory to store `taskViewController` output.
+            surveyTaskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            
+            /*
+             We present the task directly, but it is also possible to use segues.
+             The task property of the task view controller can be set any time before
+             the task view controller is presented.
+             */
+            present(surveyTaskViewController, animated: true, completion: nil)
+        } else {
+            // info fenster anzeigen
+            let alertController = UIAlertController(title: "Survey Handler", message: "Sie können die Umfrage erst starten, wenn die Ausführzeit erreicht ist. Bitte gedulden Sie sich noch etwas.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel) {action -> Void in
+            }
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
     }
 
     // MARK: ORKTaskViewControllerDelegate

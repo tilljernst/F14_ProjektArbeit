@@ -22,7 +22,7 @@ struct TodoSurveyItem {
         self.surveyTaskId = surveyTaskId
     }
     
-    var isOverdue: Bool {
+    var becomeDue: Bool {
         // Optionally, you can omit "ComparisonResult" and it will be inferred.
         return (NSDate().compare(self.deadline as Date) == ComparisonResult.orderedDescending) // deadline is earlier than current date
     }

@@ -23,10 +23,12 @@ public var ConfigurationTask: ORKTask {
     heartRateIdStep.isOptional = false
     
     // start date
-    let today = Date()
-    let maximumDate = Calendar.current.date(byAdding: .day, value: 8, to: today)
-    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat()
-//    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat(withDefaultDate: today, minimumDate: today, maximumDate: maximumDate, calendar: NSCalendar.current)
+    let currentDate = Date()
+    var dateComponent = DateComponents()
+    let calendar = Calendar.current
+    dateComponent.day = 1
+    let startDate = calendar.date(byAdding: dateComponent, to: currentDate)
+    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat(withDefaultDate: startDate, minimumDate: currentDate, maximumDate: nil, calendar: nil)
     let startDateStep = ORKQuestionStep(identifier: String(describing:Identifier.configurationStartDateStep), title: "Bitte geben Sie den Tag ein, an dem Sie mit der Umfrage beginnen wollen:", answer: startDateFormat)
     startDateStep.isOptional = false
     
