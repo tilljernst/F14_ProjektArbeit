@@ -102,10 +102,49 @@ class ToDoSurveyList {
         } else {
             let scheduledNotifications: [UILocalNotification]? = UIApplication.shared.scheduledLocalNotifications
             guard scheduledNotifications != nil else {return} // Nothing to remove, so return
-        
+            
             for notification in scheduledNotifications! { // loop through notifications...
                 if (notification.userInfo!["UUID"] as! String == item.UUID) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)
                     UIApplication.shared.cancelLocalNotification(notification) // there should be a maximum of one match on UUID
+                    break
+                }
+            }
+        }
+    }
+    
+    func removeDoneItem(ORKTaskIdentifier orkTaskIdentifier: String){
+        
+        // remove item from UserDefaults and user notification
+        var todoDictionary = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? [:]
+        let items = Array(todoDictionary.values)
+        let actualDate = NSDate()
+        for item in items {
+            let newItem = item as! [String:AnyObject]
+            let surveyTaskId = SurveyTaskId(rawValue: newItem["surveyTaskId"] as! Int)
+            // proof if surveyTaskId is identical
+            let orkId = ToDoSurveyTask.sharedInstance.getOrkIdentifierBasedOnId(taskId: surveyTaskId!)
+            if(orkId == orkTaskIdentifier){
+                let dueDate = newItem["deadline"] as! NSDate
+                if(dueDate.compare(actualDate as Date) == .orderedAscending){
+                    let uuid = newItem["UUID"] as! String
+                    todoDictionary.removeValue(forKey: uuid)
+                    UserDefaults.standard.set(todoDictionary, forKey: ITEMS_KEY) // save/overwrite todo item list
+                    // remove local notification
+                    if #available(iOS 10.0, *) {
+                        // Schedule the request.
+                        let center = UNUserNotificationCenter.current()
+                        center.removePendingNotificationRequests(withIdentifiers: [uuid])
+                    } else {
+                        let scheduledNotifications: [UILocalNotification]? = UIApplication.shared.scheduledLocalNotifications
+                        guard scheduledNotifications != nil else {return} // Nothing to remove, so return
+                        
+                        for notification in scheduledNotifications! { // loop through notifications...
+                            if (notification.userInfo!["UUID"] as! String == uuid) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)
+                                UIApplication.shared.cancelLocalNotification(notification) // there should be a maximum of one match on UUID
+                                break
+                            }
+                        }
+                    }
                     break
                 }
             }

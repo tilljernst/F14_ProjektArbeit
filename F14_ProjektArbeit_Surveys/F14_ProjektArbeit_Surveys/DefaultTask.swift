@@ -22,7 +22,8 @@ extension ToDoSurveyTask {
         let completionStep = ORKCompletionStep(identifier: "Completion Step")
         completionStep.title = "Thank you for taking this survey!"
         
-        let task = ORKOrderedTask(identifier: "first survey", steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
+        let orkIdentifier:String = ToDoSurveyTask.sharedInstance.getOrkIdentifierBasedOnId(taskId: SurveyTaskId.defaultTask)
+        let task = ORKOrderedTask(identifier: orkIdentifier, steps: [instStep, question1,/* question2, question3, question4, question5, question6,*/ completionStep])
         
         return task
     }

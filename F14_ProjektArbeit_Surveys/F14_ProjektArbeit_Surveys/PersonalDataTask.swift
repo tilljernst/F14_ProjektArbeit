@@ -135,7 +135,8 @@ extension ToDoSurveyTask{
         completionStep.title = "Vielen Dank für den ersten Teil der Umfrage!"
         
         // create the task
-        let task = ORKNavigableOrderedTask(identifier: String (describing:Identifier.personTask), steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, lifeFormQuestion, kidsStep,  totalKidsQuestion, kidsAgeFormStep, kidsSupervisionFormStep, housholdQuestion, carsFormQuestion, holidayFormQuestion, computerFormQuestion, bathroomFormQuestion, completionStep])
+        let orkIdentifier:String = ToDoSurveyTask.sharedInstance.getOrkIdentifierBasedOnId(taskId: SurveyTaskId.personalData)
+        let task = ORKNavigableOrderedTask(identifier: orkIdentifier, steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, lifeFormQuestion, kidsStep,  totalKidsQuestion, kidsAgeFormStep, kidsSupervisionFormStep, housholdQuestion, carsFormQuestion, holidayFormQuestion, computerFormQuestion, bathroomFormQuestion, completionStep])
         
         // Build Navigation Rules for the kids
         let resultSelector: ORKResultSelector

@@ -128,16 +128,21 @@ extension ConfigurationViewController {
             TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayThree! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
         )
         
-        
+        // TODO: Remove the following code when finished
         // test items for local notifications
         let currentDate = Date()
         dateComponent.day = 0
+        dateComponent.minute = 1
+        dateComponent.second = 0
+        let comp = calendar.dateComponents([.hour, .minute], from: currentDate)
+        let hour = comp.hour
+        let minute = comp.minute
+        var testDateOne = calendar.date(bySettingHour: hour!, minute: minute!, second: 0, of: currentDate)
+        testDateOne = calendar.date(byAdding: dateComponent, to: testDateOne!)!
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateOne! as NSDate, surveyTitle: "Test Item after 2 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
         dateComponent.minute = 2
-        let testDateOne = calendar.date(byAdding: dateComponent, to: currentDate)!        
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateOne as NSDate, surveyTitle: "Test Item after 2 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)) // schedule a local notification to persist this item
-        dateComponent.minute = 5
-        let testDateTwo = calendar.date(byAdding: dateComponent, to: currentDate)!
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateTwo as NSDate, surveyTitle: "Test Item after 5 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)) // schedule a local notification to persist this item
+        let testDateTwo = calendar.date(byAdding: dateComponent, to: testDateOne!)!
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateTwo as NSDate, surveyTitle: "Test Item after 5 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
     }
 
 }

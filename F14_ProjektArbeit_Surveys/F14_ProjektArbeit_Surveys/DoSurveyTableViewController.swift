@@ -18,6 +18,8 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
         case `default` = "ToDoSurvey"
     }
     
+    let swiftDueColor = UIColor(red: 0, green: 204/255, blue: 0, alpha: 1) 
+    
     // MARK: Properties
     
     /**
@@ -68,6 +70,7 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
         return todoSurveyItems.count
     }
     
+    // darstellen der task liste
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.default.rawValue, for: indexPath) // retrieve the prototype cell (subtitle style)
@@ -75,7 +78,7 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
         
         cell.textLabel?.text = todoItem.surveyTitle as String!
         if (todoItem.becomeDue) { // the current time is later than the to-do item's deadline
-            cell.detailTextLabel?.textColor = UIColor.green
+            cell.detailTextLabel?.textColor = swiftDueColor
         } else {
             cell.detailTextLabel?.textColor = UIColor.black // we need to reset this because a cell with red subtitle may be returned by dequeueReusableCellWithIdentifier:indexPath:
         }
@@ -136,17 +139,23 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
     // MARK: ORKTaskViewControllerDelegate
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        /*
-         The `reason` passed to this method indicates why the task view
-         controller finished: Did the user cancel, save, or actually complete
-         the task; or was there an error?
-         
-         The actual result of the task is on the `result` property of the task
-         view controller.
-         */
-        taskResultFinishedCompletionHandler?(taskViewController.result)
-        
-        taskViewController.dismiss(animated: true, completion: nil)
+        switch reason {
+        case .completed:
+            // read config result as ORKTaskResult
+            let doToTaskResult = taskViewController.result
+            print(doToTaskResult)
+            let taskIdentifier = doToTaskResult.identifier
+            
+            // TODO: get data from survey and do something with it
+            
+            // remove task from list with corresponding identifier
+            ToDoSurveyList.sharedInstance.removeDoneItem(ORKTaskIdentifier: taskIdentifier)
+            
+            //performSegue(withIdentifier: "unwindToStudy", sender: nil)
+            taskViewController.dismiss(animated: true, completion: nil)
+        case .discarded, .failed, .saved:
+           taskViewController.dismiss(animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

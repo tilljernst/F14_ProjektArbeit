@@ -75,4 +75,7 @@ public enum Identifier {
     case equipmentInstructionStep
     case operationTask
     case operationInstructionStep
+    
+    // default task
+    case defaultTask
 }

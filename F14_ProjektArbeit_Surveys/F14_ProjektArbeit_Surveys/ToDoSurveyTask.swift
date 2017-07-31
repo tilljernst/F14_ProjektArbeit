@@ -42,6 +42,19 @@ class ToDoSurveyTask {
         default:
             return defaultTask()
         }
-    }    
+    }
+    
+    func getOrkIdentifierBasedOnId(taskId:SurveyTaskId) -> String {
+        switch taskId {
+        case .personalData:
+            return String(describing:Identifier.personTask)
+        case .equipmentUsed:
+            return String(describing:Identifier.defaultTask)
+        case .equipmentOperated:
+            return String(describing:Identifier.defaultTask)
+        default:
+            return String(describing:Identifier.defaultTask)
+        }
+    }
 }
 
