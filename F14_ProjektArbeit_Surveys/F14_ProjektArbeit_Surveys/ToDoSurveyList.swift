@@ -47,13 +47,21 @@ class ToDoSurveyList {
         
         // create a corresponding local notification, based on 
         if #available(iOS 10.0, *) {
+            // configure the content of the trigger
             let content = UNMutableNotificationContent()
-            content.title = NSString.localizedUserNotificationString(forKey: "Title of the notification", arguments: nil)
-            content.body = NSString.localizedUserNotificationString(forKey: "Todo Item \"\(item.surveyTitle)\" Is Overdue",                                                                 arguments: nil)
+            content.title = NSString.localizedUserNotificationString(forKey: item.surveyTitle, arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "Umfrage \"\(item.surveyTitle)\" ist parat zum ausfüllen!",                                                                 arguments: nil)
             content.sound = UNNotificationSound.default()
             
-            // tmp: Configure the trigger for 10s trigger
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 600.0, repeats: false)
+            // Configure the trigger for a calendar notification trigger
+            var dateComponents = DateComponents()
+            let cal = NSCalendar.current
+            dateComponents.year = cal.component(.year, from: item.deadline as Date)
+            dateComponents.month = cal.component(.month, from: item.deadline as Date)
+            dateComponents.day = cal.component(.day, from: item.deadline as Date)
+            dateComponents.hour = cal.component(.hour, from: item.deadline as Date)
+            dateComponents.minute = cal.component(.minute, from: item.deadline as Date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
             // Create the request object.
             let notificationRequest = UNNotificationRequest(identifier: item.UUID, content: content, trigger: trigger)
@@ -70,9 +78,9 @@ class ToDoSurveyList {
             
         } else {
             let notification = UILocalNotification()
-            notification.alertBody = "Todo Item \"\(item.surveyTitle)\" Is Overdue" // text that will be displayed in the notification
+            notification.alertBody = "Umfrage \"\(item.surveyTitle)\" ist parat zum ausfüllen!" // text that will be displayed in the notification
             notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-            notification.alertTitle = "Reason for the alert"
+            notification.alertTitle = item.surveyTitle
             notification.fireDate = item.deadline as Date // todo item due date (when notification will be fired)
             notification.soundName = UILocalNotificationDefaultSoundName // play default sound
             notification.userInfo = ["surveyTitle": item.surveyTitle, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later

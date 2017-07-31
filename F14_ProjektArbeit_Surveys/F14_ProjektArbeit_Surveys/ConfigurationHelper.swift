@@ -18,7 +18,7 @@ extension ConfigurationViewController {
         let configTaskResults = result
         print(configTaskResults)
         var heartRateId:String = ""
-        var startDate:Date = Date()
+        var startDate = Date()
         let dateFormatter = UserDefaultHandler.sharedInstance.getConfigDateFormatter()
         let configurationDate = dateFormatter.string(from: configTaskResults.startDate)
         print("configurationDate \(String(describing: configurationDate))")
@@ -36,13 +36,14 @@ extension ConfigurationViewController {
                     print("Value is \(String(describing: heartRateId))")
                 // read start date
                 case (String(describing:Identifier.configurationStartDateStep)):
-                    let configDate = result as? ORKDateQuestionResult
-                    startDate = (configDate?.dateAnswer)!
+                    let startDateResult = result as? ORKDateQuestionResult
+                    startDate = (startDateResult?.dateAnswer)!
+                    print("dateAnswer \(String(describing: startDate))")
                     let calendar = Calendar.current
                     startDate = calendar.date(bySettingHour: 10, minute: 0, second: 0, of: startDate)!
-                    print("dateAnswer \(String(describing: startDate))")
-                    print("calendar \(String(describing: configDate?.calendar))")
-                    print("timeZone \(String(describing: configDate?.timeZone))")
+                    print("configuredStartDate \(String(describing: startDate))")
+                    print("calendar \(String(describing: startDateResult?.calendar))")
+                    print("timeZone \(String(describing: startDateResult?.timeZone))")
                 default:break
                 }
             }
@@ -57,16 +58,36 @@ extension ConfigurationViewController {
         // add all the timers for the survey
         let currentDate = NSDate()
         let startDate = UserDefaultHandler.sharedInstance.retrieveStartDate()
-        
-        
+        let calendar = Calendar.current
         
         // Tag 1.; 10:00Uhr; Block A
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: startDate!, surveyTitle: "Block A", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)
+        )
         
         // Tag 1.; 14:00Uhr; Block B & C (Fitness)
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block C (Fitness)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         // Tag 1.; 18:00Uhr; Block B & E (Schlaf)
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         // Tag 1.; 22:00Uhr; Block B & D
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
+        ToDoSurveyList.sharedInstance.addItem(
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block D", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+        )
         
         // Tag 2.; 14:00Uhr; Block B & C (Fitness)
         

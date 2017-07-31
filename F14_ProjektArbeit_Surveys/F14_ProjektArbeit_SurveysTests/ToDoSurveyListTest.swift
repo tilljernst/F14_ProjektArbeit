@@ -121,6 +121,12 @@ class ToDoSurveyListTest: XCTestCase {
                     listCleaned = false
                 }
             })
+            center.getDeliveredNotifications(completionHandler: {
+                (notifications) in
+                if notifications.count > 0 {
+                    listCleaned = false
+                }
+            })
             XCTAssertTrue(listCleaned)
         } else {
             let scheduledNotifications: [UILocalNotification]? = UIApplication.shared.scheduledLocalNotifications

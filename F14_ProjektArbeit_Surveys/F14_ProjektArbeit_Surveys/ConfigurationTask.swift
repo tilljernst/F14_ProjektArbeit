@@ -24,8 +24,9 @@ public var ConfigurationTask: ORKTask {
     
     // start date
     let today = Date()
-    let tomorrow = Calendar.current.date(byAdding: .day, value: 8, to: today)
-    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat(withDefaultDate: nil, minimumDate: today, maximumDate: tomorrow, calendar: nil)
+    let maximumDate = Calendar.current.date(byAdding: .day, value: 8, to: today)
+    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat()
+//    let startDateFormat =  ORKAnswerFormat.dateAnswerFormat(withDefaultDate: today, minimumDate: today, maximumDate: maximumDate, calendar: NSCalendar.current)
     let startDateStep = ORKQuestionStep(identifier: String(describing:Identifier.configurationStartDateStep), title: "Bitte geben Sie den Tag ein, an dem Sie mit der Umfrage beginnen wollen:", answer: startDateFormat)
     startDateStep.isOptional = false
     
@@ -33,7 +34,7 @@ public var ConfigurationTask: ORKTask {
     let completionStep = ORKCompletionStep(identifier: "Die App ist nun konfiguriert.")
         completionStep.title = "Vielen Dank!"
         
-    let task = ORKOrderedTask(identifier: String(describing:Identifier.configurationTask), steps: [instStep, heartRateIdStep,startDateStep, completionStep])
+    let task = ORKOrderedTask(identifier: String(describing:Identifier.configurationTask), steps: [instStep, heartRateIdStep, startDateStep, completionStep])
     
     return task
 }
