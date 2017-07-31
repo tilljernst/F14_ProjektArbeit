@@ -19,7 +19,12 @@ class ToDoSurveyList {
         return Static.instance
     }
     
-    fileprivate let ITEMS_KEY = "surveyTodoItems"
+    let ITEMS_KEY = "surveyTodoItems"
+    
+    func getItemsKey() -> String{
+        return ITEMS_KEY
+    }
+    
     
     func allItems() -> [TodoSurveyItem] {
         let todoDictionary = UserDefaults.standard.dictionary(forKey: ITEMS_KEY) ?? [:]
@@ -83,7 +88,6 @@ class ToDoSurveyList {
             UserDefaults.standard.set(todoItems, forKey: ITEMS_KEY) // save/overwrite todo item list
         }
         if #available(iOS 10.0, *) {
-            // TODO: remove Notification
             // Schedule the request.
             let center = UNUserNotificationCenter.current()
             center.removePendingNotificationRequests(withIdentifiers: [item.UUID])
