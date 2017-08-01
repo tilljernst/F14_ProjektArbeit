@@ -24,6 +24,10 @@
 		83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83322B491ED326400005794F /* SurveyTaskListRow.swift */; };
 		833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833535831EDEC1B700736FB0 /* SurveyHelper.swift */; };
 		8338D9501F2F02AB0059DD96 /* ToDoSurveyListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D94F1F2F02AB0059DD96 /* ToDoSurveyListTest.swift */; };
+		8338D9551F3038910059DD96 /* EquipmentUsedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D9541F3038910059DD96 /* EquipmentUsedTask.swift */; };
+		8338D9571F303CA90059DD96 /* FitnessTestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D9561F303CA90059DD96 /* FitnessTestTask.swift */; };
+		8338D95D1F3040D30059DD96 /* SleepQualityTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D95C1F3040D30059DD96 /* SleepQualityTask.swift */; };
+		8338D95F1F3043F40059DD96 /* EndOfDayTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D95E1F3043F40059DD96 /* EndOfDayTask.swift */; };
 		834B6D701F2B150A00C779D2 /* ToDoSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */; };
 		836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */; };
 		836BB06B1ED4AC2A001B6C2D /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */; };
@@ -117,6 +121,10 @@
 		833535831EDEC1B700736FB0 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		8338D94F1F2F02AB0059DD96 /* ToDoSurveyListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoSurveyListTest.swift; sourceTree = "<group>"; };
 		8338D9531F2F38F50059DD96 /* DateTime.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DateTime.playground; sourceTree = "<group>"; };
+		8338D9541F3038910059DD96 /* EquipmentUsedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmentUsedTask.swift; sourceTree = "<group>"; };
+		8338D9561F303CA90059DD96 /* FitnessTestTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessTestTask.swift; sourceTree = "<group>"; };
+		8338D95C1F3040D30059DD96 /* SleepQualityTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SleepQualityTask.swift; path = ../SleepQualityTask.swift; sourceTree = "<group>"; };
+		8338D95E1F3043F40059DD96 /* EndOfDayTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndOfDayTask.swift; sourceTree = "<group>"; };
 		834B6D6F1F2B150A00C779D2 /* ToDoSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoSurveyTask.swift; sourceTree = "<group>"; };
 		836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
@@ -347,6 +355,10 @@
 			children = (
 				83EF48A61F2B309100859C45 /* DefaultTask.swift */,
 				83EF48A81F2B312000859C45 /* PersonalDataTask.swift */,
+				8338D9541F3038910059DD96 /* EquipmentUsedTask.swift */,
+				8338D9561F303CA90059DD96 /* FitnessTestTask.swift */,
+				8338D95E1F3043F40059DD96 /* EndOfDayTask.swift */,
+				8338D95C1F3040D30059DD96 /* SleepQualityTask.swift */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -486,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8338D95D1F3040D30059DD96 /* SleepQualityTask.swift in Sources */,
 				8301890F1F28D48200304197 /* ToDoSurveyList.swift in Sources */,
 				83B9153A1F01438100778410 /* ResearchContainerSegue.swift in Sources */,
 				833535841EDEC1B700736FB0 /* SurveyHelper.swift in Sources */,
@@ -497,6 +510,7 @@
 				83B9154A1F0265D300778410 /* ProfileStaticTableViewCell.swift in Sources */,
 				83322B4A1ED326400005794F /* SurveyTaskListRow.swift in Sources */,
 				83B1C2411F02E557003C41FF /* ConsentMenueViewController.swift in Sources */,
+				8338D95F1F3043F40059DD96 /* EndOfDayTask.swift in Sources */,
 				83B915381F013F0D00778410 /* WithdrawViewController.swift in Sources */,
 				83B9152D1F013BC100778410 /* ResearchContainerViewController.swift in Sources */,
 				830189111F28E28800304197 /* ConfigurationHelper.swift in Sources */,
@@ -508,6 +522,7 @@
 				83322B401ED317380005794F /* TaskListRow.swift in Sources */,
 				83B9154B1F0265D300778410 /* ProfileViewController.swift in Sources */,
 				83B915421F0147C400778410 /* HealthDataStepViewController.swift in Sources */,
+				8338D9551F3038910059DD96 /* EquipmentUsedTask.swift in Sources */,
 				83B915541F029D2400778410 /* ConfigurationViewController.swift in Sources */,
 				83B915351F013E8100778410 /* HealthClientType.swift in Sources */,
 				83B915581F02C2F200778410 /* ConfigurationTask.swift in Sources */,
@@ -520,6 +535,7 @@
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
 				8301890D1F28D1C400304197 /* ToDoSurveyItem.swift in Sources */,
 				836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */,
+				8338D9571F303CA90059DD96 /* FitnessTestTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,7 @@ extension ToDoSurveyTask{
         // Intro step
         let personInstructionStep = ORKInstructionStep(identifier: String(describing:Identifier.personInstructionStep))
         
-        personInstructionStep.title = "Angaben zur Person"
+        personInstructionStep.title = ToDoSurveyTask.sharedInstance.getSurveyTitle(taskId: SurveyTaskId.blockA_personalData)
         personInstructionStep.text = "Zuerst folgen ein paar Angaben zu Ihrer Person:"
         
         // gender
@@ -135,8 +135,7 @@ extension ToDoSurveyTask{
         completionStep.title = "Vielen Dank für den ersten Teil der Umfrage!"
         
         // create the task
-        let orkIdentifier:String = ToDoSurveyTask.sharedInstance.getOrkIdentifierBasedOnId(taskId: SurveyTaskId.personalData)
-        let task = ORKNavigableOrderedTask(identifier: orkIdentifier, steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, lifeFormQuestion, kidsStep,  totalKidsQuestion, kidsAgeFormStep, kidsSupervisionFormStep, housholdQuestion, carsFormQuestion, holidayFormQuestion, computerFormQuestion, bathroomFormQuestion, completionStep])
+        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.personTask), steps: [personInstructionStep, genderQuestion, yearQuestion, heightQuestion, weightQuestion, lifeFormQuestion, kidsStep,  totalKidsQuestion, kidsAgeFormStep, kidsSupervisionFormStep, housholdQuestion, carsFormQuestion, holidayFormQuestion, computerFormQuestion, bathroomFormQuestion, completionStep])
         
         // Build Navigation Rules for the kids
         let resultSelector: ORKResultSelector

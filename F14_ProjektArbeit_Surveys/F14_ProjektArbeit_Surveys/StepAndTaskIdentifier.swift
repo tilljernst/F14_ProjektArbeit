@@ -73,8 +73,27 @@ public enum Identifier {
     // Task for equipment usage
     case equipmentTask
     case equipmentInstructionStep
+    case equipmentCompletionStep
+    
+    // Task for operation
     case operationTask
     case operationInstructionStep
+    case operationCompletionStep
+    
+    // Task for fitness
+    case fitnessTask
+    case fitnessInstructionStep
+    case fitnessCompletionStep
+    
+    // end of day
+    case endOfDayTask
+    case endOfDayInstructionStep
+    case endOfDayCompletionStep
+    
+    // sleep quality
+    case sleepTask
+    case sleepInstructionStep
+    case sleepCompletionstep
     
     // default task
     case defaultTask

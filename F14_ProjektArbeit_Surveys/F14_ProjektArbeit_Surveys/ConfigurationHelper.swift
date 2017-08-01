@@ -62,31 +62,31 @@ extension ConfigurationViewController {
         
         // Tag 1.; 10:00Uhr; Block A
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: startDate!, surveyTitle: "Block A", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.personalData)
+            TodoSurveyItem(deadline: startDate!, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockA_personalData)
         )
         
         // Tag 1.; 14:00Uhr; Block B & C (Fitness)
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block C (Fitness)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockC_fitnessTest)
         )
         
         // Tag 1.; 18:00Uhr; Block B & E (Schlaf)
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockE_sleepQuality)
         )
         
         // Tag 1.; 22:00Uhr; Block B & D
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, surveyTitle: "Block D", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: startDate! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockD_endOfDay)
         )
         
         // Tag 2.
@@ -96,26 +96,26 @@ extension ConfigurationViewController {
         
         // Tag 2.; 14:00Uhr; Block B & C (Fitness)
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block C (Fitness)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 14, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockC_fitnessTest)
         )
         
         // Tag 2.; 18:00Uhr; Block B & E (Schlaf)
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockE_sleepQuality)
         )
         
         // Tag 2.; 22:00Uhr; Block B & D
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block B", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockB_equipmentUsed)
         )
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, surveyTitle: "Block D", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayTwo! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockD_endOfDay)
         )
         
         // Tag 3.
@@ -125,7 +125,7 @@ extension ConfigurationViewController {
         
         // Tag 3.; 18:00Uhr; Block E (Schlaf)
         ToDoSurveyList.sharedInstance.addItem(
-            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayThree! as Date)! as NSDate, surveyTitle: "Block E (Schlaf)", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)
+            TodoSurveyItem(deadline: calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayThree! as Date)! as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.blockE_sleepQuality)
         )
         
         // TODO: Remove the following code when finished
@@ -139,10 +139,10 @@ extension ConfigurationViewController {
         let minute = comp.minute
         var testDateOne = calendar.date(bySettingHour: hour!, minute: minute!, second: 0, of: currentDate)
         testDateOne = calendar.date(byAdding: dateComponent, to: testDateOne!)!
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateOne! as NSDate, surveyTitle: "Test Item after 2 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 2 Minutes",deadline: testDateOne! as NSDate,  UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
         dateComponent.minute = 2
         let testDateTwo = calendar.date(byAdding: dateComponent, to: testDateOne!)!
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(deadline: testDateTwo as NSDate, surveyTitle: "Test Item after 5 Minutes", UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 5 Minutes",deadline: testDateTwo as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
     }
 
 }

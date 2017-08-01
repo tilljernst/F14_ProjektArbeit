@@ -18,7 +18,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
     case personData = 0
     case equipmentLast4Hours
     case operationLast4Hours
-    case fitnesTest
+    case fitnessTest
     case consumptionSurvey
     case qualityOfSleep
     
@@ -46,7 +46,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
                     ]),
             SurveyTaskListRowSection(title: "Block C", rows:
                 [
-                    .fitnesTest,
+                    .fitnessTest,
                     ]),
             SurveyTaskListRowSection(title: "Block D", rows:
                 [
@@ -71,7 +71,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .operationLast4Hours:
             return NSLocalizedString("TODO: Ausgeführte Tätigkeiten", comment: "")
             
-        case .fitnesTest:
+        case .fitnessTest:
             return NSLocalizedString("TODO: Fitnestest", comment: "")
         
         case .consumptionSurvey:
@@ -94,7 +94,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
             return ToDoSurveyTask.sharedInstance.defaultTask()
         case .operationLast4Hours:
             return ToDoSurveyTask.sharedInstance.defaultTask()
-        case .fitnesTest:
+        case .fitnessTest:
             return ToDoSurveyTask.sharedInstance.defaultTask()
         case .consumptionSurvey:
             return ToDoSurveyTask.sharedInstance.defaultTask()

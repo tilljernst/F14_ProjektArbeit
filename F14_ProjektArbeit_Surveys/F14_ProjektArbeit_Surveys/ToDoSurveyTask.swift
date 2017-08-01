@@ -13,9 +13,11 @@ import ResearchKit
 
 
 public enum SurveyTaskId: Int {
-    case personalData = 0
-    case equipmentUsed
-    case equipmentOperated
+    case blockA_personalData = 0
+    case blockB_equipmentUsed
+    case blockC_fitnessTest
+    case blockD_endOfDay
+    case blockE_sleepQuality
     case defaultTask
 }
 
@@ -29,16 +31,17 @@ class ToDoSurveyTask {
     
     
     func getTaskBasedOnId(taskId:SurveyTaskId) -> ORKTask {
-//        let id = SurveyTaskId.RawValue(taskId)
-//        let id = SurveyTaskListRow.personData
-        
         switch taskId {
-        case .personalData:
+        case .blockA_personalData:
             return personalDataTask()
-        case .equipmentUsed:
-            return defaultTask()
-        case .equipmentOperated:
-            return defaultTask()
+        case .blockB_equipmentUsed:
+            return equipmentUsedTask()
+        case .blockC_fitnessTest:
+            return fitnessTask()
+        case .blockD_endOfDay:
+            return endOfDayTask()
+        case .blockE_sleepQuality:
+            return sleepQualityTask()
         default:
             return defaultTask()
         }
@@ -46,14 +49,35 @@ class ToDoSurveyTask {
     
     func getOrkIdentifierBasedOnId(taskId:SurveyTaskId) -> String {
         switch taskId {
-        case .personalData:
+        case .blockA_personalData:
             return String(describing:Identifier.personTask)
-        case .equipmentUsed:
-            return String(describing:Identifier.defaultTask)
-        case .equipmentOperated:
-            return String(describing:Identifier.defaultTask)
+        case .blockB_equipmentUsed:
+            return String(describing:Identifier.equipmentTask)
+        case .blockC_fitnessTest:
+            return String(describing:Identifier.fitnessTask)
+        case .blockD_endOfDay:
+            return String(describing:Identifier.endOfDayTask)
+        case .blockE_sleepQuality:
+            return String(describing:Identifier.sleepTask)
         default:
             return String(describing:Identifier.defaultTask)
+        }
+    }
+    
+    func getSurveyTitle (taskId:SurveyTaskId) -> String {
+        switch taskId {
+        case .blockA_personalData:
+            return "Block A - Angaben zur Person"
+        case .blockB_equipmentUsed:
+            return "Block B - Ausgeführte Tätigkeiten"
+        case .blockC_fitnessTest:
+            return "Block C - Fitness Test"
+        case .blockD_endOfDay:
+            return "Block D - Tagesendetest"
+        case .blockE_sleepQuality:
+            return "Block E - Schlafqualität"
+        default:
+            return "Default Task"
         }
     }
 }

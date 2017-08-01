@@ -32,7 +32,7 @@ class ToDoSurveyList {
         return items.map({
             let item = $0 as! [String:AnyObject]
             let surveyTaskId = SurveyTaskId(rawValue: item["surveyTaskId"] as! Int)
-            return TodoSurveyItem(deadline: item["deadline"] as! NSDate, surveyTitle: item["surveyTitle"] as! String, UUID: item["UUID"] as! String!, surveyTaskId: surveyTaskId!)
+            return TodoSurveyItem(surveyTitle: item["surveyTitle"] as! String, deadline: item["deadline"] as! NSDate, UUID: item["UUID"] as! String!, surveyTaskId: surveyTaskId!)
         }).sorted(by: {(left: TodoSurveyItem, right:TodoSurveyItem) -> Bool in
             (left.deadline.compare(right.deadline as Date) == .orderedAscending)
         })

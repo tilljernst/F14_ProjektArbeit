@@ -15,9 +15,15 @@ struct TodoSurveyItem {
     var UUID: String
     var surveyTaskId: SurveyTaskId
     
-    init(deadline: NSDate, surveyTitle: String, UUID: String, surveyTaskId: SurveyTaskId) {
+    init(deadline: NSDate, UUID: String, surveyTaskId: SurveyTaskId) {
         self.deadline = deadline
+        self.UUID = UUID
+        self.surveyTaskId = surveyTaskId
+        self.surveyTitle = ToDoSurveyTask.sharedInstance.getSurveyTitle(taskId: surveyTaskId)
+    }
+    init(surveyTitle: String, deadline: NSDate, UUID: String, surveyTaskId: SurveyTaskId) {
         self.surveyTitle = surveyTitle
+        self.deadline = deadline
         self.UUID = UUID
         self.surveyTaskId = surveyTaskId
     }
