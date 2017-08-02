@@ -38,12 +38,13 @@
 
 import UIKit
 import ResearchKit
+import UserNotifications
 
 class ResearchContainerViewController: UIViewController, HealthClientType {
     // MARK: HealthClientType
     
     var healthStore: HKHealthStore?
-    //var appHandler: AppHandler = AppHandler()
+    var localNotificationsisGrantedAccess = false
     
     // MARK: Propertues
     
@@ -59,18 +60,42 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Local Notification: Requesting Authorization to Interact with the User
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            
+            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                self.localNotificationsisGrantedAccess = granted
+                if granted{
+                    print("user granted notifications")
+                    self.registerLocalNotificationCategories()
+                } else {
+                    print(error ?? "got an error in request authorization for local notifications")
+                    let alert = UIAlertController(title: "Notification Access", message: "In order to use this application, turn on notification permissions.", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                    alert.addAction(alertAction)
+                    self.present(alert , animated: true, completion: nil)
+                }
+            }
+        } else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+        }
+
+        
         // bereits Passcode erstellt -> Einführung ist gemacht
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             // prüfen, ob Konfigutation bereits vorgenommen
-            
             if(UserDefaultHandler.sharedInstance.isUserConfigurationSet()){
+                print("go to study")
                 toStudy()
             }
             else{
+                print("go to configuration")
                 toConfiguration()
             }
         }
         else {
+            print("go to onboarding")
             toOnboarding()
         }
     }
@@ -117,6 +142,36 @@ class ResearchContainerViewController: UIViewController, HealthClientType {
         
         present(viewController, animated: true, completion: nil)
     }
+    
+    
+    // MARK: Local Notifications
+    
+    // local user notfications options
+    func registerLocalNotificationCategories() {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            
+            let snoozeAction = UNNotificationAction(identifier: "snooze", title: "In 10 Minuten nochmals erinnern...", options: [])
+            let surveyAlarmCategory = UNNotificationCategory(identifier: "surveyAlarm.category", actions: [snoozeAction],intentIdentifiers: [], options: [])
+            
+            center.setNotificationCategories([surveyAlarmCategory])
+        } else {
+            // TODO: Fallback on earlier versions for local notification categories (not implemented)
+        }
+    }
+    
+    @available(iOS 10.0, *)
+    func addNotification(content:UNNotificationContent, trigger:UNNotificationTrigger?, indentifier:String) {
+        
+        let request = UNNotificationRequest(identifier: indentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (errorObject) in
+            if let error = errorObject{
+                print("Error \(error.localizedDescription) in notification \(indentifier)")
+                                                }
+            }
+        )
+    }
 }
 
 
@@ -141,3 +196,40 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
         }
     }
 }
+
+// MARK: Delegate
+
+extension ResearchContainerViewController: UNUserNotificationCenterDelegate {
+    
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let request = response.notification.request
+        let categoryId = request.content.categoryIdentifier
+        
+        if(categoryId == "surveyAlarm.category") {
+            // check snooze action            
+            if response.actionIdentifier == "snooze"{
+                let newContent = request.content.mutableCopy() as! UNMutableNotificationContent
+                
+                newContent.body = "10 Minuten Erinnerung"
+                
+                let newTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                
+                addNotification(content: newContent, trigger: newTrigger, indentifier: request.identifier)
+            }
+            else {
+                // TODO: do open to do survey page
+            }
+        }
+        // you must call the completion handler when you're done
+        completionHandler()
+    }
+}
+

@@ -51,6 +51,8 @@ class ToDoSurveyList {
             let content = UNMutableNotificationContent()
             content.title = NSString.localizedUserNotificationString(forKey: item.surveyTitle, arguments: nil)
             content.body = NSString.localizedUserNotificationString(forKey: "Umfrage \"\(item.surveyTitle)\" ist parat zum ausfüllen!",                                                                 arguments: nil)
+            content.categoryIdentifier = "surveyAlarm.category"
+            content.userInfo = ["surveyTitle": item.surveyTitle, "UUID": item.UUID, "surveyTaskId": String(item.surveyTaskId.rawValue)]
             content.sound = UNNotificationSound.default()
             
             // Configure the trigger for a calendar notification trigger
@@ -83,7 +85,7 @@ class ToDoSurveyList {
             notification.alertTitle = item.surveyTitle
             notification.fireDate = item.deadline as Date // todo item due date (when notification will be fired)
             notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-            notification.userInfo = ["surveyTitle": item.surveyTitle, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later
+            notification.userInfo =  ["surveyTitle": item.surveyTitle, "UUID": item.UUID, "surveyTaskId": String(item.surveyTaskId.rawValue)] // assign a unique identifier to the notification so that we can retrieve it later
         
             UIApplication.shared.scheduleLocalNotification(notification)
         }

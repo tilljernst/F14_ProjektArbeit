@@ -69,23 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        // Local Notification: Requesting Authorization to Interact with the User
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-                // Enable or disable features based on authorization.
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    if(granted) {
-                        print("user granted notifications")
-                    }
-                }
-            }
-        } else {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-        }
         lockApp()
         return true
     }
@@ -100,6 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         lockApp()
     }
+    
+    
     
     func lockApp() {
         /*

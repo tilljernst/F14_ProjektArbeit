@@ -139,10 +139,10 @@ extension ConfigurationViewController {
         let minute = comp.minute
         var testDateOne = calendar.date(bySettingHour: hour!, minute: minute!, second: 0, of: currentDate)
         testDateOne = calendar.date(byAdding: dateComponent, to: testDateOne!)!
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 2 Minutes",deadline: testDateOne! as NSDate,  UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 1 minute",deadline: testDateOne! as NSDate,  UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
         dateComponent.minute = 2
         let testDateTwo = calendar.date(byAdding: dateComponent, to: testDateOne!)!
-        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 5 Minutes",deadline: testDateTwo as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
+        ToDoSurveyList.sharedInstance.addItem(TodoSurveyItem(surveyTitle: "Test Item after 2 Minutes",deadline: testDateTwo as NSDate, UUID: UUID().uuidString, surveyTaskId: SurveyTaskId.defaultTask)) // schedule a local notification to persist this item
     }
 
 }
