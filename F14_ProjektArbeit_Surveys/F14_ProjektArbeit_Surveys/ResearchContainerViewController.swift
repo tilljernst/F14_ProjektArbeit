@@ -225,7 +225,7 @@ extension ResearchContainerViewController: UNUserNotificationCenterDelegate {
                 addNotification(content: newContent, trigger: newTrigger, indentifier: request.identifier)
             }
             else {
-                // TODO: do open to do survey page
+                toStudy()
             }
         }
         // you must call the completion handler when you're done

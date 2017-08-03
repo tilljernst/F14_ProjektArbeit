@@ -46,8 +46,6 @@
 		83B9154A1F0265D300778410 /* ProfileStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */; };
 		83B9154B1F0265D300778410 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915481F0265D300778410 /* ProfileViewController.swift */; };
 		83B9154D1F02664900778410 /* HKHealthStore+Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */; };
-		83B9154F1F02850B00778410 /* ConsentDocumentExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B9154E1F02850B00778410 /* ConsentDocumentExample.swift */; };
-		83B915511F028CC500778410 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915501F028CC500778410 /* IntroductionViewController.swift */; };
 		83B915541F029D2400778410 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915531F029D2400778410 /* ConfigurationViewController.swift */; };
 		83B915581F02C2F200778410 /* ConfigurationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B915571F02C2F200778410 /* ConfigurationTask.swift */; };
 		83EF48A71F2B309100859C45 /* DefaultTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF48A61F2B309100859C45 /* DefaultTask.swift */; };
@@ -146,8 +144,6 @@
 		83B915471F0265D300778410 /* ProfileStaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileStaticTableViewCell.swift; sourceTree = "<group>"; };
 		83B915481F0265D300778410 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		83B9154C1F02664900778410 /* HKHealthStore+Queries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKHealthStore+Queries.swift"; sourceTree = "<group>"; };
-		83B9154E1F02850B00778410 /* ConsentDocumentExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocumentExample.swift; sourceTree = "<group>"; };
-		83B915501F028CC500778410 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		83B915531F029D2400778410 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		83B915571F02C2F200778410 /* ConfigurationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTask.swift; sourceTree = "<group>"; };
 		83EF48A61F2B309100859C45 /* DefaultTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTask.swift; sourceTree = "<group>"; };
@@ -267,9 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				83B1C2401F02E557003C41FF /* ConsentMenueViewController.swift */,
-				83B915501F028CC500778410 /* IntroductionViewController.swift */,
 				83B9153C1F0145DA00778410 /* OnboardingViewController.swift */,
-				83B9154E1F02850B00778410 /* ConsentDocumentExample.swift */,
 				836BB0681ED4ABAD001B6C2D /* ConsentDocument.swift */,
 				836BB06A1ED4AC2A001B6C2D /* ConsentTask.swift */,
 			);
@@ -530,8 +524,6 @@
 				83EF48A71F2B309100859C45 /* DefaultTask.swift in Sources */,
 				836BB0691ED4ABAD001B6C2D /* ConsentDocument.swift in Sources */,
 				8301890B1F28CBF300304197 /* DoSurveyTableViewController.swift in Sources */,
-				83B9154F1F02850B00778410 /* ConsentDocumentExample.swift in Sources */,
-				83B915511F028CC500778410 /* IntroductionViewController.swift in Sources */,
 				83322B421ED31DFC0005794F /* ResearchKitTableViewController.swift in Sources */,
 				8301890D1F28D1C400304197 /* ToDoSurveyItem.swift in Sources */,
 				836BB0711ED4C4D0001B6C2D /* StepAndTaskIdentifier.swift in Sources */,

@@ -15,21 +15,38 @@ class ConsentMenueViewController: UIViewController {
     // MARK: IB actions
     
     @IBAction func showConsentButtonTapped(_ sender: UIButton) {
+        showConsent()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showConsent()
+    }
+    
+    func showConsent(){
         let taskViewController = ORKTaskViewController(task: ConsentReviewTask, taskRun: nil)
         taskViewController.delegate = self
         present(taskViewController, animated: true, completion: nil)
     }
+
+    func switchToDoSurveyTabCont(){
+        tabBarController?.selectedIndex = 1
+    }
+
 }
 
 extension ConsentMenueViewController : ORKTaskViewControllerDelegate {
     
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        switch reason {
-//        case .completed:
-//            performSegue(withIdentifier: "unwindToConfiguration", sender: nil)
-//            
+        switch reason {            
         case .completed, .discarded, .failed, .saved:
             dismiss(animated: true, completion: nil)
+            switchToDoSurveyTabCont()
         }
     }
     

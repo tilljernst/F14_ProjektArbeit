@@ -80,6 +80,8 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         switch reason {
         case .completed:
+            // TODO: safe as pdf
+            
             performSegue(withIdentifier: "unwindToConfiguration", sender: nil)
             
         case .discarded, .failed, .saved:

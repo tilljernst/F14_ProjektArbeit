@@ -17,9 +17,8 @@ import ResearchKit
 enum SurveyTaskListRow: Int, CustomStringConvertible {
     case personData = 0
     case equipmentLast4Hours
-    case operationLast4Hours
     case fitnessTest
-    case consumptionSurvey
+    case endOfDay
     case qualityOfSleep
     
     class SurveyTaskListRowSection {
@@ -42,7 +41,6 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
             SurveyTaskListRowSection(title: "Block B", rows:
                 [
                     .equipmentLast4Hours,
-                    .operationLast4Hours,
                     ]),
             SurveyTaskListRowSection(title: "Block C", rows:
                 [
@@ -50,7 +48,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
                     ]),
             SurveyTaskListRowSection(title: "Block D", rows:
                 [
-                    .consumptionSurvey,
+                    .endOfDay,
                     ]),
             SurveyTaskListRowSection(title: "Block E", rows:
                 [
@@ -68,13 +66,10 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .equipmentLast4Hours:
             return NSLocalizedString("TODO: Genutzte Geräte", comment: "")
             
-        case .operationLast4Hours:
-            return NSLocalizedString("TODO: Ausgeführte Tätigkeiten", comment: "")
-            
         case .fitnessTest:
             return NSLocalizedString("TODO: Fitnestest", comment: "")
         
-        case .consumptionSurvey:
+        case .endOfDay:
             return NSLocalizedString("TODO: Konsumverhalten", comment: "")
             
         case .qualityOfSleep:
@@ -91,13 +86,11 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .personData:
             return ToDoSurveyTask.sharedInstance.personalDataTask()
         case .equipmentLast4Hours:
-            return ToDoSurveyTask.sharedInstance.defaultTask()
-        case .operationLast4Hours:
-            return ToDoSurveyTask.sharedInstance.defaultTask()
+            return ToDoSurveyTask.sharedInstance.equipmentUsedTask()
         case .fitnessTest:
-            return ToDoSurveyTask.sharedInstance.defaultTask()
-        case .consumptionSurvey:
-            return ToDoSurveyTask.sharedInstance.defaultTask()
+            return ToDoSurveyTask.sharedInstance.fitnessTask()
+        case .endOfDay:
+            return ToDoSurveyTask.sharedInstance.endOfDayTask()
         case .qualityOfSleep:
             return ToDoSurveyTask.sharedInstance.defaultTask()
         }

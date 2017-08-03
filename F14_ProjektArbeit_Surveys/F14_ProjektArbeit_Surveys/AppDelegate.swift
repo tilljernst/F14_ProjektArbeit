@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    var tabBarController: UITabBarController?
+    
     var containerViewController: ResearchContainerViewController? {
         return window?.rootViewController as? ResearchContainerViewController
     }

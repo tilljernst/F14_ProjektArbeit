@@ -70,8 +70,8 @@ public var ConsentReviewTask: ORKOrderedTask {
     
     let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: nil, in: consentDocument)
     
-//    reviewConsentStep.text = "Review Einverständniserklärung."
-//    reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
+    reviewConsentStep.text = "Review Einverständniserklärung."
+    reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
     
     return ORKOrderedTask(identifier: String(describing:Identifier.consentTask), steps: [
         reviewConsentStep
