@@ -15,27 +15,16 @@ public var ConsentDocument: ORKConsentDocument{
      This is the title of the document, displayed both for review and in
      the generated PDF.
      */
-    consentDocument.title = NSLocalizedString("Einverständniserklärung", comment: "")
+    consentDocument.title = "Einverständniserklärung"
     
     // This is the title of the signature page in the generated document.
-    consentDocument.signaturePageTitle = NSLocalizedString("Unterschrift Einverständniserklärung", comment: "")
-    
+    consentDocument.signaturePageTitle = "Unterschrift Einverständniserklärung"
     /*
      This is the line shown on the signature page of the generated document,
      just above the signatures.
      */
     consentDocument.signaturePageContent = NSLocalizedString("Durch das Klicken auf „ich erkläre mich einverstanden“ bezeugen Sie, dass Sie den oben genannten Text der Einverständniserklärung gelesen und verstanden haben.", comment: "")
     
-    /*
-     Add the participant signature, which will be filled in during the
-     consent review process. This signature initially does not have a
-     signature image or a participant name; these are collected during
-     the consent review step.
-     */
-    let participantSignatureTitle = NSLocalizedString("Teilnehmer", comment: "")
-    let participantSignature = ORKConsentSignature(forPersonWithTitle: participantSignatureTitle, dateFormatString: nil, identifier: String(describing:Identifier.consentDocumentParticipantSignature))
-    
-    consentDocument.addSignature(participantSignature)
     
     
     // overview
@@ -47,7 +36,7 @@ public var ConsentDocument: ORKConsentDocument{
     
     // custom consent -> overview
     let customSection = ORKConsentSection(type: ORKConsentSectionType.custom)
-    customSection.title = "Einverständniserkärung"
+    customSection.title = "Einverständnis- erklärung"
     customSection.summary = "Um an dieser Studie teilnehmen zu können, ist es notwendig, dass Sie ihr Einverständnis geben Bevor Sie dieses geben, lesen Sie bitte folgende Punkte durch:"
     
     // data section

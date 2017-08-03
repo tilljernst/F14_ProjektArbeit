@@ -81,6 +81,23 @@ extension OnboardingViewController : ORKTaskViewControllerDelegate {
         switch reason {
         case .completed:
             // TODO: safe as pdf
+            let signatureResult:ORKConsentSignatureResult = taskViewController.result.stepResult(forStepIdentifier: String(describing:Identifier.consentReviewStep))?.firstResult as! ORKConsentSignatureResult
+            let documentCopy: ORKConsentDocument = ConsentDocument.copy() as! ORKConsentDocument
+            signatureResult.apply(to: documentCopy)
+            
+            documentCopy.makePDF(completionHandler: { (pdfFile, error) -> Void in
+                print("consent pdf created")
+                // finding document path  //TODO: Remove if not needed
+                //Get the local docs directory and append your local filename.
+                var dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+                dir = dir?.appendingPathComponent("MediaSurveyConsent.pdf")
+                
+                //Lastly, write your file to the disk.
+                do{
+                    try pdfFile?.write(to: dir! as URL)
+                }
+                catch { print("could not write consent pdf to local directory") }            
+            })
             
             performSegue(withIdentifier: "unwindToConfiguration", sender: nil)
             

@@ -38,16 +38,17 @@ public var ConsentTask: ORKOrderedTask {
      This effectively tells the consent review step which signatory is
      reviewing the document.
      */
-//    let signature = consentDocument.signatures!.first
-//    let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: signature, in: consentDocument)
-    
-    let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: nil, in: consentDocument)
+    let signature = consentDocument.signatures!.first
+    signature?.title = "anotherTitel"
+    signature?.requiresName = false
+    let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: signature, in: consentDocument)
     
     reviewConsentStep.text = "Review Einverständniserklärung."
     reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
     
     // Passcode for the user
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
+    passcodeStep.title = "Passcode"
     passcodeStep.text = "Bitte geben Sie einen Passcode ein, um Sie auf diesem Gerät für diese Umfrage zu identifizieren und den Zugriff auf Ihre Daten zu schützen."
     
     // end step
@@ -70,6 +71,7 @@ public var ConsentReviewTask: ORKOrderedTask {
     
     let reviewConsentStep = ORKConsentReviewStep(identifier: String(describing:Identifier.consentReviewStep), signature: nil, in: consentDocument)
     
+    reviewConsentStep.title = "Titel für Consent Review Step"
     reviewConsentStep.text = "Review Einverständniserklärung."
     reviewConsentStep.reasonForConsent = "Ich erkläre mich einverstanden, dass meine Daten für forscherische Zwecke verwendet werden."
     
