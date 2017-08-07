@@ -25,7 +25,7 @@ class ConsentMenueViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showConsent()
+        //showConsent()
     }
     
     func showConsent(){
