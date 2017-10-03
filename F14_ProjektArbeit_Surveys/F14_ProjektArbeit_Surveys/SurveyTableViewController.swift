@@ -129,7 +129,7 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
         DispatchQueue.main.asyncAfter(deadline: delayTime, execute: dispatchWorkItem)
     }
     
-    func updateProgressOfWaitStepViewController() {
+    @objc func updateProgressOfWaitStepViewController() {
         if let waitStepViewController = waitStepViewController {
             waitStepProgress += 0.01
             DispatchQueue.main.async(execute: { () -> Void in

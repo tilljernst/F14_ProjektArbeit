@@ -28,7 +28,7 @@ class ToDoSurveyListTest: XCTestCase {
         let uuId = UUID().uuidString
         var itemAdded = false
         // add item
-        let todoItem = TodoSurveyItem(deadline: NSDate(), surveyTitle: "test item created in UnitTest func 'testAddItem'", UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
+        let todoItem = TodoSurveyItem(surveyTitle: "test item created in UnitTest func 'testAddItem'", deadline: NSDate(), UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
         toDoSurveyList.addItem(todoItem)
         // check, if item is in UserDefaults
         let userDefaultsItems = UserDefaults.standard.dictionary(forKey: toDoSurveyList.getItemsKey())
@@ -66,7 +66,7 @@ class ToDoSurveyListTest: XCTestCase {
         let uuId = UUID().uuidString
         var removed = true
         // add item
-        let todoItem = TodoSurveyItem(deadline: NSDate(), surveyTitle: "test item created in UnitTest func 'testRemoveItem'", UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
+        let todoItem = TodoSurveyItem(surveyTitle: "test item created in UnitTest func 'testRemoveItem'", deadline: NSDate(), UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
         toDoSurveyList.addItem(todoItem)
         // remove item
         toDoSurveyList.removeItem(todoItem)
@@ -105,7 +105,7 @@ class ToDoSurveyListTest: XCTestCase {
         let uuId = UUID().uuidString
         var listCleaned = true
         // add item
-        let todoItem = TodoSurveyItem(deadline: NSDate(), surveyTitle: "test item created in UnitTest func 'testCleanUpToDoSurveyList'", UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
+        let todoItem = TodoSurveyItem(surveyTitle: "test item created in UnitTest func 'testCleanUpToDoSurveyList'", deadline: NSDate(), UUID: uuId, surveyTaskId: SurveyTaskId.defaultTask)
         toDoSurveyList.addItem(todoItem)
         // clean up
         toDoSurveyList.cleanUpToDoSurveyList()
