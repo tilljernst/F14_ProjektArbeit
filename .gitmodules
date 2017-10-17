@@ -4,3 +4,6 @@
 [submodule "BridgeAppSDK"]
 	path = BridgeAppSDK
 	url = https://github.com/syoung-smallwisdom/BridgeAppSDK.git
+[submodule "ZipZap"]
+	path = ZipZap
+	url = https://github.com/pixelglow/ZipZap.git
