@@ -7,19 +7,23 @@
 //
 
 import Foundation
+import UIKit
 import ResearchKit
+import ZipZap
 
+/*********************************************************************************/
+//MARK: - RK Results
+/*********************************************************************************/
 extension DoSurveyTableViewController{
     func processResultsWithUpload(SurveyResult result: ORKTaskResult){
         do {
             //1 This creates a unique folder and ZIP archive to store the task result files.
-            /*
-            let path = try createUniqueTaskResultsFolder(result!.taskRunUUID)
-            let zipPath = (path as NSString). stringByAppendingPathComponent("\(taskResult!.taskRunUUID.UUIDString). zip")
-            let zipArchive = try ZZArchive(URL: NSURL(fileURLWithPath: zipPath), options: [ZZOpenOptionsCreateIfMissingKey : true])
-            */
+            let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
+            let zipPath = (path as NSString).appendingPathComponent("\(result.taskRunUUID.uuidString).zip")
+            let zipArchive = try ZZArchive(url: NSURL(fileURLWithPath: zipPath) as URL, options: [ZZOpenOptionsCreateIfMissingKey : true])
+            
             //2 This calls the method that we just created. It also checks whether the dictionary can be converted to JSON.
-            if let dict = dictFromTaskResult(taskResult: result/*, zipArchive: zipArchive*/), JSONSerialization.isValidJSONObject(dict) {
+            if let dict = dictFromTaskResult(taskResult: result, zipArchive: zipArchive), JSONSerialization.isValidJSONObject(dict) {
                 //3 This converts the dictionary to a JSON object and prints it in the console.
                 let json = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
                 print(String(data: json, encoding: String.Encoding.utf8)!)
@@ -37,52 +41,67 @@ extension DoSurveyTableViewController{
         }
     }
     
-    func dictFromTaskResult(taskResult: ORKTaskResult/*, zipArchive: ZZArchive*/) -> [String : AnyObject]?{
+    func dictFromTaskResult(taskResult: ORKTaskResult, zipArchive: ZZArchive) -> [String : AnyObject]?{
+        guard taskResult.results != nil else {
+            return nil
+        }
         var retDict : [String:AnyObject] = [:]
-        
         //1 This stores taskRunId, start date, and end date
         retDict["taskRunUUID"] = taskResult.taskRunUUID.uuidString as AnyObject
         retDict["startDate"] = "\(taskResult.startDate)" as AnyObject
         retDict["endDate"] = "\(taskResult.endDate)" as AnyObject
-        
-        //2
-        for result in taskResult.results!
-        {
-            if let stepResult = result as? ORKStepResult
-            {
-                //3
-                retDict[stepResult.identifier] = dictFromStepResult(stepResult: stepResult/*, zipArchive: zipArchive*/) as AnyObject
+        //2 This loops through the step results inside a task result in a for loop
+        for result in taskResult.results! {
+            if let stepResult = result as? ORKStepResult {
+                //3 This uses the dictFromStepResult method to convert step results to a dict
+                retDict[stepResult.identifier] = dictFromStepResult(stepResult: stepResult, zipArchive: zipArchive) as AnyObject
             }
         }
-        
-        //4
+        //4 This returns the generated dictionary enclosed in another dictionary with the task result's identifier as the key
         return [taskResult.identifier : retDict as AnyObject]
     }
     
-    func dictFromStepResult (stepResult: ORKStepResult/*, zipArchive: ZZArchive*/) -> [String : AnyObject]?{
+    func dictFromStepResult (stepResult: ORKStepResult, zipArchive: ZZArchive) -> [String : AnyObject]?{
+        guard stepResult.results != nil else {
+            return nil
+        }
         var retDict : [String:AnyObject] = [:]
-        
-        //1
+        //1 This stores the start and end date of a step. This is useful to measure the amount of time that the participant spent on each step.
         retDict["startDate"] = "\(stepResult.startDate)" as AnyObject
         retDict["endDate"] = "\(stepResult.endDate)" as AnyObject
-        
-        //2
-        for result in stepResult.results!
-        {
-            //3
-            if result is ORKQuestionResult
-            {
-                //4 This uses the custom enum and stringValue ORKQuestionResult methods to convert to a string
+        //2 This loops through the results inside a step result in a loop. Unless it's a form step, the step result usually contains only one result inside of a step result.
+        for result in stepResult.results! {
+            //3 This checks whether the result is of ORKQuestionResult type. All the the survey responses will be of this type.
+            if result is ORKQuestionResult {
+                //4 This uses the custom stringValue enum methods to convert and ORKQuestionResult to a string
                 retDict["\((result as! ORKQuestionResult).questionType.stringValue())"] = "\((result as! ORKQuestionResult).stringValue())" as AnyObject
+            }
+            //4 This checks whether result is of the ORKFileResult type.
+            else if result is ORKFileResult {
+                let fileResult = result as! ORKFileResult
+                //5 This sets the content type of the return dictionary from the file result.
+                retDict["contentType"] = fileResult.contentType as AnyObject
+                //6 This reads the path of the file from fileURL of the file result.
+                if let filePath = fileResult.fileURL?.path {
+                    //7 This writes the audio file to the ZIP archive. The zipArchive parameter in dictFromTaskResult and dictFromStepResult methods comes in handy.
+                    do {
+                        try writeToZip(archive: zipArchive, path: filePath)
+                    }
+                    catch {
+                        print(error)
+                    }
+                    //8 This stores the filename in the key in the return dictionary. This key could indicate to the backend service to look for a file with the same name inside the ZIP archive.
+                    retDict["filePath"] = (filePath as NSString).lastPathComponent as AnyObject
+                }
             }
         }
         return retDict
     }
-    
-   
-            
-            
 }
+
+/*********************************************************************************/
+//MARK: - Helper Extensions
+/*********************************************************************************/
 
 extension ORKQuestionType {
     func stringValue() -> String {
@@ -160,3 +179,54 @@ extension ORKQuestionResult {
         return retString
     }
 }
+
+/*********************************************************************************/
+//MARK: - Helper Methods
+/*********************************************************************************/
+func createUniqueTaskResultsFolder(uuid: NSUUID) throws -> String
+{
+    let path = (applicationDocumentsDirectory() as NSString).appendingPathComponent(uuid.uuidString)
+    try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+    return path
+}
+
+func writeToZip(archive: ZZArchive, data: NSData, fileName: String) throws
+{
+    let entry = ZZArchiveEntry(fileName: fileName, compress: true) { error in
+        return fileName.data(using: String.Encoding.utf8)
+    }
+    try archive.updateEntries(archive.entries + [entry])
+}
+
+func writeToZip(archive: ZZArchive, path: String) throws
+{
+    if let data = NSData(contentsOfFile: path)
+    {
+        try writeToZip(archive: archive, data: data, fileName: (path as NSString).lastPathComponent)
+    }
+}
+
+func uploadZipToRKBackendServer(path: String)
+{
+    // TBD - send to backend server
+    /*let data: NSData = NSData(contentsOfFile: path)!
+    
+    let RKBackendServerURL = "http://10.0.0.6:4567/upload/\((path as NSString).lastPathComponent)"
+    let request = NSMutableURLRequest(URL: NSURL(string: RKBackendServerURL)!)
+    request.HTTPMethod = "POST"
+    request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
+    request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+    
+    let task = NSURLSession.sharedSession().uploadTaskWithRequest(request, fromData: data) { (_, response, error) -> Void in
+        if error == nil && (response! as! NSHTTPURLResponse).statusCode == 200
+        {
+            print("Successfully uploaded task results!")
+        }
+        else
+        {
+            print(error)
+        }
+    }
+    task.resume()*/
+}
+

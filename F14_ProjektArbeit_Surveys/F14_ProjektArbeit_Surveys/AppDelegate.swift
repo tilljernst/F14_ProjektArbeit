@@ -112,3 +112,11 @@ extension AppDelegate: ORKPasscodeDelegate {
     }
 }
 
+/*********************************************************************************/
+//MARK: - Global Helper Methods
+/*********************************************************************************/
+func applicationDocumentsDirectory() -> String
+{
+    return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+}
+
