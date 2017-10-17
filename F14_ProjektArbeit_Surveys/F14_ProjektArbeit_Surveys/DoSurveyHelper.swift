@@ -21,14 +21,13 @@ extension DoSurveyTableViewController{
             let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
             let zipPath = (path as NSString).appendingPathComponent("\(result.taskRunUUID.uuidString).zip")
             let zipArchive = try ZZArchive(url: NSURL(fileURLWithPath: zipPath) as URL, options: [ZZOpenOptionsCreateIfMissingKey : true])
-            
             //2 This calls the method that we just created. It also checks whether the dictionary can be converted to JSON.
             if let dict = dictFromTaskResult(taskResult: result, zipArchive: zipArchive), JSONSerialization.isValidJSONObject(dict) {
                 //3 This converts the dictionary to a JSON object and prints it in the console.
                 let json = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
                 print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
-                // TBD: try writeToZip(zipArchive, data: json, fileName: "taskResult.json")
+                try writeToZip(archive: zipArchive, data: json as NSData, fileName: "taskResult.json")
                 //5 This uploads the ZIP file to .RKBackendServerSample
                 // TBD: uploadZipToRKBackendServer(zipPath)
             }
