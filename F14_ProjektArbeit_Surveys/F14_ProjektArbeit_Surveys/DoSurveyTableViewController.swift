@@ -147,6 +147,7 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
             let taskIdentifier = doToTaskResult.identifier
             
             // TODO: get data from survey and do something with it
+            processResultsWithUpload(SurveyResult: taskViewController.result)
             
             // remove task from list with corresponding identifier
             ToDoSurveyList.sharedInstance.removeDoneItem(ORKTaskIdentifier: taskIdentifier)

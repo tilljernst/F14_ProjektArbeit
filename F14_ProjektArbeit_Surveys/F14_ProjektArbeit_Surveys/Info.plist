@@ -28,6 +28,11 @@
 	<string>Use healthkit</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Use microphone</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
