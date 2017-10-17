@@ -19,10 +19,10 @@ extension DoSurveyTableViewController{
             let zipArchive = try ZZArchive(URL: NSURL(fileURLWithPath: zipPath), options: [ZZOpenOptionsCreateIfMissingKey : true])
             */
             //2 This calls the method that we just created. It also checks whether the dictionary can be converted to JSON.
-            if let dict = dictFromTaskResult(taskResult!/*, zipArchive: zipArchive*/) where JSONSerialization.isValidJSONObject(dict) {
+            if let dict = dictFromTaskResult(taskResult: result/*, zipArchive: zipArchive*/), JSONSerialization.isValidJSONObject(dict) {
                 //3 This converts the dictionary to a JSON object and prints it in the console.
-                let json = try NSJSONSerialization. dataWithJSONObject(dict, options: .PrettyPrinted)
-                print(String(data: json, encoding: NSUTF8StringEncoding)!)
+                let json = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+                print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
                 // TBD: try writeToZip(zipArchive, data: json, fileName: "taskResult.json")
                 //5 This uploads the ZIP file to .RKBackendServerSample
@@ -139,13 +139,13 @@ extension ORKQuestionResult {
         case .integer:
             retString = (self as! ORKNumericQuestionResult).numericAnswer?.description ?? "Skipped"
         case .boolean:
-            fallthrough
+            retString = (self as! ORKBooleanQuestionResult).booleanAnswer?.description ?? "Skipped"
         case .text:
             retString = (self as! ORKTextQuestionResult).textAnswer ?? "Skipped"
         case .timeOfDay:
             retString = (self as! ORKTimeOfDayQuestionResult).dateComponentsAnswer?.description ?? "Skipped"
         case .dateAndTime:
-            fallthrough
+            fallthrough          
         case .date:
             retString = (self as! ORKDateQuestionResult).dateAnswer?.description ?? "Skipped"
         case .timeInterval:
