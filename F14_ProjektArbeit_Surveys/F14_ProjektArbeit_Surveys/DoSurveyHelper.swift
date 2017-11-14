@@ -28,8 +28,8 @@ extension DoSurveyTableViewController{
                 print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
                 try writeToZip(archive: zipArchive, data: json as NSData, fileName: "taskResult.json")
-                //5 This uploads the ZIP file to .RKBackendServerSample
-                // TBD: uploadZipToRKBackendServer(zipPath)
+                //5 This uploads the ZIP file to RKBackendServerSample.
+                uploadZipToRKBackendServer(path: zipPath)
             }
             else {
                 print("Cannot convert to JSON")
@@ -208,24 +208,25 @@ func writeToZip(archive: ZZArchive, path: String) throws
 func uploadZipToRKBackendServer(path: String)
 {
     // TBD - send to backend server
-    /*let data: NSData = NSData(contentsOfFile: path)!
-    
-    let RKBackendServerURL = "http://10.0.0.6:4567/upload/\((path as NSString).lastPathComponent)"
-    let request = NSMutableURLRequest(URL: NSURL(string: RKBackendServerURL)!)
-    request.HTTPMethod = "POST"
+    let data: NSData = NSData(contentsOfFile: path)!
+    // 1: Localhost is used as the server address in RKBackendServerURL, which assumes that the app is run in the Xcode simulator. Change this to your Mac's IP address to run it in an iOS device.
+    let RKBackendServerURL = "http://localhost:4567/upload/\((path as NSString).lastPathComponent)"
+    // 2: This creates NSURLRequest to upload the ZIP file.
+    let request = NSMutableURLRequest(url: NSURL(string: RKBackendServerURL)! as URL)
+    request.httpMethod = "POST"
     request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
     request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
-    
-    let task = NSURLSession.sharedSession().uploadTaskWithRequest(request, fromData: data) { (_, response, error) -> Void in
-        if error == nil && (response! as! NSHTTPURLResponse).statusCode == 200
+    // 3: This uses the uploadTaskWithRequest method of NSURLSession to upload. Note that this implementation ignores all the complexities of networking. In the production environment, you are highly encouraged to follow the guidelines provided by Apple in the document.
+    let task = URLSession.shared.uploadTask(with: request as URLRequest, from: data as Data) { (_, response, error) -> Void in
+        if error == nil && (response! as! HTTPURLResponse).statusCode == 200
         {
             print("Successfully uploaded task results!")
         }
         else
         {
-            print(error)
+            print(error as Any)
         }
     }
-    task.resume()*/
+    task.resume()
 }
 
