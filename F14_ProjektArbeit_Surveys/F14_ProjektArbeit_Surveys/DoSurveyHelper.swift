@@ -25,6 +25,7 @@ extension DoSurveyTableViewController{
             if let dict = dictFromTaskResult(taskResult: result, zipArchive: zipArchive), JSONSerialization.isValidJSONObject(dict) {
                 //3 This converts the dictionary to a JSON object and prints it in the console.
                 let json = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+                print("Serialized data ready to upload to the server:")
                 print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
                 try writeToZip(archive: zipArchive, data: json as NSData, fileName: "taskResult.json")
@@ -192,7 +193,7 @@ func createUniqueTaskResultsFolder(uuid: NSUUID) throws -> String
 func writeToZip(archive: ZZArchive, data: NSData, fileName: String) throws
 {
     let entry = ZZArchiveEntry(fileName: fileName, compress: true) { error in
-        return fileName.data(using: String.Encoding.utf8)
+        return data as Data
     }
     try archive.updateEntries(archive.entries + [entry])
 }
@@ -205,12 +206,13 @@ func writeToZip(archive: ZZArchive, path: String) throws
     }
 }
 
+// send to backend server
 func uploadZipToRKBackendServer(path: String)
 {
-    // TBD - send to backend server
     let data: NSData = NSData(contentsOfFile: path)!
     // 1: Localhost is used as the server address in RKBackendServerURL, which assumes that the app is run in the Xcode simulator. Change this to your Mac's IP address to run it in an iOS device.
-    let RKBackendServerURL = "http://localhost:4567/upload/\((path as NSString).lastPathComponent)"
+    let RKBackendServerURL = "http://127.0.0.1:4567/upload/\((path as NSString).lastPathComponent)"
+    //let RKBackendServerURL = "http://localhost:4567/upload/\((path as NSString).lastPathComponent)"
     // 2: This creates NSURLRequest to upload the ZIP file.
     let request = NSMutableURLRequest(url: NSURL(string: RKBackendServerURL)! as URL)
     request.httpMethod = "POST"
@@ -224,7 +226,8 @@ func uploadZipToRKBackendServer(path: String)
         }
         else
         {
-            print(error as Any)
+            print("Error: ", error as Any)
+            print("Response: ", response.debugDescription)
         }
     }
     task.resume()
