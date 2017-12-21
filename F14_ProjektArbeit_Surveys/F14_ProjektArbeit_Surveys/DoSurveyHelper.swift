@@ -21,7 +21,17 @@ class DoSurveyHelper{
         }
         return Static.instance
     }
-    func processResultsWithUpload(SurveyResult result: ORKTaskResult, JsonFileName fileName: String){
+    
+    let fileName: (ORKTaskResult) -> (String) = {result in
+        let taskIdentifier = result.identifier
+        let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
+        var jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(result.endDate).json"
+        jsonFileName = jsonFileName.replacingOccurrences(of: "+0000", with: "", options: .literal, range: nil)
+        jsonFileName = jsonFileName.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+        return jsonFileName
+    }
+    
+    func processResultsWithUpload(SurveyResult result: ORKTaskResult){
         do {
             //1 This creates a unique folder and ZIP archive to store the task result files.
             let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
@@ -34,7 +44,7 @@ class DoSurveyHelper{
                 print("Serialized data ready to upload to the server:")
                 print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
-                try writeToZip(archive: zipArchive, data: json as NSData, fileName: fileName + ".json")
+                try writeToZip(archive: zipArchive, data: json as NSData, fileName: fileName(result))
                 //5 This uploads the ZIP file to RKBackendServerSample.
                 uploadZipToRKBackendServer(path: zipPath)
             }

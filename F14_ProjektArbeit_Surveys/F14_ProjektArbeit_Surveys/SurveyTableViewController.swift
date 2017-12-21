@@ -104,10 +104,7 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
             print(taskViewController.result)
         
             // get data from survey and do something with it
-            let taskIdentifier = taskViewController.result.identifier
-            let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
-            let jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(taskViewController.result.endDate)"
-            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result, JsonFileName: jsonFileName)
+            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result)
         
             //performSegue(withIdentifier: "unwindToStudy", sender: nil)
             taskViewController.dismiss(animated: true, completion: nil)

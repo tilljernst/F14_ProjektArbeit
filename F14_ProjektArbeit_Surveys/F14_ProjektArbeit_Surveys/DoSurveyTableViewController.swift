@@ -141,17 +141,12 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         switch reason {
         case .completed:
-            // read config result as ORKTaskResult
-            let doToTaskResult = taskViewController.result
-            print(doToTaskResult)
-            let taskIdentifier = doToTaskResult.identifier
-            let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
-            let jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(doToTaskResult.endDate)"
+            print(taskViewController.result)
             // get data from survey and do something with it
-            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result, JsonFileName: jsonFileName)
+            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result)
             
             // remove task from list with corresponding identifier
-            ToDoSurveyList.sharedInstance.removeDoneItem(ORKTaskIdentifier: taskIdentifier)
+            ToDoSurveyList.sharedInstance.removeDoneItem(ORKTaskIdentifier: taskViewController.result.identifier)
             
             //performSegue(withIdentifier: "unwindToStudy", sender: nil)
             taskViewController.dismiss(animated: true, completion: nil)
