@@ -14,8 +14,14 @@ import ZipZap
 /*********************************************************************************/
 //MARK: - RK Results
 /*********************************************************************************/
-extension DoSurveyTableViewController{
-    func processResultsWithUpload(SurveyResult result: ORKTaskResult){
+class DoSurveyHelper{
+    class var sharedInstance : DoSurveyHelper {
+        struct Static {
+            static let instance: DoSurveyHelper = DoSurveyHelper()
+        }
+        return Static.instance
+    }
+    func processResultsWithUpload(SurveyResult result: ORKTaskResult, JsonFileName fileName: String){
         do {
             //1 This creates a unique folder and ZIP archive to store the task result files.
             let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
@@ -28,7 +34,7 @@ extension DoSurveyTableViewController{
                 print("Serialized data ready to upload to the server:")
                 print(String(data: json, encoding: String.Encoding.utf8)!)
                 //4 This writes the JSON object to the ZIP archive as a taskResult.json file.
-                try writeToZip(archive: zipArchive, data: json as NSData, fileName: "taskResult.json")
+                try writeToZip(archive: zipArchive, data: json as NSData, fileName: fileName + ".json")
                 //5 This uploads the ZIP file to RKBackendServerSample.
                 uploadZipToRKBackendServer(path: zipPath)
             }

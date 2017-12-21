@@ -20,6 +20,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
     case fitnessTest
     case endOfDay
     case qualityOfSleep
+    case defaultBlock
     
     class SurveyTaskListRowSection {
         var title: String
@@ -54,6 +55,10 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
                 [
                     .qualityOfSleep,
                     ]),
+            SurveyTaskListRowSection(title: "Default Block", rows:
+                [
+                    .defaultBlock,
+                    ]),
     ]}
     
     // MARK: CustomStringConvertible
@@ -74,6 +79,9 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
             
         case .qualityOfSleep:
             return NSLocalizedString("TODO: Schlafqualität", comment: "")
+            
+        case .defaultBlock:
+            return NSLocalizedString("Default Task", comment: "")
         }
     }
     
@@ -92,6 +100,8 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .endOfDay:
             return ToDoSurveyTask.sharedInstance.endOfDayTask()
         case .qualityOfSleep:
+            return ToDoSurveyTask.sharedInstance.defaultTask()
+        case .defaultBlock:
             return ToDoSurveyTask.sharedInstance.defaultTask()
         }
     }

@@ -145,9 +145,10 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
             let doToTaskResult = taskViewController.result
             print(doToTaskResult)
             let taskIdentifier = doToTaskResult.identifier
-            
-            // TODO: get data from survey and do something with it
-            processResultsWithUpload(SurveyResult: taskViewController.result)
+            let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
+            let jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(doToTaskResult.endDate)"
+            // get data from survey and do something with it
+            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result, JsonFileName: jsonFileName)
             
             // remove task from list with corresponding identifier
             ToDoSurveyList.sharedInstance.removeDoneItem(ORKTaskIdentifier: taskIdentifier)

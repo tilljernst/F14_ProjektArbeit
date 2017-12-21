@@ -98,7 +98,22 @@ class SurveyTableViewController: UITableViewController, ORKTaskViewControllerDel
          */
         taskResultFinishedCompletionHandler?(taskViewController.result)
         
-        taskViewController.dismiss(animated: true, completion: nil)
+        switch reason {
+        case .completed:
+            // read config result as ORKTaskResult
+            print(taskViewController.result)
+        
+            // get data from survey and do something with it
+            let taskIdentifier = taskViewController.result.identifier
+            let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
+            let jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(taskViewController.result.endDate)"
+            DoSurveyHelper.sharedInstance.processResultsWithUpload(SurveyResult: taskViewController.result, JsonFileName: jsonFileName)
+        
+            //performSegue(withIdentifier: "unwindToStudy", sender: nil)
+            taskViewController.dismiss(animated: true, completion: nil)
+        case .discarded, .failed, .saved:
+            taskViewController.dismiss(animated: true, completion: nil)
+        }
     }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
