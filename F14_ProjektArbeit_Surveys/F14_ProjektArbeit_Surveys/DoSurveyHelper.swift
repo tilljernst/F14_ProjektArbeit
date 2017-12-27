@@ -25,10 +25,10 @@ class DoSurveyHelper{
     let fileName: (ORKTaskResult) -> (String) = {result in
         let taskIdentifier = result.identifier
         let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
-        var jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(result.endDate).json"
-        jsonFileName = jsonFileName.replacingOccurrences(of: "+0000", with: "", options: .literal, range: nil)
+        var jsonFileName = "\(heartRateId)_\(taskIdentifier)_\(result.endDate)"
+        jsonFileName = jsonFileName.replacingOccurrences(of: " +0000", with: "", options: .literal, range: nil)
         jsonFileName = jsonFileName.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-        return jsonFileName
+        return "\(jsonFileName).json"
     }
     
     func processResultsWithUpload(SurveyResult result: ORKTaskResult){
