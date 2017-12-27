@@ -72,12 +72,39 @@ public enum Identifier {
     
     // Task for equipment usage
     case equipmentTask
+    case equipmentFormStep
+    case equipmentQuestionStep
+    case equipmentFormItemSmartphone
+    case equipmentFormItemTv
+    case equipmentFormItemDesktop
+    case equipmentFormItemTablet
+    case equipmentFormItemRadio
+    case equipmentFormItemVideogame
     case equipmentInstructionStep
     case equipmentCompletionStep
     
     // Task for operation
     case operationTask
     case operationInstructionStep
+    case operationFormStep
+    case operationFormItemTv
+    case operationFormItemRadio
+    case operationFormItemVideogame
+    case operationFormItemMusic
+    case operationFormItemSocialNetwork
+    case operationFormItemYoutube
+    case operationFormItemEmail
+    case operationFormItemOffice
+    case operationFormItemGrafic
+    case operationFormItemInternetInfo
+    case operationFormItemInternetSurfing
+    case operationFormItemMessage
+    case operationFormItemFotos
+    case operationFormItemFace2Face
+    case operationFormItemOutdoor
+    case operationFormItemSport
+    case operationFormItemHobby
+    case operationFormItemCinema
     case operationCompletionStep
     
     // Task for fitness
