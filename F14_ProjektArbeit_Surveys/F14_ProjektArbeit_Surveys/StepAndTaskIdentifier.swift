@@ -107,6 +107,15 @@ public enum Identifier {
     case operationFormItemCinema
     case operationCompletionStep
     
+    // Task for medial content
+    case medialContentFormStep
+    case medialContentFormItemTv
+    case medialContentFormItemRadio
+    case medialContentFormItemGaming
+    case medialContentFormItemMusic
+    case medialContentFormItemSocialNetwork
+    case medialContentFormItemVideo
+    
     // Task for fitness
     case fitnessTask
     case fitnessInstructionStep
