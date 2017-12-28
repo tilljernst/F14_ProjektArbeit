@@ -72,7 +72,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("Ausgeführte Tätigkeiten", comment: "")
             
         case .fitnessTest:
-            return NSLocalizedString("TODO: Fitnestest", comment: "")
+            return NSLocalizedString("Fitnesstest", comment: "")
         
         case .endOfDay:
             return NSLocalizedString("TODO: Konsumverhalten", comment: "")

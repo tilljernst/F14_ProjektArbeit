@@ -11,22 +11,12 @@ import ResearchKit
 
 extension ToDoSurveyTask{
     /**
-     This task is available in survey Block A and collects personal data
+     This task is available in survey Block C
+     This task presents the Fitness pre-defined active task. For this example,
+     short walking and rest durations of 20 seconds each are used, whereas more
+     realistic durations might be several minutes each.
      */
     func fitnessTask() -> ORKTask {
-        // Intro step
-        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.fitnessInstructionStep))
-        
-        instructionStep.title = ToDoSurveyTask.sharedInstance.getSurveyTitle(taskId: SurveyTaskId.blockC_fitnessTest)
-        instructionStep.text = "Text:"
-        
-        // completion step
-        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.fitnessCompletionStep))
-        completionStep.title = "Vielen Dank!"
-        
-        // create the task
-        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.fitnessTask), steps: [instructionStep, completionStep])
-        
-        return task
+        return ORKOrderedTask.fitnessCheck(withIdentifier: String(describing:Identifier.fitnessTask), intendedUseDescription: "20 Sekunden schnell laufen, anschliessend 20 Sekunden absitzen und Puls messen.", walkDuration: 20, restDuration: 20, options: [.excludeAudio])
     }
 }

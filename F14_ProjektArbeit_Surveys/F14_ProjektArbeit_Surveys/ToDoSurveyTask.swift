@@ -71,7 +71,7 @@ class ToDoSurveyTask {
         case .blockB_equipmentUsed:
             return "Block B - Ausgeführte Tätigkeiten"
         case .blockC_fitnessTest:
-            return "Block C - Fitness Test"
+            return "Block C - Fitnesstest"
         case .blockD_endOfDay:
             return "Block D - Tagesendetest"
         case .blockE_sleepQuality:
