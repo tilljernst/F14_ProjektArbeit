@@ -22,15 +22,16 @@ extension ToDoSurveyTask{
         
         // Geräte
         let equipmentFormStep = ORKFormStep(identifier: String(describing:Identifier.equipmentFormStep))
-        equipmentFormStep.title = "Welche der unten aufgeführten Geräte haben sie in den letzten vier Stunden beruflich oder privat genutzt? (Mehrere Antworten möglich)"
+        equipmentFormStep.title = "Welche der unten aufgeführten Geräte haben sie in den letzten vier Stunden beruflich und/oder privat genutzt?"
         
         let equipmentTextChoices = [
             ORKTextChoice(text: "beruflich genutzt", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
             ORKTextChoice(text: "privat genutzt", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-            ORKTextChoice(text: "nicht genutzt", value: 2 as NSCoding & NSCopying & NSObjectProtocol)
+            ORKTextChoice(text: "beruflich und privat genutzt", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+            ORKTextChoice(text: "nicht genutzt", value: 3 as NSCoding & NSCopying & NSObjectProtocol)
         ]
         
-        let equipmentAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .multipleChoice, textChoices: equipmentTextChoices)
+        let equipmentAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: equipmentTextChoices)
         
         let formItemSmartphone = ORKFormItem(identifier: String(describing:Identifier.equipmentFormItemSmartphone), text: "Smartphone", answerFormat: equipmentAnswerFormat)
         
@@ -56,7 +57,7 @@ extension ToDoSurveyTask{
         // Tätigkeiten
         let operationFormStep = ORKFormStep(identifier: String(describing:Identifier.operationFormStep))
         operationFormStep.title = "Wie lange haben Sie..."
-        operationFormStep.text = "Welche der folgenden Tätigkeiten haben sie während der letzten vier Stunden ausgeführt und wie lange? Nicht ausgeführte Tätigkeit werden mit 0 Minuten angegeben"
+        operationFormStep.text = "Welche der folgenden Tätigkeiten haben sie während der letzten vier Stunden ausgeführt und wie lange? Nicht ausgeführte Tätigkeit werden mit 0 Minuten angegeben."
         
         let operationQuestionStepAnswerFormatUnit = NSLocalizedString("Minuten", comment: "")
         let operationAnswerFormat = ORKAnswerFormat.decimalAnswerFormat(withUnit: operationQuestionStepAnswerFormatUnit)
