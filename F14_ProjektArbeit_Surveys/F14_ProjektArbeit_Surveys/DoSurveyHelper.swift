@@ -22,6 +22,15 @@ class DoSurveyHelper{
         return Static.instance
     }
     
+    let zipPathDateAddition: () -> (String) = {
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        return "\(year)\(month)\(day)_"
+    }
+    
     let fileName: (ORKTaskResult) -> (String) = {result in
         let taskIdentifier = result.identifier
         let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
@@ -35,7 +44,7 @@ class DoSurveyHelper{
         do {
             //1 This creates a unique folder and ZIP archive to store the task result files.
             let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
-            let zipPath = (path as NSString).appendingPathComponent("\(result.taskRunUUID.uuidString).zip")
+            let zipPath = (path as NSString).appendingPathComponent("\(zipPathDateAddition())\(result.taskRunUUID.uuidString).zip")
             let zipArchive = try ZZArchive(url: NSURL(fileURLWithPath: zipPath) as URL, options: [ZZOpenOptionsCreateIfMissingKey : true])
             //2 This calls the method that we just created. It also checks whether the dictionary can be converted to JSON.
             if let dict = dictFromTaskResult(taskResult: result, zipArchive: zipArchive), JSONSerialization.isValidJSONObject(dict) {
@@ -69,6 +78,7 @@ class DoSurveyHelper{
         //2 This loops through the step results inside a task result in a for loop
         for result in taskResult.results! {
             if let stepResult = result as? ORKStepResult {
+                print("Debug 1. Ebene: \(stepResult.identifier)")
                 //3 This uses the dictFromStepResult method to convert step results to a dict
                 retDict[stepResult.identifier] = dictFromStepResult(stepResult: stepResult, zipArchive: zipArchive) as AnyObject
             }
@@ -89,8 +99,10 @@ class DoSurveyHelper{
         for result in stepResult.results! {
             //3 This checks whether the result is of ORKQuestionResult type. All the the survey responses will be of this type.
             if result is ORKQuestionResult {
+                print("Debug 2. Ebene: \(result.identifier)")
+                print("QuestionType: \((result as! ORKQuestionResult).questionType.stringValue()) - StringValue: \((result as! ORKQuestionResult).stringValue())")
                 //4 This uses the custom stringValue enum methods to convert and ORKQuestionResult to a string
-                retDict["\((result as! ORKQuestionResult).questionType.stringValue())"] = "\((result as! ORKQuestionResult).stringValue())" as AnyObject
+                retDict["\(result.identifier)"] = "\((result as! ORKQuestionResult).stringValue()) (\((result as! ORKQuestionResult).questionType.stringValue()))" as AnyObject
             }
             //4 This checks whether result is of the ORKFileResult type.
             else if result is ORKFileResult {
