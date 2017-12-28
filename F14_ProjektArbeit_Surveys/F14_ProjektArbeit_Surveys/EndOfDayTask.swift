@@ -15,7 +15,7 @@ extension ToDoSurveyTask{
      */
     func endOfDayTask() -> ORKTask {
         // Intro step
-        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.endOfDayInstructionStep))
+        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.blockD_EndOfDayInstructionStep))
         
         instructionStep.title = ToDoSurveyTask.sharedInstance.getSurveyTitle(taskId: SurveyTaskId.blockD_endOfDay)
         //instructionStep.text = "Text:"
@@ -163,12 +163,28 @@ extension ToDoSurveyTask{
             relaxationFormItemThings
         ]
         
+        // Daily Hassles
+        let dailyHasslesFormStep = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep))
+        relaxationFormStep.title = "Nachfolgend finden Sie eine Aufzählung von möglichen alltäglichen Situationen und daneben eine Skala, auf der Sie einschätzen können, wie sehr Sie dieses Ereignis am heutigen Tag belastet hat."
+        relaxationFormStep.text = "Bitte entscheiden Sie sich für eine Antwortoptionen für das Ereignis '… ist nicht aufgetreten' bis '… war unerträglich'"
+        
+        let dailyHasslesTextChoices : [ORKTextChoice] = [ORKTextChoice(text: "… ist nicht aufgetreten", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… ist aufgetreten, hat Sie aber nicht belastet", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… hat Sie sehr wenig belastet", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… hat Sie ein wenig belastet", value: 4 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… hat Sie mässig belastet", value: 5 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… hat Sie stark belastet", value: 6 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… hat Sie sehr stark belastet", value: 7 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "… war unerträglich", value: 8 as NSCoding & NSCopying & NSObjectProtocol)]
+        
+        let dailyHasslesAnswerFormat = ORKAnswerFormat.textScale(with: dailyHasslesTextChoices, defaultIndex: NSIntegerMax, vertical: false)
+        
+        let dailyHasslesTask = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesTask_Q1), text: "Ich habe eine Aufgabe nicht gut bewältigt.", answerFormat: dailyHasslesAnswerFormat)
+        
+        dailyHasslesFormStep.formItems = [
+            dailyHasslesTask
+        ]
+        
+        
         // completion step
-        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.endOfDayCompletionStep))
+        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.blockD_EndOfDayCompletionStep))
         completionStep.title = "Vielen Dank!"
         
         // create the task
-        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.endOfDayTask), steps: [instructionStep, consumptionFormStep, technoStressFormStep, hedonismFormStep, relaxationFormStep, completionStep])
+        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.blockD_EndOfDayTask), steps: [instructionStep, consumptionFormStep, technoStressFormStep, hedonismFormStep, relaxationFormStep, dailyHasslesFormStep, completionStep])
         
         return task
     }

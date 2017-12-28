@@ -42,88 +42,91 @@ public enum Identifier {
     case withdrawlStep
     case withdrawlTask
     
+    // Block - A
     // Task for personal datas
-    case personTask
-    case personInstructionStep
+    case blockA_personTask
+    case blockA_personInstructionStep
+    case blockA_personCompletionStep
     case personFormStep
-    case personGenderStep
-    case personYearStep
-    case personHeightStep
-    case personWeightStep
-    case personLifeFormStep
-    case personKidsStep
+    case personGender_Q1
+    case personYear_Q2
+    case personHeight_Q3
+    case personWeight_Q4
+    case personLifeForm_Q5
+    case personKids_Q6
     case personKidsTotalStep
-    case personKidsAgeFormStep
+    case personKidsAge_Q7
     case personKidsAgeFormItemFirst
     case personKidsAgeFormItemSecond
     case personKidsAgeFormItemThird
     case personKidsAgeFormItemFourth
-    case personKidsSupervisionFormStep
+    case personKidsSupervision_Q8
     case personKidsSupervisionItemFirst
     case personKidsSupervisionItemSecond
     case personKidsSupervisionItemThird
     case personKidsSupervisionItemFourth
-    case personHoushold
-    case personCarsStep
-    case personHolidayStep
-    case personComputerStep
-    case personBathroomStep
-    case personCompletionStep
+    case personHoushold_Q9
+    case personCars_Q10
+    case personHoliday_Q11
+    case personComputer_Q12
+    case personBathroom_Q13
     
+    // Block - B
     // Task for equipment usage
-    case equipmentTask
+    case blockB_equipmentTask
+    case blockB_equipmentInstructionStep
+    case blockB_equipmentCompletionStep
     case equipmentFormStep
     case equipmentQuestionStep
-    case equipmentFormItemSmartphone
-    case equipmentFormItemTv
-    case equipmentFormItemDesktop
-    case equipmentFormItemTablet
-    case equipmentFormItemRadio
-    case equipmentFormItemVideogame
-    case equipmentInstructionStep
-    case equipmentCompletionStep
+    case equipmenSmartphone_Q1
+    case equipmentTv_Q2
+    case equipmentDesktop_Q3
+    case equipmentTablet_Q4
+    case equipmentRadio_Q5
+    case equipmentVideogame_Q6
     
     // Task for operation
-    case operationTask
-    case operationInstructionStep
-    case operationFormStep
-    case operationFormItemTv
-    case operationFormItemRadio
-    case operationFormItemVideogame
-    case operationFormItemMusic
-    case operationFormItemSocialNetwork
-    case operationFormItemYoutube
-    case operationFormItemEmail
-    case operationFormItemOffice
-    case operationFormItemGrafic
-    case operationFormItemInternetInfo
-    case operationFormItemInternetSurfing
-    case operationFormItemMessage
-    case operationFormItemFotos
-    case operationFormItemFace2Face
-    case operationFormItemOutdoor
-    case operationFormItemSport
-    case operationFormItemHobby
-    case operationFormItemCinema
-    case operationCompletionStep
+    case mediaActivityTask
+    case mediaActivityInstructionStep
+    case mediaActivityFormStep
+    case mediaActivityCompletionStep
+    case mediaActivityTv_Q1
+    case mediaActivityRadio_Q2
+    case mediaActivityVideogame_Q3
+    case mediaActivityMusic_Q4
+    case mediaActivitySocialNetwork_Q5
+    case mediaActivityYoutube_Q6
+    case mediaActivityEmail_Q7
+    case mediaActivityOffice_Q8
+    case mediaActivityGrafic_Q9
+    case mediaActivityInternetInfo_Q10
+    case mediaActivityInternetSurfing_Q11
+    case mediaActivityMessage_Q12
+    case mediaActivityFotos_Q13
+    case mediaActivityFace2Face_Q14
+    case mediaActivityOutdoor_Q15
+    case mediaActivitySport_Q16
+    case mediaActivityHobby_Q17
+    case mediaActivityCinema_Q18
     
     // Task for medial content
-    case medialContentFormStep
-    case medialContentFormItemTv
-    case medialContentFormItemRadio
-    case medialContentFormItemGaming
-    case medialContentFormItemMusic
-    case medialContentFormItemSocialNetwork
-    case medialContentFormItemVideo
+    case mediaContentFormStep
+    case mediaContentTv_Q1
+    case mediaContentRadio_Q2
+    case mediaContentGaming_Q3
+    case mediaContentMusic_Q4
+    case mediaContentSocialNetwork_Q5
+    case mediaContentVideo_Q6
     
+    // Block - C
     // Task for fitness
-    case fitnessTask
-    case fitnessInstructionStep
-    case fitnessCompletionStep
+    case blockC_fitnessTask
     
+    // Block - D
     // end of day
-    case endOfDayTask
-    case endOfDayInstructionStep
+    case blockD_EndOfDayTask
+    case blockD_EndOfDayInstructionStep
+    case blockD_EndOfDayCompletionStep
     case consumptionFormStep
     case consumptionZigaretten_Q1
     case consumptionAlkohol_Q2
@@ -158,12 +161,13 @@ public enum Identifier {
     case relaxationActivity_Q15
     case relaxationTime_Q16
     case relaxationThings_Q17
-    case endOfDayCompletionStep
+    case dailyHasslesFormStep
+    case dailyHasslesTask_Q1
     
     // sleep quality
-    case sleepTask
-    case sleepInstructionStep
-    case sleepCompletionstep
+    case blockE_sleepTask
+    case blockE_sleepInstructionStep
+    case blockE_sleepCompletionstep
     
     // default task
     case defaultTask

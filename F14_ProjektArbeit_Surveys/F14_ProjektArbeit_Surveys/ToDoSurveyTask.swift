@@ -50,15 +50,15 @@ class ToDoSurveyTask {
     func getOrkIdentifierBasedOnId(taskId:SurveyTaskId) -> String {
         switch taskId {
         case .blockA_personalData:
-            return String(describing:Identifier.personTask)
+            return String(describing:Identifier.blockA_personTask)
         case .blockB_equipmentUsed:
-            return String(describing:Identifier.equipmentTask)
+            return String(describing:Identifier.blockB_equipmentTask)
         case .blockC_fitnessTest:
-            return String(describing:Identifier.fitnessTask)
+            return String(describing:Identifier.blockC_fitnessTask)
         case .blockD_endOfDay:
-            return String(describing:Identifier.endOfDayTask)
+            return String(describing:Identifier.blockD_EndOfDayTask)
         case .blockE_sleepQuality:
-            return String(describing:Identifier.sleepTask)
+            return String(describing:Identifier.blockE_sleepTask)
         default:
             return String(describing:Identifier.defaultTask)
         }

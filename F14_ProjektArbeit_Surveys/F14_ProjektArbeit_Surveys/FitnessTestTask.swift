@@ -17,6 +17,6 @@ extension ToDoSurveyTask{
      realistic durations might be several minutes each.
      */
     func fitnessTask() -> ORKTask {
-        return ORKOrderedTask.fitnessCheck(withIdentifier: String(describing:Identifier.fitnessTask), intendedUseDescription: "20 Sekunden schnell laufen, anschliessend 20 Sekunden absitzen und Puls messen.", walkDuration: 20, restDuration: 20, options: [.excludeAudio])
+        return ORKOrderedTask.fitnessCheck(withIdentifier: String(describing:Identifier.blockC_fitnessTask), intendedUseDescription: "20 Sekunden schnell laufen, anschliessend 20 Sekunden absitzen und Puls messen.", walkDuration: 20, restDuration: 20, options: [.excludeAudio])
     }
 }

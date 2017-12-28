@@ -10,7 +10,7 @@ import Foundation
 import ResearchKit
 
 public var ConfigurationTask: ORKTask {
-    let instStep = ORKInstructionStep(identifier: String(describing:Identifier.operationInstructionStep))
+    let instStep = ORKInstructionStep(identifier: String(describing:Identifier.mediaActivityInstructionStep))
         
     instStep.title = "Konfiguration"
     instStep.text = "Heart Rate ID & Startdatum"

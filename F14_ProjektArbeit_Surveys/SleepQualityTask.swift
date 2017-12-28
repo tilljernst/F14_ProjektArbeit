@@ -15,17 +15,17 @@ extension ToDoSurveyTask{
      */
     func sleepQualityTask() -> ORKTask {
         // Intro step
-        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.sleepInstructionStep))
+        let instructionStep = ORKInstructionStep(identifier: String(describing:Identifier.blockE_sleepInstructionStep))
         
         instructionStep.title = ToDoSurveyTask.sharedInstance.getSurveyTitle(taskId: SurveyTaskId.blockE_sleepQuality)
         instructionStep.text = "Text:"
         
         // completion step
-        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.sleepCompletionstep))
+        let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.blockE_sleepCompletionstep))
         completionStep.title = "Vielen Dank!"
         
         // create the task
-        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.sleepTask), steps: [instructionStep, completionStep])
+        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.blockE_sleepTask), steps: [instructionStep, completionStep])
         
         return task
     }

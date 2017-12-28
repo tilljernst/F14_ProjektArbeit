@@ -11,7 +11,7 @@ import ResearchKit
 
 extension ToDoSurveyTask {
     func defaultTask() -> ORKTask {
-        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.operationInstructionStep))
+        let instStep = ORKInstructionStep(identifier: String(describing:Identifier.mediaActivityInstructionStep))
         
         instStep.title = "Title of personal data"
         instStep.detailText = "This survey demonstrates different question types."
