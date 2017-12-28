@@ -130,6 +130,13 @@ public enum Identifier {
     case consumptionKaffee
     case technoStressFormStep
     case technoStressTimePressure
+    case technoStressWorkAdaption
+    case technoStressComplexity
+    case technoStressFamily
+    case technoStressEmail
+    case technoStressContinousChange
+    case technoStressChangingApps
+    case technoStressUpgrade
     case endOfDayCompletionStep
     
     // sleep quality

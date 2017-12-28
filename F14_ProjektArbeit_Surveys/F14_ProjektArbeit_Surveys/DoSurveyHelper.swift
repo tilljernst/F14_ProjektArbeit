@@ -177,8 +177,15 @@ extension ORKQuestionResult {
         case .none:
             retString = "None"
         case .scale:
-            retString = (self as! ORKScaleQuestionResult).scaleAnswer?.description ?? "Skipped"
-        case .singleChoice: fallthrough
+            // if ORKAnswerFormat.textScale for the answer is used, a scale result is not a ORKScaleQuestionResult but a ORKChoiceQuestionResult -> it prevents from crashing
+            let scaleResult = (self as? ORKScaleQuestionResult)
+            if scaleResult != nil {
+                retString = (self as! ORKScaleQuestionResult).scaleAnswer?.description ?? "Skipped"
+            } else {
+                retString = (self as! ORKChoiceQuestionResult).choiceAnswers?.description ?? "Skipped"
+            }
+        case .singleChoice:
+            fallthrough
         case .multipleChoice:
             retString = (self as! ORKChoiceQuestionResult).choiceAnswers?.description ?? "Skipped"
         case .decimal:

@@ -53,15 +53,35 @@ extension ToDoSurveyTask{
         technoStressFormStep.title = "Wenn Sie ihre Mediennutzung des heutigen Tags Revue passieren lassen. Wie empfinden Sie im Moment:"
         technoStressFormStep.text = "Bitte entscheiden Sie sich für eine Antwortoptionen von 'stimme ich gar nicht zu' bis 'stimme ich voll und ganz zu'"
         
-        let textChoices : [ORKTextChoice] = [ORKTextChoice(text: "stimme ich gar nicht zu", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich eher nicht zu", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "teils / teils", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich eher zu", value: 4 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich voll und ganz zu", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
+        let technoStressTextChoices : [ORKTextChoice] = [ORKTextChoice(text: "stimme ich gar nicht zu", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich eher nicht zu", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "teils / teils", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich eher zu", value: 4 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "stimme ich voll und ganz zu", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
         
-        let step5AnswerFormat = ORKAnswerFormat.textScale(with: textChoices, defaultIndex: NSIntegerMax, vertical: false)
+        let technoStressAnswerFormat = ORKAnswerFormat.textScale(with: technoStressTextChoices, defaultIndex: NSIntegerMax, vertical: false)
         
-        let technoStressFormItemTimepressure = ORKFormItem(identifier: String(describing:Identifier.technoStressTimePressure), text: "Die Unmittelbarkeit / Direktheit von bestimmten Medien löste bei mir Zeitdruck aus", answerFormat: step5AnswerFormat)
+        let technoStressFormItemTimepressure = ORKFormItem(identifier: String(describing:Identifier.technoStressTimePressure), text: "Die Unmittelbarkeit / Direktheit von bestimmten Medien löste bei mir Zeitdruck aus.", answerFormat: technoStressAnswerFormat)
         
+        let technoStressFormItemWorkAdaption = ORKFormItem(identifier: String(describing:Identifier.technoStressWorkAdaption), text: "Ich war gezwungen, einige (Arbeits-)Gewohnheiten wegen einzelner Medien anzupassen (z.B. viele E-Mails).", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemComplexity = ORKFormItem(identifier: String(describing:Identifier.technoStressComplexity), text: "Ich hatte einen höheren Aufwand wegen der Komplexität und Schnelligkeit von einzelnen Medien.", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemFamily = ORKFormItem(identifier: String(describing:Identifier.technoStressFamily), text: "Wegen bestimmten Medien verbrachte ich weniger Zeit mit meinen Freunden oder meiner Familie.", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemEmail = ORKFormItem(identifier: String(describing:Identifier.technoStressEmail), text: "Ich musste aus beruflichen Gründen auch während meiner Freizeit medial in Kontakten mit meinem Arbeitsumfeld bleiben (z.B. via Handy / E-Mail).", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemContinousChange = ORKFormItem(identifier: String(describing:Identifier.technoStressContinousChange), text: "Durch den ständigen Wandel bei einzelnen medialen Anwendungen, musste ich mich fortlaufend anpassen.", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemChangingApps = ORKFormItem(identifier: String(describing:Identifier.technoStressChangingApps), text: "Die von mir eingesetzten Apps und Anwendungen für die Mediennutzung ändern sich fortlaufend.", answerFormat: technoStressAnswerFormat)
+        
+        let technoStressFormItemUpgrade = ORKFormItem(identifier: String(describing:Identifier.technoStressUpgrade), text: "Ich musste durch Upgrades von Medien-Anwendungen auf dem Laufenden bleiben.", answerFormat: technoStressAnswerFormat)
         
         technoStressFormStep.formItems = [
-            technoStressFormItemTimepressure
+            technoStressFormItemTimepressure,
+            technoStressFormItemWorkAdaption,
+            technoStressFormItemComplexity,
+            technoStressFormItemFamily,
+            technoStressFormItemEmail,
+            technoStressFormItemContinousChange,
+            technoStressFormItemChangingApps,
+            technoStressFormItemUpgrade
         ]
         
         
