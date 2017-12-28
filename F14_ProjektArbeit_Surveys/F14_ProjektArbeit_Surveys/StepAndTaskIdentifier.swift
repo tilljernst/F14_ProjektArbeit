@@ -124,6 +124,12 @@ public enum Identifier {
     // end of day
     case endOfDayTask
     case endOfDayInstructionStep
+    case consumptionFormStep
+    case consumptionZigaretten
+    case consumptionAlkohol
+    case consumptionKaffee
+    case technoStressFormStep
+    case technoStressTimePressure
     case endOfDayCompletionStep
     
     // sleep quality
