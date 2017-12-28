@@ -84,13 +84,31 @@ extension ToDoSurveyTask{
             technoStressFormItemUpgrade
         ]
         
+        // Hedonismus
+        let hedonismFormStep = ORKFormStep(identifier: String(describing:Identifier.hedonismFormStep))
+        hedonismFormStep.title = "Wenn Sie ihre Mediennutzung des heutigen Tags Revue passieren lassen. Wie empfinden Sie im Moment:"
+        hedonismFormStep.text = "Bitte entscheiden Sie sich für eine Antwortoptionen von 'stimme ich gar nicht zu' bis 'stimme ich voll und ganz zu'"
+        
+        // answer format and textchoices taken from the techno stress questions above
+        
+        let hedonismFormItemEntertainment = ORKFormItem(identifier: String(describing:Identifier.hedonismEntertainment), text: "Alles in allem fühle ich mich durch die Mediennutzung am heutigen Tag gut unterhalten.", answerFormat: technoStressAnswerFormat)
+        
+        let hedonismFormItemFun = ORKFormItem(identifier: String(describing:Identifier.hedonismFun), text: "Alles in allem hatte ich durch die Nutzung von Medien am heutigen Tag Spass.", answerFormat: technoStressAnswerFormat)
+        
+        let hedonismFormItemJoyful = ORKFormItem(identifier: String(describing:Identifier.hedonismJoyful), text: "Alles in allem kann ich die heutige Mediennutzung als freudvoll bezeichnen.", answerFormat: technoStressAnswerFormat)
+        
+        hedonismFormStep.formItems = [
+            hedonismFormItemEntertainment,
+            hedonismFormItemFun,
+            hedonismFormItemJoyful
+        ]
         
         // completion step
         let completionStep = ORKCompletionStep(identifier: String(describing:Identifier.endOfDayCompletionStep))
         completionStep.title = "Vielen Dank!"
         
         // create the task
-        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.endOfDayTask), steps: [instructionStep, consumptionFormStep, technoStressFormStep, completionStep])
+        let task = ORKNavigableOrderedTask(identifier: String(describing:Identifier.endOfDayTask), steps: [instructionStep, consumptionFormStep, technoStressFormStep, hedonismFormStep, completionStep])
         
         return task
     }

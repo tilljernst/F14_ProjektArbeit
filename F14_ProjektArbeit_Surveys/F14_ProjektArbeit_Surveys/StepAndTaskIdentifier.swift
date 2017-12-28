@@ -137,6 +137,10 @@ public enum Identifier {
     case technoStressContinousChange
     case technoStressChangingApps
     case technoStressUpgrade
+    case hedonismFormStep
+    case hedonismEntertainment
+    case hedonismFun
+    case hedonismJoyful
     case endOfDayCompletionStep
     
     // sleep quality
