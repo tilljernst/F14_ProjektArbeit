@@ -125,22 +125,39 @@ public enum Identifier {
     case endOfDayTask
     case endOfDayInstructionStep
     case consumptionFormStep
-    case consumptionZigaretten
-    case consumptionAlkohol
-    case consumptionKaffee
+    case consumptionZigaretten_Q1
+    case consumptionAlkohol_Q2
+    case consumptionKaffee_Q3
     case technoStressFormStep
-    case technoStressTimePressure
-    case technoStressWorkAdaption
-    case technoStressComplexity
-    case technoStressFamily
-    case technoStressEmail
-    case technoStressContinousChange
-    case technoStressChangingApps
-    case technoStressUpgrade
+    case technoStressTimePressure_Q1
+    case technoStressWorkAdaption_Q2
+    case technoStressComplexity_Q3
+    case technoStressFamily_Q4
+    case technoStressEmail_Q5
+    case technoStressContinousChange_Q7
+    case technoStressChangingApps_Q8
+    case technoStressUpgrade_Q9
     case hedonismFormStep
-    case hedonismEntertainment
-    case hedonismFun
-    case hedonismJoyful
+    case hedonismEntertainment_Q1
+    case hedonismFun_Q2
+    case hedonismJoyful_Q3
+    case relaxationFormStep
+    case relaxationWorkForget_Q1
+    case relaxationWorkThink_Q2
+    case relaxationWorkDistance_Q3
+    case relaxationWorkRequirement_Q4
+    case relaxationSoul_Q5
+    case relaxationEase_Q6
+    case relaxationRelax_Q7
+    case relaxationLeisure_Q8
+    case relaxationNew_Q10
+    case relaxationMental_Q11
+    case relaxationChallenge_Q12
+    case relaxationHorizon_Q13
+    case relaxationDecide_Q14
+    case relaxationActivity_Q15
+    case relaxationTime_Q16
+    case relaxationThings_Q17
     case endOfDayCompletionStep
     
     // sleep quality
