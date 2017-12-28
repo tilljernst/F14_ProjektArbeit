@@ -102,7 +102,7 @@ class DoSurveyHelper{
                 print("Debug 2. Ebene: \(result.identifier)")
                 print("QuestionType: \((result as! ORKQuestionResult).questionType.stringValue()) - StringValue: \((result as! ORKQuestionResult).stringValue())")
                 //4 This uses the custom stringValue enum methods to convert and ORKQuestionResult to a string
-                retDict["\(result.identifier)"] = "\((result as! ORKQuestionResult).stringValue()) (\((result as! ORKQuestionResult).questionType.stringValue()))" as AnyObject
+                retDict["\(result.identifier) \((result as! ORKQuestionResult).questionType.stringValue())"] = (result as! ORKQuestionResult).stringValue() as AnyObject
             }
             //4 This checks whether result is of the ORKFileResult type.
             else if result is ORKFileResult {
