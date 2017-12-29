@@ -32,7 +32,7 @@ class DoSurveyHelper{
         let month = calendar.component(.month, from: date)
         let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
         let taskIdentifier = result.identifier
-        return "\(year)\(month)\(day)_\(hour)\(minute)_\(heartRateId)_\(taskIdentifier)"
+        return "\(year)\(month)\(day)_\(hour)\(minute)_\(heartRateId)_\(taskIdentifier)_"
     }
     
     let fileName: (ORKTaskResult) -> (String) = {result in
