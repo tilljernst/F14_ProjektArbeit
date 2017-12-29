@@ -161,7 +161,9 @@ public enum Identifier {
     case relaxationActivity_Q14
     case relaxationTime_Q15
     case relaxationThings_Q16
-    case dailyHasslesFormStep
+    case dailyHasslesFormStep_Set1
+    case dailyHasslesFormStep_Set2
+    case dailyHasslesFormStep_Set3
     case dailyHasslesTask_Q1
     case dailyHasslesPerformance_Q2
     case dailyHasslesWork_Q3

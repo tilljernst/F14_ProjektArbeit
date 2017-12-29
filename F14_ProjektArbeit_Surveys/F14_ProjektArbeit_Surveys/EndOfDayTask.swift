@@ -164,7 +164,7 @@ extension ToDoSurveyTask{
         ]
         
         // Daily Hassles
-        let dailyHasslesFormStep_set1 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep))
+        let dailyHasslesFormStep_set1 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep_Set1))
         dailyHasslesFormStep_set1.title = "Nachfolgend finden Sie eine Aufzählung von möglichen alltäglichen Situationen und daneben eine Skala, auf der Sie einschätzen können, wie sehr Sie dieses Ereignis am heutigen Tag belastet hat."
         dailyHasslesFormStep_set1.text = "Bitte entscheiden Sie sich für eine Antwortoptionen für das Ereignis '… ist nicht aufgetreten' bis '… war unerträglich'"
         
@@ -232,8 +232,8 @@ extension ToDoSurveyTask{
             dailyHasslesDistrust_Q20
         ]
         
-        let dailyHasslesFormStep_set2 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep))
-        dailyHasslesFormStep_set2.title = "... Fortsetzung:"
+        let dailyHasslesFormStep_set2 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep_Set2))
+        dailyHasslesFormStep_set2.title = "Fortsetzung: Aufzählung von möglichen alltäglichen Situationen und wie Sie das Ereignis am heutigen Tag belastet hat."
         
         let dailyHasslesEmbarassed_Q21 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesEmbarassed_Q21), text: "Man machte mich verlegen.", answerFormat: dailyHasslesAnswerFormat)
         
@@ -295,40 +295,40 @@ extension ToDoSurveyTask{
             dailyHasslesNervous_Q40
         ]
         
-        let dailyHasslesFormStep_set3 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep))
-        dailyHasslesFormStep_set3.title = "... Fortsetzung:"
+        let dailyHasslesFormStep_set3 = ORKFormStep(identifier: String(describing:Identifier.dailyHasslesFormStep_Set3))
+        dailyHasslesFormStep_set3.title = "Fortsetzung: Aufzählung von möglichen alltäglichen Situationen und wie Sie das Ereignis am heutigen Tag belastet hat."
         
-        let dailyHasslesTrouble_Q41 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesTrouble_Q41), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesTrouble_Q41 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesTrouble_Q41), text: "Ich hatte finanzielle Sorgen.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesStore_Q42 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesStore_Q42), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesStore_Q42 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesStore_Q42), text: "In einem Geschäft fand ich nicht das, was ich wollte.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesRelocate_Q43 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesRelocate_Q43), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesRelocate_Q43 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesRelocate_Q43), text: "Ich habe etwas verlegt.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesWeather_Q44 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesWeather_Q44), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesWeather_Q44 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesWeather_Q44), text: "Das Wetter war schlecht.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesSpending_Q45 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesSpending_Q45), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesSpending_Q45 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesSpending_Q45), text: "Ich hatte unerwartete Ausgaben (Bussgeld, Strafmandat).", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesAuthority_Q46 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesAuthority_Q46), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesAuthority_Q46 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesAuthority_Q46), text: "Ich war mit einer Autoritätsperson konfrontiert.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesMessage_Q47 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesMessage_Q47), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesMessage_Q47 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesMessage_Q47), text: "Ich erhielt eine schlechte Nachricht.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesExternal_Q48 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesExternal_Q48), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesExternal_Q48 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesExternal_Q48), text: "Ich war um mein Äusseres besorgt.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesDrastic_Q49 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesDrastic_Q49), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesDrastic_Q49 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesDrastic_Q49), text: "Ich war einer bedrohlichen Situation ausgesetzt.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesBadTempered_Q50 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesBadTempered_Q50), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesBadTempered_Q50 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesBadTempered_Q50), text: "Ich war schlecht gelaunt, weil ich gestört wurde (jemand hat nicht angeklopft, war unhöflich usw.).", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesMissunderstanding_Q51 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesMissunderstanding_Q51), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesMissunderstanding_Q51 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesMissunderstanding_Q51), text: "Ich habe etwas nicht verstanden.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesSorrow_Q52 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesSorrow_Q52), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesSorrow_Q52 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesSorrow_Q52), text: "Ich habe mir Sorgen um jemanden gemacht.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesDanger_Q53 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesDanger_Q53), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesDanger_Q53 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesDanger_Q53), text: "Ich konnte gerade noch einer Gefahr ausweichen.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesBadHabit_Q54 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesBadHabit_Q54), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesBadHabit_Q54 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesBadHabit_Q54), text: "Ich habe eine schlechte Angewohnheit unterlassen (auf Nägel beißen, zu viel essen, Rauchen).", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesKids_Q55 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesKids_Q55), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesKids_Q55 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesKids_Q55), text: "Ich hatte mit meinen Kindern Ärger.", answerFormat: dailyHasslesAnswerFormat)
         
-        let dailyHasslesLate_Q56 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesLate_Q56), text: "", answerFormat: dailyHasslesAnswerFormat)
+        let dailyHasslesLate_Q56 = ORKFormItem(identifier: String(describing:Identifier.dailyHasslesLate_Q56), text: "Ich kam zur Arbeit/zu einer Verabredung zu spät.", answerFormat: dailyHasslesAnswerFormat)
         
         dailyHasslesFormStep_set3.formItems = [
             dailyHasslesTrouble_Q41,
