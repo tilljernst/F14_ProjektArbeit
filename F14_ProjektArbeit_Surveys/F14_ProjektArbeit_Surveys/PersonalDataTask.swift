@@ -60,12 +60,12 @@ extension ToDoSurveyTask{
         // kids (conditional question)
         // ----------------------------
         let kidsAnswerFormat = ORKBooleanAnswerFormat(yesString: "Ja", noString: "Nein")
-        let kidsStep = ORKQuestionStep(identifier: String(describing:Identifier.personKids_Q6), title: "Haben Sie Kinder?", answer: kidsAnswerFormat)
+        let kidsStep = ORKQuestionStep(identifier: String(describing:Identifier.personKids_Q6_1), title: "Haben Sie Kinder?", answer: kidsAnswerFormat)
         kidsStep.isOptional = false
         
         // total kids
         let totalKidsAnswerFormat = ORKNumericAnswerFormat.decimalAnswerFormat(withUnit: "Anzahl Kinder")
-        let totalKidsQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personKidsTotalStep), title: "Wieviele Kinder haben Sie?", answer: totalKidsAnswerFormat)
+        let totalKidsQuestion = ORKQuestionStep(identifier: String(describing:Identifier.personKidsTotalStep_Q6_2), title: "Wieviele Kinder haben Sie?", answer: totalKidsAnswerFormat)
         
         // age of the kids
         let kidsAgeFormStep = ORKFormStep(identifier: String(describing:Identifier.personKidsAge_Q7))
@@ -143,12 +143,12 @@ extension ToDoSurveyTask{
         let predicateRule: ORKPredicateStepNavigationRule
         
         // From the personKidsStep step, go to either totalKidsQuestion or housholdQuestion
-        resultSelector = ORKResultSelector(resultIdentifier: String(describing: Identifier.personKids_Q6))
+        resultSelector = ORKResultSelector(resultIdentifier: String(describing: Identifier.personKids_Q6_1))
         let predicateAnswerType = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: true)
         
-        predicateRule = ORKPredicateStepNavigationRule(resultPredicates: [predicateAnswerType],                                                        destinationStepIdentifiers: [String(describing: Identifier.personKidsTotalStep)],                                                       defaultStepIdentifier: String(describing: Identifier.personHoushold_Q9),                                                       validateArrays: true)
+        predicateRule = ORKPredicateStepNavigationRule(resultPredicates: [predicateAnswerType],                                                        destinationStepIdentifiers: [String(describing: Identifier.personKidsTotalStep_Q6_2)],                                                       defaultStepIdentifier: String(describing: Identifier.personHoushold_Q9),                                                       validateArrays: true)
         
-        task.setNavigationRule(predicateRule, forTriggerStepIdentifier: String(describing: Identifier.personKids_Q6))
+        task.setNavigationRule(predicateRule, forTriggerStepIdentifier: String(describing: Identifier.personKids_Q6_1))
         
         
         return task

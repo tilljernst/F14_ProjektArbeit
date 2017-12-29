@@ -80,7 +80,7 @@ extension ToDoSurveyTask{
         let formItemYoutube = ORKFormItem(identifier: String(describing:Identifier.mediaActivityYoutube_Q6), text: "Videoclips schauen (z.B. YouTube)", answerFormat: operationAnswerFormat)
         formItemYoutube.placeholder = "0"
         
-        let formItemEmail = ORKFormItem(identifier: String(describing:Identifier.mediaActivityEmail_Q7), text: "E-Mails abgragen", answerFormat: operationAnswerFormat)
+        let formItemEmail = ORKFormItem(identifier: String(describing:Identifier.mediaActivityEmail_Q7), text: "E-Mails abfragen", answerFormat: operationAnswerFormat)
         formItemEmail.placeholder = "0"
         
         let formItemOffice = ORKFormItem(identifier: String(describing:Identifier.mediaActivityOffice_Q8), text: "Office Software nutzen (z.B. Word, Excel, etc.)", answerFormat: operationAnswerFormat)
@@ -104,7 +104,7 @@ extension ToDoSurveyTask{
         let formItemFace2Face = ORKFormItem(identifier: String(describing:Identifier.mediaActivityFace2Face_Q14), text: "mich im persönlichen Gespräch (face-to-face) mit anderen Personen unterhalten (auch in Sitzungen)", answerFormat: operationAnswerFormat)
         formItemFace2Face.placeholder = "0"
         
-        let formItemOutdoor = ORKFormItem(identifier: String(describing:Identifier.mediaActivityOutdoor_Q15), text: "mich im Freuen bewegen (z.B. spazieren)", answerFormat: operationAnswerFormat)
+        let formItemOutdoor = ORKFormItem(identifier: String(describing:Identifier.mediaActivityOutdoor_Q15), text: "mich im Freien bewegen (z.B. spazieren)", answerFormat: operationAnswerFormat)
         formItemOutdoor.placeholder = "0"
         
         let formItemSport = ORKFormItem(identifier: String(describing:Identifier.mediaActivitySport_Q16), text: "Sport treiben", answerFormat: operationAnswerFormat)

@@ -53,8 +53,8 @@ public enum Identifier {
     case personHeight_Q3
     case personWeight_Q4
     case personLifeForm_Q5
-    case personKids_Q6
-    case personKidsTotalStep
+    case personKids_Q6_1
+    case personKidsTotalStep_Q6_2
     case personKidsAge_Q7
     case personKidsAgeFormItemFirst
     case personKidsAgeFormItemSecond

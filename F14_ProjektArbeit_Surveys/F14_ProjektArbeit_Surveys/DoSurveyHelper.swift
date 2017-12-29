@@ -22,14 +22,17 @@ class DoSurveyHelper{
         return Static.instance
     }
     
-    let zipPathDateAddition: () -> (String) = {
+    let zipPathIdAddition: (ORKTaskResult) -> (String) = {result in
         let date = Date()
         let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
         let day = calendar.component(.day, from: date)
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
-        return "\(year)\(month)\(day)_\(heartRateId)_"
+        let taskIdentifier = result.identifier
+        return "\(year)\(month)\(day)_\(hour)\(minute)_\(heartRateId)_\(taskIdentifier)"
     }
     
     let fileName: (ORKTaskResult) -> (String) = {result in
@@ -45,7 +48,7 @@ class DoSurveyHelper{
         do {
             //1 This creates a unique folder and ZIP archive to store the task result files.
             let path = try createUniqueTaskResultsFolder(uuid: result.taskRunUUID as NSUUID)
-            let zipPath = (path as NSString).appendingPathComponent("\(zipPathDateAddition())\(result.taskRunUUID.uuidString).zip")
+            let zipPath = (path as NSString).appendingPathComponent("\(zipPathIdAddition(result))\(result.taskRunUUID.uuidString).zip")
             let zipArchive = try ZZArchive(url: NSURL(fileURLWithPath: zipPath) as URL, options: [ZZOpenOptionsCreateIfMissingKey : true])
             //2 This calls the method that we just created. It also checks whether the dictionary can be converted to JSON.
             if let dict = dictFromTaskResult(taskResult: result, zipArchive: zipArchive), JSONSerialization.isValidJSONObject(dict) {
