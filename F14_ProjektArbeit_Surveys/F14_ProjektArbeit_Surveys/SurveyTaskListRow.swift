@@ -75,10 +75,10 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("Fitnesstest", comment: "")
         
         case .endOfDay:
-            return NSLocalizedString("Konsumverhalten", comment: "")
+            return NSLocalizedString("Tagesendetest", comment: "")
             
         case .qualityOfSleep:
-            return NSLocalizedString("TODO: Schlafqualität", comment: "")
+            return NSLocalizedString("Schlafqualität", comment: "")
             
         case .defaultBlock:
             return NSLocalizedString("Default Task", comment: "")
@@ -100,7 +100,7 @@ enum SurveyTaskListRow: Int, CustomStringConvertible {
         case .endOfDay:
             return ToDoSurveyTask.sharedInstance.endOfDayTask()
         case .qualityOfSleep:
-            return ToDoSurveyTask.sharedInstance.defaultTask()
+            return ToDoSurveyTask.sharedInstance.sleepQualityTask()
         case .defaultBlock:
             return ToDoSurveyTask.sharedInstance.defaultTask()
         }

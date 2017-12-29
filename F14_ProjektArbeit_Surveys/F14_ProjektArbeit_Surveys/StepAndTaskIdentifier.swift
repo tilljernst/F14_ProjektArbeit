@@ -223,6 +223,27 @@ public enum Identifier {
     case blockE_sleepTask
     case blockE_sleepInstructionStep
     case blockE_sleepCompletionstep
+    case sleepQualityFallAsleep_Q1
+    case sleepQualityWakeUp_Q2
+    case sleepQualityDuration_Q3
+    case sleepQualityBeforeLightOut_Q4
+    case sleepQualityUntilSleep_Q5
+    case sleepQualityCompare_Q6
+    case sleepQualityFormStep
+    case sleepQualityNightQuality_Q1
+    case sleepQualityNightFallback_Q2
+    case sleepQualityNightSleep_Q3
+    case sleepQualityNightTired_Q4
+    case sleepQualityNightTrouble_Q5
+    case sleepQualityNightNap_Q6
+    case sleepQualityNightHappy_Q7
+    case sleepQualityNightSleepy_Q8
+    case sleepQualityNightNightmare_Q9
+    case sleepQualityMentalStateFormStep
+    case sleepQualityMentalStateStressed_Q1
+    case sleepQualityMentalStateFresh_Q2
+    case sleepQualityMentalStateDepressed_Q3
+    case sleepQualityMentalStateRelaxed_Q4
     
     // default task
     case defaultTask
