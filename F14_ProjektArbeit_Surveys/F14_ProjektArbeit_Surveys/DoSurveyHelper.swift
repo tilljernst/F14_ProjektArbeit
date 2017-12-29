@@ -28,7 +28,8 @@ class DoSurveyHelper{
         let day = calendar.component(.day, from: date)
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
-        return "\(year)\(month)\(day)_"
+        let heartRateId = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.userId))!, comment: "")
+        return "\(year)\(month)\(day)_\(heartRateId)_"
     }
     
     let fileName: (ORKTaskResult) -> (String) = {result in

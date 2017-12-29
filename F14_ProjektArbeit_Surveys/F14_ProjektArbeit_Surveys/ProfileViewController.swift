@@ -155,10 +155,11 @@ class ProfileViewController: UITableViewController, HealthClientType {
     func configureCellWithStartDate(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
         cell.titleLabel.text = NSLocalizedString("Startdatum", comment: "")
-        cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.startDate))!, comment: "")    }
+        cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.startDate))!, comment: "")
+    }
     func configureCellWithConfigurationDate(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
-        cell.titleLabel.text = NSLocalizedString("Konfigurationsdatum", comment: "")
+        cell.titleLabel.text = NSLocalizedString("Konfig. Datum", comment: "")
         cell.valueLabel.text = NSLocalizedString(UserDefaultHandler.sharedInstance.getUserDefaultsValue(userKey: String(describing: UserDefaultKey.configurationDate))!, comment: "")
     }
     func configureCell(_ cell: ProfileStaticTableViewCell, withTitleText titleText: String, valueForQuantityTypeIdentifier identifier: String) {
