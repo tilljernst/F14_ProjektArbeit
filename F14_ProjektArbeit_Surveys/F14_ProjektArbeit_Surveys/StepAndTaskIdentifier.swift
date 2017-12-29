@@ -153,16 +153,69 @@ public enum Identifier {
     case relaxationEase_Q6
     case relaxationRelax_Q7
     case relaxationLeisure_Q8
-    case relaxationNew_Q10
-    case relaxationMental_Q11
-    case relaxationChallenge_Q12
-    case relaxationHorizon_Q13
-    case relaxationDecide_Q14
-    case relaxationActivity_Q15
-    case relaxationTime_Q16
-    case relaxationThings_Q17
+    case relaxationNew_Q9
+    case relaxationMental_Q10
+    case relaxationChallenge_Q11
+    case relaxationHorizon_Q12
+    case relaxationDecide_Q13
+    case relaxationActivity_Q14
+    case relaxationTime_Q15
+    case relaxationThings_Q16
     case dailyHasslesFormStep
     case dailyHasslesTask_Q1
+    case dailyHasslesPerformance_Q2
+    case dailyHasslesWork_Q3
+    case dailyHasslesRush_Q4
+    case dailyHasslesDisturbed_Q5
+    case dailyHasslesMaster_Q6
+    case dailyHasslesToEnd_Q7
+    case dailyHasslesMess_Q8
+    case dailyHasslesBadMouth_Q9
+    case dailyHasslesRespect_Q10
+    case dailyHasslesPublic_Q11
+    case dailyHasslesUnfriendly_Q12
+    case dailyHasslesInterrupted_Q13
+    case dailyHasslesPeople_Q14
+    case dailyHasslesPromise_Q15
+    case dailyHasslesCompetition_Q16
+    case dailyHasslesGlare_Q17
+    case dailyHasslesNotHeard_Q18
+    case dailyHasslesDistrust_Q20
+    case dailyHasslesEmbarassed_Q21
+    case dailyHasslesForget_Q23
+    case dailyHasslesIllness_Q24
+    case dailyHasslesPhysical_Q25
+    case dailyHasslesBorrow_Q26
+    case dailyHasslesBroken_Q27
+    case dailyHasslesMishap_Q28
+    case dailyHasslesFuture_Q29
+    case dailyHasslesFood_Q30
+    case dailyHasslesArgument_Q31
+    case dailyHasslesQuarrel_Q32
+    case dailyHasslesWaiting_Q33
+    case dailyHasslesDisturbed_Q34
+    case dailyHasslesPress_Q35
+    case dailyHasslesSport_Q36
+    case dailyHasslesWouldnt_Q37
+    case dailyHasslesExecute_Q38
+    case dailyHasslesCar_Q39
+    case dailyHasslesNervous_Q40
+    case dailyHasslesTrouble_Q41
+    case dailyHasslesStore_Q42
+    case dailyHasslesRelocate_Q43
+    case dailyHasslesWeather_Q44
+    case dailyHasslesSpending_Q45
+    case dailyHasslesAuthority_Q46
+    case dailyHasslesMessage_Q47
+    case dailyHasslesExternal_Q48
+    case dailyHasslesDrastic_Q49
+    case dailyHasslesBadTempered_Q50
+    case dailyHasslesMissunderstanding_Q51
+    case dailyHasslesSorrow_Q52
+    case dailyHasslesDanger_Q53
+    case dailyHasslesBadHabit_Q54
+    case dailyHasslesKids_Q55
+    case dailyHasslesLate_Q56
     
     // sleep quality
     case blockE_sleepTask
