@@ -48,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIg-My-jLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417.5" y="235"/>
+            <point key="canvasLocation" x="3135" y="281"/>
         </scene>
         <!--Do Surveys-->
         <scene sceneID="a5m-ly-lVl">
@@ -93,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDY-6L-LJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="-442"/>
+            <point key="canvasLocation" x="-529" y="1352"/>
         </scene>
         <!--Do Survey-->
         <scene sceneID="D95-Tw-0ot">
@@ -110,13 +110,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfE-kA-Tu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-442"/>
+            <point key="canvasLocation" x="-1406" y="1352"/>
         </scene>
-        <!--All Surveys-->
+        <!--Surveys-->
         <scene sceneID="gFK-gh-jSF">
             <objects>
                 <navigationController id="MdZ-pM-tQC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Surveys" image="favorite" id="tfQ-nC-Tcv"/>
+                    <tabBarItem key="tabBarItem" title="Surveys" image="favorite" id="tfQ-nC-Tcv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJE-pu-g8t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,7 +127,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILF-1p-Kb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403.125" y="235"/>
+            <point key="canvasLocation" x="2391" y="281"/>
         </scene>
         <!--ResearchKit Surveys-->
         <scene sceneID="PLe-1k-y2J">
@@ -165,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqg-El-hui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="968"/>
+            <point key="canvasLocation" x="3135" y="991"/>
         </scene>
         <!--Profile-->
         <scene sceneID="MB5-lG-AsI">
@@ -182,7 +182,40 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Stq-14-yZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="1439"/>
+            <point key="canvasLocation" x="-161" y="556"/>
+        </scene>
+        <!--Back To Main-->
+        <scene sceneID="ZUl-z0-vbe">
+            <objects>
+                <viewController id="woT-Mo-i1Q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ywo-3n-ZYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="bAe-2B-lhb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TuK-ra-xv8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iej-Ou-mQw">
+                                <rect key="frame" x="91.5" y="248.5" width="192" height="169"/>
+                                <accessibility key="accessibilityConfiguration" label="backToSurvey"/>
+                                <state key="normal" title="To Main Survey" backgroundImage="circle"/>
+                                <connections>
+                                    <segue destination="N7K-xU-dki" kind="presentation" id="HXc-VK-02V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iej-Ou-mQw" firstAttribute="centerY" secondItem="TuK-ra-xv8" secondAttribute="centerY" id="4Nu-oW-iiq"/>
+                            <constraint firstItem="iej-Ou-mQw" firstAttribute="centerX" secondItem="TuK-ra-xv8" secondAttribute="centerX" id="7m8-OL-3Oj"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Back To Main" image="about" id="E0g-ip-O88"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4E-dZ-2bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1453.5999999999999" y="-243.32833583208398"/>
         </scene>
         <!--ResearchKit-->
         <scene sceneID="19j-vM-qYK">
@@ -199,7 +232,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNv-kC-YGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="968"/>
+            <point key="canvasLocation" x="2391" y="990"/>
         </scene>
         <!--Research Container View Controller-->
         <scene sceneID="Nup-Y8-iOm">
@@ -323,10 +356,11 @@
             </objects>
             <point key="canvasLocation" x="-1036" y="-261"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Item-->
         <scene sceneID="9kl-a2-34V">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N7K-xU-dki" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mrZ-h3-9Dp"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AkX-cS-sZS">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -341,8 +375,6 @@
                     <connections>
                         <segue destination="nTj-Yq-6QC" kind="relationship" relationship="viewControllers" id="FPS-W0-4fU"/>
                         <segue destination="4e8-ai-Nmh" kind="relationship" relationship="viewControllers" id="WHm-at-AjG"/>
-                        <segue destination="MdZ-pM-tQC" kind="relationship" relationship="viewControllers" id="UVx-tp-6D4"/>
-                        <segue destination="kxq-nz-6lD" kind="relationship" relationship="viewControllers" id="rF6-Hd-faw"/>
                         <segue destination="RwM-ar-Gys" kind="relationship" relationship="viewControllers" id="6Ho-Ba-HBj"/>
                     </connections>
                 </tabBarController>
@@ -400,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSe-ij-Jcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1455" y="1574"/>
+            <point key="canvasLocation" x="-2359" y="1352"/>
         </scene>
         <!--Profile-->
         <scene sceneID="hjB-Za-fPa">
@@ -462,9 +494,9 @@
                                         <constraint firstAttribute="height" constant="55" id="JO4-c1-rRy"/>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="gM6-nO-pS6"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="Image"/>
+                                    <state key="normal" title="Button" image="Admin"/>
                                     <connections>
-                                        <action selector="adminTapped:" destination="coE-5s-02W" eventType="touchUpInside" id="Ikt-KF-4BK"/>
+                                        <segue destination="riu-UP-qRb" kind="presentation" id="xPx-EH-Xk5"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -536,6 +568,7 @@
                             <outlet property="delegate" destination="coE-5s-02W" id="tgW-TA-EJk"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="28V-ku-Vat"/>
                     <navigationItem key="navigationItem" title="Profile" id="43S-FD-Obc"/>
                     <connections>
                         <outlet property="applicationNameLabel" destination="Y0T-8R-nj0" id="Vhm-pH-LVk"/>
@@ -545,16 +578,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fxf-cx-1o9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KTJ-rZ-DSb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="418.39999999999998" y="1777.961019490255"/>
+            <point key="canvasLocation" x="654" y="555"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uxS-eZ-eAp">
+            <objects>
+                <tabBarController id="riu-UP-qRb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vZA-Bf-BOZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MdZ-pM-tQC" kind="relationship" relationship="viewControllers" id="J4h-R6-0gG"/>
+                        <segue destination="kxq-nz-6lD" kind="relationship" relationship="viewControllers" id="6hi-cE-AM3"/>
+                        <segue destination="woT-Mo-i1Q" kind="relationship" relationship="viewControllers" id="e0v-K2-l6W"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oRG-W8-u35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="559"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="256" height="256"/>
+        <image name="Admin" width="256" height="256"/>
         <image name="about" width="23" height="22"/>
+        <image name="circle" width="192" height="169"/>
         <image name="discover" width="25" height="19"/>
         <image name="favorite" width="17" height="25"/>
         <image name="profilePlaceholder" width="150" height="150"/>
         <image name="tab_dashboard" width="29" height="21"/>
         <image name="tab_profile" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="e0v-K2-l6W"/>
+        <segue reference="HXc-VK-02V"/>
+    </inferredMetricsTieBreakers>
 </document>
