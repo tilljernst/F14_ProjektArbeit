@@ -82,7 +82,6 @@ class DoSurveyHelper{
         //2 This loops through the step results inside a task result in a for loop
         for result in taskResult.results! {
             if let stepResult = result as? ORKStepResult {
-                print("Debug 1. Ebene: \(stepResult.identifier)")
                 //3 This uses the dictFromStepResult method to convert step results to a dict
                 retDict[stepResult.identifier] = dictFromStepResult(stepResult: stepResult, zipArchive: zipArchive) as AnyObject
             }
@@ -103,8 +102,6 @@ class DoSurveyHelper{
         for result in stepResult.results! {
             //3 This checks whether the result is of ORKQuestionResult type. All the the survey responses will be of this type.
             if result is ORKQuestionResult {
-                print("Debug 2. Ebene: \(result.identifier)")
-                print("QuestionType: \((result as! ORKQuestionResult).questionType.stringValue()) - StringValue: \((result as! ORKQuestionResult).stringValue())")
                 //4 This uses the custom stringValue enum methods to convert and ORKQuestionResult to a string
                 retDict["\(result.identifier) (\((result as! ORKQuestionResult).questionType.stringValue()))"] = (result as! ORKQuestionResult).stringValue() as AnyObject
             }

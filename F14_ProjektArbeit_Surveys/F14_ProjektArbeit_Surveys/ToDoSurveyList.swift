@@ -39,11 +39,13 @@ class ToDoSurveyList {
     }
     
     func allDueItems() -> [TodoSurveyItem] {
-        var todoSurveyItems: [TodoSurveyItem] = allItems()
-        
-        todoSurveyItems = todoSurveyItems.filter{$0.becomeDue}
-        
-        return todoSurveyItems
+        let todoSurveyItems: [TodoSurveyItem] = allItems()
+        var dueSurveyItems = todoSurveyItems.filter{$0.becomeDue}
+        // falls keine Fragebögen anstehen, Array mit dem nächst auszuführenden Eintrag füllen (damit der User etwas auf dem Screen sieht)
+        if dueSurveyItems.count < 1 {
+            dueSurveyItems.append(todoSurveyItems.first!)
+        }
+        return dueSurveyItems
     }
     
     func addItem(_ item: TodoSurveyItem) {
