@@ -484,7 +484,6 @@
                                 <constraint firstItem="8Fd-Po-9Iw" firstAttribute="bottom" secondItem="kUz-BN-stN" secondAttribute="bottom" id="jI1-BU-O8R"/>
                                 <constraint firstItem="TDR-kJ-fdy" firstAttribute="centerX" secondItem="40Q-v8-AcR" secondAttribute="centerX" id="rZg-er-Lav"/>
                                 <constraint firstItem="kUz-BN-stN" firstAttribute="leading" secondItem="Cgh-wh-w43" secondAttribute="leading" constant="10" id="sgW-5n-MbL"/>
-                                <constraint firstAttribute="trailing" secondItem="40Q-v8-AcR" secondAttribute="trailing" constant="8" id="xrF-bo-4j3"/>
                             </constraints>
                         </view>
                         <prototypes>
