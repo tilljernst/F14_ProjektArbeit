@@ -184,7 +184,7 @@
             </objects>
             <point key="canvasLocation" x="-161" y="556"/>
         </scene>
-        <!--Back To Main-->
+        <!--Admin-->
         <scene sceneID="ZUl-z0-vbe">
             <objects>
                 <viewController id="woT-Mo-i1Q" sceneMemberID="viewController">
@@ -211,7 +211,7 @@
                             <constraint firstItem="iej-Ou-mQw" firstAttribute="centerX" secondItem="TuK-ra-xv8" secondAttribute="centerX" id="7m8-OL-3Oj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Back To Main" image="about" id="E0g-ip-O88"/>
+                    <tabBarItem key="tabBarItem" title="Admin" image="about" id="E0g-ip-O88"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4E-dZ-2bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -590,9 +590,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="woT-Mo-i1Q" kind="relationship" relationship="viewControllers" id="e0v-K2-l6W"/>
                         <segue destination="MdZ-pM-tQC" kind="relationship" relationship="viewControllers" id="J4h-R6-0gG"/>
                         <segue destination="kxq-nz-6lD" kind="relationship" relationship="viewControllers" id="6hi-cE-AM3"/>
-                        <segue destination="woT-Mo-i1Q" kind="relationship" relationship="viewControllers" id="e0v-K2-l6W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oRG-W8-u35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,7 +611,6 @@
         <image name="tab_profile" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e0v-K2-l6W"/>
         <segue reference="HXc-VK-02V"/>
     </inferredMetricsTieBreakers>
 </document>
