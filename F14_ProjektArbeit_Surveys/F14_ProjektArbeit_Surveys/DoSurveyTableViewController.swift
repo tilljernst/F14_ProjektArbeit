@@ -52,7 +52,8 @@ class DoSurveyTableViewController: UITableViewController, ORKTaskViewControllerD
     }
     
     @objc func refreshList() {
-        todoSurveyItems = ToDoSurveyList.sharedInstance.allItems()
+        //todoSurveyItems = ToDoSurveyList.sharedInstance.allItems()
+        todoSurveyItems = ToDoSurveyList.sharedInstance.allDueItems()
 //        if (todoSurveyItems.count >= 64) {
 //            self.navigationItem.rightBarButtonItem!.isEnabled = false // disable 'add' button
 //        }

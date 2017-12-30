@@ -37,7 +37,14 @@ class ToDoSurveyList {
             (left.deadline.compare(right.deadline as Date) == .orderedAscending)
         })
     }
-
+    
+    func allDueItems() -> [TodoSurveyItem] {
+        var todoSurveyItems: [TodoSurveyItem] = allItems()
+        
+        todoSurveyItems = todoSurveyItems.filter{$0.becomeDue}
+        
+        return todoSurveyItems
+    }
     
     func addItem(_ item: TodoSurveyItem) {
         // persist a representation of this todo item in UserDefaults

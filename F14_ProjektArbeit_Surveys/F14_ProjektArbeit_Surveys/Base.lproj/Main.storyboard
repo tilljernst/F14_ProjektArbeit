@@ -112,11 +112,11 @@
             </objects>
             <point key="canvasLocation" x="-1406" y="1352"/>
         </scene>
-        <!--Surveys-->
+        <!--All Surveys-->
         <scene sceneID="gFK-gh-jSF">
             <objects>
                 <navigationController id="MdZ-pM-tQC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Surveys" image="favorite" id="tfQ-nC-Tcv"/>
+                    <tabBarItem key="tabBarItem" title="All Surveys" image="favorite" id="tfQ-nC-Tcv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJE-pu-g8t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
