@@ -42,6 +42,9 @@ class ProfileViewController: UITableViewController, HealthClientType {
     
     var healthStore: HKHealthStore?
     
+    @IBAction func adminTapped(_ sender: Any) {
+        print("AdminButtonPressed")
+    }
     @IBOutlet var applicationNameLabel: UILabel!
     
     @IBAction func reconfigurationTapped(_ sender: Any) {

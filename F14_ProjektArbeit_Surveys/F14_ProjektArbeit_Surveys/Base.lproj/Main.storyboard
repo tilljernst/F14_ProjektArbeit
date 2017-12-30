@@ -456,34 +456,36 @@
                                         <action selector="reconfigurationTapped:" destination="coE-5s-02W" eventType="touchUpInside" id="xb1-bS-XhZ"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkingman" translatesAutoresizingMaskIntoConstraints="NO" id="8Fd-Po-9Iw">
-                                    <rect key="frame" x="296" y="40" width="28" height="47"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNM-ib-jYT">
+                                    <rect key="frame" x="300" y="8" width="55" height="55"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="28" id="hqA-xi-Ma5"/>
-                                        <constraint firstAttribute="height" constant="47" id="tUx-ze-pZ8"/>
+                                        <constraint firstAttribute="height" constant="55" id="JO4-c1-rRy"/>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="gM6-nO-pS6"/>
                                     </constraints>
-                                </imageView>
+                                    <state key="normal" title="Button" image="Image"/>
+                                    <connections>
+                                        <action selector="adminTapped:" destination="coE-5s-02W" eventType="touchUpInside" id="Ikt-KF-4BK"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="0Ht-zx-90Q" firstAttribute="firstBaseline" secondItem="kUz-BN-stN" secondAttribute="centerY" constant="8" id="52g-wO-EFU"/>
                                 <constraint firstAttribute="bottom" secondItem="PeU-cM-AO1" secondAttribute="bottom" constant="16" id="5If-EY-n5t"/>
-                                <constraint firstItem="8Fd-Po-9Iw" firstAttribute="top" secondItem="Cgh-wh-w43" secondAttribute="topMargin" constant="32" id="6FH-TU-2nT"/>
-                                <constraint firstItem="8Fd-Po-9Iw" firstAttribute="centerX" secondItem="40Q-v8-AcR" secondAttribute="centerX" id="7Lh-9x-p6C"/>
-                                <constraint firstItem="8Fd-Po-9Iw" firstAttribute="top" secondItem="0Ht-zx-90Q" secondAttribute="top" id="8oJ-v1-f6z"/>
+                                <constraint firstItem="CNM-ib-jYT" firstAttribute="top" secondItem="Cgh-wh-w43" secondAttribute="topMargin" id="GQH-Jm-XVv"/>
                                 <constraint firstItem="0Ht-zx-90Q" firstAttribute="leading" secondItem="kUz-BN-stN" secondAttribute="trailing" constant="8" symbolic="YES" id="Gu9-8O-svy"/>
+                                <constraint firstAttribute="trailing" secondItem="CNM-ib-jYT" secondAttribute="trailing" constant="20" id="K2E-9p-FWV"/>
                                 <constraint firstAttribute="bottom" secondItem="TDR-kJ-fdy" secondAttribute="bottom" id="KbU-Wm-UVr"/>
-                                <constraint firstItem="TDR-kJ-fdy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PeU-cM-AO1" secondAttribute="trailing" constant="20" id="MbT-yA-nXv"/>
                                 <constraint firstItem="kUz-BN-stN" firstAttribute="top" secondItem="Cgh-wh-w43" secondAttribute="top" constant="10" id="N38-aY-jlh"/>
-                                <constraint firstItem="40Q-v8-AcR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PeU-cM-AO1" secondAttribute="trailing" constant="20" id="Obd-g9-Na0"/>
                                 <constraint firstItem="PeU-cM-AO1" firstAttribute="leading" secondItem="Cgh-wh-w43" secondAttribute="leading" constant="10" id="QmL-hz-XLo"/>
                                 <constraint firstItem="PeU-cM-AO1" firstAttribute="top" secondItem="kUz-BN-stN" secondAttribute="bottom" constant="11" id="R2a-rg-VKN"/>
                                 <constraint firstAttribute="trailing" secondItem="0Ht-zx-90Q" secondAttribute="trailing" constant="20" symbolic="YES" id="XK8-6u-G7J"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="8Fd-Po-9Iw" secondAttribute="trailing" constant="43" id="aU0-EH-fb7"/>
                                 <constraint firstItem="40Q-v8-AcR" firstAttribute="centerY" secondItem="PeU-cM-AO1" secondAttribute="centerY" id="bAf-lw-P6R"/>
-                                <constraint firstItem="8Fd-Po-9Iw" firstAttribute="bottom" secondItem="kUz-BN-stN" secondAttribute="bottom" id="jI1-BU-O8R"/>
+                                <constraint firstItem="CNM-ib-jYT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cgh-wh-w43" secondAttribute="leading" constant="20" symbolic="YES" id="ju9-cQ-3Ig"/>
+                                <constraint firstItem="40Q-v8-AcR" firstAttribute="leading" secondItem="PeU-cM-AO1" secondAttribute="trailing" constant="99" id="mjV-mm-J66"/>
                                 <constraint firstItem="TDR-kJ-fdy" firstAttribute="centerX" secondItem="40Q-v8-AcR" secondAttribute="centerX" id="rZg-er-Lav"/>
                                 <constraint firstItem="kUz-BN-stN" firstAttribute="leading" secondItem="Cgh-wh-w43" secondAttribute="leading" constant="10" id="sgW-5n-MbL"/>
+                                <constraint firstAttribute="trailing" secondItem="CNM-ib-jYT" secondAttribute="trailing" constant="20" id="uoL-p9-i88"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -547,12 +549,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Image" width="256" height="256"/>
         <image name="about" width="23" height="22"/>
         <image name="discover" width="25" height="19"/>
         <image name="favorite" width="17" height="25"/>
         <image name="profilePlaceholder" width="150" height="150"/>
         <image name="tab_dashboard" width="29" height="21"/>
         <image name="tab_profile" width="24" height="24"/>
-        <image name="walkingman" width="107" height="189"/>
     </resources>
 </document>
